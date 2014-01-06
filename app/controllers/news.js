@@ -2,6 +2,8 @@ var args = arguments[0] || {};
 
 function openDetail(e) {
 	alert('row index = ' + JSON.stringify(e.index));
+	var newsDetailWin = Alloy.createController('newsdetail').getView();
+	newsDetailWin.open();
 }
 
 var data = [];
