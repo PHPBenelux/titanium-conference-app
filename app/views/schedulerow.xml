@@ -1,0 +1,8 @@
+<Alloy>
+	<TableViewRow>
+		<Label id="startTime"></Label>
+		<Label id="endTime"></Label>
+		<Label id="title"></Label>
+		<Label id="speaker"></Label>
+	</TableViewRow>
+</Alloy>
