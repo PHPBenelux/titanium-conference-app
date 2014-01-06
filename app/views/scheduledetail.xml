@@ -1,17 +1,17 @@
 <Alloy>
 	<Window title="Schedule item">
-		<Label class="header">Title</Label>
-		<Label class="content"></Label>
+		<Label id="titleLabel" class="header">Title</Label>
+		<Label id="descriptionLabel" class="content"></Label>
 		
-		<Label class="header">Speaker</Label>
-		<ImageView></ImageView>
-		<Label class="content"></Label>
+		<Label id="nameLabel" class="header">Speaker</Label>
+		<ImageView id="pictureView"></ImageView>
+		<Label id="bioLabel" class="content"></Label>
 		
 		<View class="metadata">
-			<Label class="metalabel">Date / Time</Label>
-			<Label class="metalabel">Room</Label>
-			<Label class="metalabel">Level</Label>
-			<Label class="metalabel">Session type</Label>
+			<Label id="dateLabel" class="metalabel">Date / Time</Label>
+			<Label id="roomLabel" class="metalabel">Room</Label>
+			<Label id="levelLabel" class="metalabel">Level</Label>
+			<Label id="typeLabel" class="metalabel">Session type</Label>
 		</View>
 		
 	</Window>

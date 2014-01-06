@@ -1,8 +1,12 @@
 <Alloy>
 	<TableViewRow>
-		<Label id="startTime"></Label>
-		<Label id="endTime"></Label>
-		<Label id="title"></Label>
-		<Label id="speaker"></Label>
+		<View layout="vertical">
+			<Label id="startTimeLabel"></Label>
+			<Label id="endTimeLabel"></Label>
+		</View>
+		<View layout="vertical">
+			<Label id="titleLabel"></Label>
+			<Label id="speakerLabel"></Label>
+		</View>
 	</TableViewRow>
 </Alloy>

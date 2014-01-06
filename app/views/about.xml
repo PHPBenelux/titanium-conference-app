@@ -1,8 +1,17 @@
 <Alloy>
 	<Window title="About" class="container">
 		<Label class="header">About the Conference</Label>
+		<Label id="aboutLabel" class="content"></content>
+		
 		<Label class="header">Sponsors</Label>
+		<View id="sponsorsView" layout="vertical">			
+		</View>
+		
 		<Label class="header">Crew</Label>
+		<View id="crewView" layout="vertical">			
+		</View>
+		
 		<Label class="header">About the app</Label>
+		<label class="content">This app has been created by Martin de Keijzer</Label>
 	</Window>
 </Alloy>
