@@ -1,6 +1,6 @@
 function Controller() {
-    function openDetail(e) {
-        alert("row index = " + JSON.stringify(e.index));
+    function closeWindow() {
+        $.aboutWindow.close();
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "about";
@@ -10,43 +10,91 @@ function Controller() {
     var $ = this;
     var exports = {};
     var __defers = {};
-    $.__views.about = Ti.UI.createWindow({
-        title: "Testview",
-        id: "about"
+    $.__views.aboutWindow = Ti.UI.createWindow({
+        fullscreen: true,
+        backgroundColor: "white",
+        layout: "vertical",
+        id: "aboutWindow",
+        title: "About"
     });
-    $.__views.about && $.addTopLevelView($.__views.about);
-    $.__views.table = Ti.UI.createTableView({
-        id: "table"
+    $.__views.aboutWindow && $.addTopLevelView($.__views.aboutWindow);
+    var __alloyId2 = [];
+    $.__views.backButton = Ti.UI.createButton({
+        id: "backButton",
+        title: "Back",
+        style: Ti.UI.iPhone.SystemButtonStyle.DONE
     });
-    $.__views.about.add($.__views.table);
-    openDetail ? $.__views.table.addEventListener("click", openDetail) : __defers["$.__views.table!click!openDetail"] = true;
+    __alloyId2.push($.__views.backButton);
+    closeWindow ? $.__views.backButton.addEventListener("click", closeWindow) : __defers["$.__views.backButton!click!closeWindow"] = true;
+    $.__views.__alloyId0 = Ti.UI.iOS.createToolbar({
+        items: __alloyId2,
+        bottom: "0",
+        borderTop: "true",
+        borderBottom: "false",
+        id: "__alloyId0"
+    });
+    $.__views.aboutWindow.add($.__views.__alloyId0);
+    $.__views.__alloyId3 = Ti.UI.createLabel({
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        color: "#000",
+        text: "About the Conference",
+        id: "__alloyId3"
+    });
+    $.__views.aboutWindow.add($.__views.__alloyId3);
+    $.__views.aboutLabel = Ti.UI.createLabel({
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        color: "#000",
+        id: "aboutLabel"
+    });
+    $.__views.aboutWindow.add($.__views.aboutLabel);
+    $.__views.__alloyId4 = Ti.UI.createLabel({
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        color: "#000",
+        text: "Sponsors",
+        id: "__alloyId4"
+    });
+    $.__views.aboutWindow.add($.__views.__alloyId4);
+    $.__views.sponsorsView = Ti.UI.createView({
+        id: "sponsorsView",
+        layout: "vertical"
+    });
+    $.__views.aboutWindow.add($.__views.sponsorsView);
+    $.__views.__alloyId5 = Ti.UI.createLabel({
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        color: "#000",
+        text: "Crew",
+        id: "__alloyId5"
+    });
+    $.__views.aboutWindow.add($.__views.__alloyId5);
+    $.__views.crewView = Ti.UI.createView({
+        id: "crewView",
+        layout: "vertical"
+    });
+    $.__views.aboutWindow.add($.__views.crewView);
+    $.__views.__alloyId6 = Ti.UI.createLabel({
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        color: "#000",
+        text: "About the app",
+        id: "__alloyId6"
+    });
+    $.__views.aboutWindow.add($.__views.__alloyId6);
+    $.__views.__alloyId7 = Ti.UI.createLabel({
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        color: "#000",
+        text: "This app has been created by Martin de Keijzer",
+        id: "__alloyId7"
+    });
+    $.__views.aboutWindow.add($.__views.__alloyId7);
     exports.destroy = function() {};
     _.extend($, $.__views);
     arguments[0] || {};
-    var data = [];
-    var httpClient = Ti.Network.createHTTPClient({
-        onerror: function(e) {
-            Ti.API.debug(e.error);
-            alert("Unable to retrieve the data");
-        }
-    });
-    httpClient.open("GET", "http://conference.phpbenelux.eu/2014/api/phpbenelux/crew/");
-    httpClient.send();
-    httpClient.onload = function() {
-        var json = JSON.parse(this.responseText);
-        0 == json.length && ($.table.headerTitle = "No data");
-        var crew = json.posts;
-        for (var i = 0, iLen = crew.length; iLen > i; i++) {
-            data.push(Alloy.createController("crewrow", {
-                picture: crew[i].picture,
-                name: crew[i].post_title
-            }).getView());
-            Ti.API.info(crew[i].picture);
-            Ti.API.info(crew[i].post_title);
-        }
-        $.table.setData(data);
-    };
-    __defers["$.__views.table!click!openDetail"] && $.__views.table.addEventListener("click", openDetail);
+    __defers["$.__views.backButton!click!closeWindow"] && $.__views.backButton.addEventListener("click", closeWindow);
     _.extend($, exports);
 }
 

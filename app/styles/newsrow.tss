@@ -1,4 +1,10 @@
-
-".container" : {
-  
+"#titleLabel": {
+	fontSize: '12dp',
+	fontStyle: 'normal',
+	fontWeight: 'bold'
+},
+"#postDateLabel": {
+	fontSize: '10dp',
+	fontStyle: 'normal',
+	fontWeight: 'normal'
 }

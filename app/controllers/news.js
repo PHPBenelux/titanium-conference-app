@@ -6,6 +6,10 @@ function openDetail(e) {
 	newsDetailWin.open();
 }
 
+function closeWindow(e) {
+    $.newsWindow.close();
+}
+
 var data = [];
 var httpClient = Ti.Network.createHTTPClient({
 	onerror: function(e) {
@@ -24,15 +28,16 @@ httpClient.onload = function() {
 	
 	var news = json.posts;
 	for (var i = 0, iLen = news.length; i < iLen; i++) {
+        
+        Ti.API.info(news[i].title);
+        Ti.API.info(news[i].content);
+        Ti.API.info(news[i].modified);
+        
 		data.push(Alloy.createController('newsrow', {
 			title: news[i].title,
 			content: news[i].content,
 			postDate: news[i].modified
 		}).getView());
-		
-		Ti.API.info(news[i].title);
-		Ti.API.info(news[i].content);
-		Ti.API.info(news[i].modified);
 	}
 	
 	$.table.setData(data);

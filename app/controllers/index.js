@@ -1,6 +1,6 @@
 function openNews(e) {
 	var newsWin = Alloy.createController('news').getView();
-	newsWin.open;
+	newsWin.open();
 }
 
 function openSchedule(e) {

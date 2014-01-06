@@ -1,5 +1,12 @@
 <Alloy>
-	<Window title="schedule">
+	<Window id="scheduleWindow" title="schedule">
+		<Toolbar platform="ios" bottom="0" borderTop="true" borderBottom="false">
+
+            <Items>
+                <Button id="backButton" onClick="closeWindow" title="Back" style="Ti.UI.iPhone.SystemButtonStyle.DONE" />
+            </Items>
+
+        </Toolbar>
 		<TableView id="table" onClick="openDetail"></TableView>
 	</Window>
 </Alloy>

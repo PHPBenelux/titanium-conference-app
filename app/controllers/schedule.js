@@ -5,3 +5,9 @@ function openDetail(e) {
 	var scheduleDetailWin = Alloy.createController('scheduledetail').getView();
 	scheduleDetailWin.open();
 }
+
+
+
+function closeWindow(e) {
+    $.scheduleWindow.close();
+}

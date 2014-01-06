@@ -3,7 +3,8 @@
 },
 "Window": {
 	fullscreen: true,
-	backgroundColor: "white"
+	backgroundColor: "white",
+	layout: "vertical"
 },
 "Label": {
 	width: Ti.UI.SIZE,
