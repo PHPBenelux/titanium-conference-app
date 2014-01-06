@@ -1,5 +1,7 @@
 <Alloy>
 	<Window title="News item">
-		
+		<Label class="header">Title</Label>
+		<Label class="metalabel">postdate</Label>
+		<Label class="content"></Label>
 	</Window>
 </Alloy>

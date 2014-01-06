@@ -1,5 +1,8 @@
 <Alloy>
 	<Window title="About" class="container">
-		<TableView id="table" onClick="openDetail"></TableView>
+		<Label class="header">About the Conference</Label>
+		<Label class="header">Sponsors</Label>
+		<Label class="header">Crew</Label>
+		<Label class="header">About the app</Label>
 	</Window>
 </Alloy>

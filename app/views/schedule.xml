@@ -1,5 +1,5 @@
 <Alloy>
 	<Window title="schedule">
-		
+		<TableView id="table" onClick="openDetail"></TableView>
 	</Window>
 </Alloy>
