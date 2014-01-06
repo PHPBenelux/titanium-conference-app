@@ -7,6 +7,6 @@
             </Items>
 
         </Toolbar>
-		<TableView id="table" onClick="openDetail"></TableView>
+		<TableView id="table"></TableView>
 	</Window>
 </Alloy>

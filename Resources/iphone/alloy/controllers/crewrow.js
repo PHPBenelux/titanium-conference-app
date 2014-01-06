@@ -18,6 +18,8 @@ function Controller() {
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
+        fontSize: 12,
+        fontWeight: "bold",
         id: "nameLabel"
     });
     $.__views.crewrow.add($.__views.nameLabel);
@@ -25,6 +27,7 @@ function Controller() {
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
+        fontSize: 10,
         id: "bioLabel"
     });
     $.__views.crewrow.add($.__views.bioLabel);

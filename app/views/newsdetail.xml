@@ -7,8 +7,8 @@
             </Items>
 
         </Toolbar>
-		<Label id="titleLabel" class="header">Title</Label>
-		<Label id="postDateLabel" class="metalabel">postdate</Label>
+		<Label id="titleLabel" class="header"></Label>
+		<Label id="postDateLabel" class="metalabel"></Label>
 		<Label id="contentLabel" class="content"></Label>
 	</Window>
 </Alloy>

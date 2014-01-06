@@ -1,6 +1,16 @@
 ".container": {
 	backgroundColor:"white"
 },
+".header": {
+	fontSize: 12,
+	fontWeight: 'bold'
+},
+".content": {
+	fontSize: 10
+},
+".metalabel": {
+	fontSize: 8
+},
 "Window": {
 	fullscreen: true,
 	backgroundColor: "white",

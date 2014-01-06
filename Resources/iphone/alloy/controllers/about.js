@@ -38,6 +38,8 @@ function Controller() {
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
+        fontSize: 12,
+        fontWeight: "bold",
         text: "About the Conference",
         id: "__alloyId3"
     });
@@ -46,6 +48,7 @@ function Controller() {
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
+        fontSize: 10,
         id: "aboutLabel"
     });
     $.__views.aboutWindow.add($.__views.aboutLabel);
@@ -53,6 +56,8 @@ function Controller() {
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
+        fontSize: 12,
+        fontWeight: "bold",
         text: "Sponsors",
         id: "__alloyId4"
     });
@@ -66,6 +71,8 @@ function Controller() {
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
+        fontSize: 12,
+        fontWeight: "bold",
         text: "Crew",
         id: "__alloyId5"
     });
@@ -79,6 +86,8 @@ function Controller() {
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
+        fontSize: 12,
+        fontWeight: "bold",
         text: "About the app",
         id: "__alloyId6"
     });
@@ -87,6 +96,7 @@ function Controller() {
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
+        fontSize: 10,
         text: "This app has been created by Martin de Keijzer",
         id: "__alloyId7"
     });

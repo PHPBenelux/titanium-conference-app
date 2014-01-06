@@ -1,9 +1,4 @@
 function Controller() {
-    function openDetail(e) {
-        alert("row index = " + JSON.stringify(e.index));
-        var newsDetailWin = Alloy.createController("newsdetail").getView();
-        newsDetailWin.open();
-    }
     function closeWindow() {
         $.newsWindow.close();
     }
@@ -43,7 +38,6 @@ function Controller() {
         id: "table"
     });
     $.__views.newsWindow.add($.__views.table);
-    openDetail ? $.__views.table.addEventListener("click", openDetail) : __defers["$.__views.table!click!openDetail"] = true;
     exports.destroy = function() {};
     _.extend($, $.__views);
     arguments[0] || {};
@@ -73,7 +67,6 @@ function Controller() {
         $.table.setData(data);
     };
     __defers["$.__views.backButton!click!closeWindow"] && $.__views.backButton.addEventListener("click", closeWindow);
-    __defers["$.__views.table!click!openDetail"] && $.__views.table.addEventListener("click", openDetail);
     _.extend($, exports);
 }
 

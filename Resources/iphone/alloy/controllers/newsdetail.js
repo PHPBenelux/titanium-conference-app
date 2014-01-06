@@ -38,7 +38,8 @@ function Controller() {
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
-        text: "Title",
+        fontSize: 12,
+        fontWeight: "bold",
         id: "titleLabel"
     });
     $.__views.newsDetailWindow.add($.__views.titleLabel);
@@ -46,7 +47,7 @@ function Controller() {
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
-        text: "postdate",
+        fontSize: 8,
         id: "postDateLabel"
     });
     $.__views.newsDetailWindow.add($.__views.postDateLabel);
@@ -54,12 +55,16 @@ function Controller() {
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
+        fontSize: 10,
         id: "contentLabel"
     });
     $.__views.newsDetailWindow.add($.__views.contentLabel);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    arguments[0] || {};
+    var args = arguments[0] || {};
+    $.titleLabel.text = args.title;
+    $.contentLabel.text = args.content;
+    $.postDateLabel.text = args.postDate;
     __defers["$.__views.backButton!click!closeWindow"] && $.__views.backButton.addEventListener("click", closeWindow);
     _.extend($, exports);
 }

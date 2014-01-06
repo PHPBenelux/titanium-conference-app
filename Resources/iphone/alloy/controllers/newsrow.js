@@ -1,4 +1,8 @@
 function Controller() {
+    function openDetail() {
+        var newsDetailWin = Alloy.createController("newsdetail", args).getView();
+        newsDetailWin.open();
+    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "newsrow";
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
@@ -6,11 +10,13 @@ function Controller() {
     arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
+    var __defers = {};
     $.__views.newsrow = Ti.UI.createTableViewRow({
         layout: "vertical",
         id: "newsrow"
     });
     $.__views.newsrow && $.addTopLevelView($.__views.newsrow);
+    openDetail ? $.__views.newsrow.addEventListener("click", openDetail) : __defers["$.__views.newsrow!click!openDetail"] = true;
     $.__views.titleLabel = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
@@ -36,6 +42,7 @@ function Controller() {
     var args = arguments[0] || {};
     $.titleLabel.text = args.title;
     $.postDateLabel.text = args.postDate;
+    __defers["$.__views.newsrow!click!openDetail"] && $.__views.newsrow.addEventListener("click", openDetail);
     _.extend($, exports);
 }
 

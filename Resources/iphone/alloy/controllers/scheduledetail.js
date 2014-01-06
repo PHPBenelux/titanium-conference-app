@@ -38,6 +38,8 @@ function Controller() {
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
+        fontSize: 12,
+        fontWeight: "bold",
         text: "Title",
         id: "titleLabel"
     });
@@ -46,6 +48,7 @@ function Controller() {
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
+        fontSize: 10,
         id: "descriptionLabel"
     });
     $.__views.scheduleDetailWindow.add($.__views.descriptionLabel);
@@ -53,6 +56,8 @@ function Controller() {
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
+        fontSize: 12,
+        fontWeight: "bold",
         text: "Speaker",
         id: "nameLabel"
     });
@@ -65,6 +70,7 @@ function Controller() {
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
+        fontSize: 10,
         id: "bioLabel"
     });
     $.__views.scheduleDetailWindow.add($.__views.bioLabel);
@@ -76,6 +82,7 @@ function Controller() {
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
+        fontSize: 8,
         text: "Date / Time",
         id: "dateLabel"
     });
@@ -84,6 +91,7 @@ function Controller() {
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
+        fontSize: 8,
         text: "Room",
         id: "roomLabel"
     });
@@ -92,6 +100,7 @@ function Controller() {
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
+        fontSize: 8,
         text: "Level",
         id: "levelLabel"
     });
@@ -100,6 +109,7 @@ function Controller() {
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
+        fontSize: 8,
         text: "Session type",
         id: "typeLabel"
     });

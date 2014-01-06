@@ -1,5 +1,5 @@
 <Alloy>
-	<TableViewRow>
+	<TableViewRow onClick="openDetail">
 		<View layout="vertical">
 			<Label id="startTimeLabel"></Label>
 			<Label id="endTimeLabel"></Label>

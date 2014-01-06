@@ -1,4 +1,8 @@
 function Controller() {
+    function openDetail() {
+        var scheduleDetailWin = Alloy.createController("scheduledetail", args).getView();
+        scheduleDetailWin.open();
+    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "schedulerow";
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
@@ -6,10 +10,12 @@ function Controller() {
     arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
+    var __defers = {};
     $.__views.schedulerow = Ti.UI.createTableViewRow({
         id: "schedulerow"
     });
     $.__views.schedulerow && $.addTopLevelView($.__views.schedulerow);
+    openDetail ? $.__views.schedulerow.addEventListener("click", openDetail) : __defers["$.__views.schedulerow!click!openDetail"] = true;
     $.__views.__alloyId24 = Ti.UI.createView({
         layout: "vertical",
         id: "__alloyId24"
@@ -50,7 +56,12 @@ function Controller() {
     $.__views.__alloyId25.add($.__views.speakerLabel);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    arguments[0] || {};
+    var args = arguments[0] || {};
+    $.titleLabel.text = args.title;
+    $.startTimeLabel.text = args.startDate;
+    $.endTimeLabel.text = args.endDate;
+    $.speakerLabel.text = "speaker";
+    __defers["$.__views.schedulerow!click!openDetail"] && $.__views.schedulerow.addEventListener("click", openDetail);
     _.extend($, exports);
 }
 

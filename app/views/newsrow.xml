@@ -1,5 +1,5 @@
 <Alloy>
-	<TableViewRow layout="vertical">
+	<TableViewRow layout="vertical" onClick="openDetail">
 		<Label id="titleLabel"></Label>
 		<Label id="postDateLabel"></Label>
 	</TableViewRow>
