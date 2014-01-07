@@ -1,14 +1,14 @@
 <Alloy>
 	<Window id="newsDetailWindow" title="News item">
 		<Toolbar platform="ios" bottom="0" borderTop="true" borderBottom="false">
-
             <Items>
                 <Button id="backButton" onClick="closeWindow" title="Back" style="Ti.UI.iPhone.SystemButtonStyle.DONE" />
             </Items>
-
         </Toolbar>
-		<Label id="titleLabel" class="header"></Label>
-		<Label id="postDateLabel" class="metalabel"></Label>
-		<Label id="contentLabel" class="content"></Label>
+        <ScrollView>
+			<Label id="titleLabel" class="header"></Label>
+			<Label id="postDateLabel" class="metalabel"></Label>
+			<Label id="contentLabel" class="content"></Label>
+		</ScrollView>
 	</Window>
 </Alloy>

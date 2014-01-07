@@ -1,25 +1,24 @@
 <Alloy>
 	<Window id="scheduleDetailWindow" title="Schedule item">
 		<Toolbar platform="ios" bottom="0" borderTop="true" borderBottom="false">
-
             <Items>
                 <Button id="backButton" onClick="closeWindow" title="Back" style="Ti.UI.iPhone.SystemButtonStyle.DONE" />
             </Items>
-
         </Toolbar>
-		<Label id="titleLabel" class="header">Title</Label>
-		<Label id="descriptionLabel" class="content"></Label>
-		
-		<Label id="nameLabel" class="header">Speaker</Label>
-		<ImageView id="pictureView"></ImageView>
-		<Label id="bioLabel" class="content"></Label>
-		
-		<View class="metadata">
-			<Label id="dateLabel" class="metalabel">Date / Time</Label>
-			<Label id="roomLabel" class="metalabel">Room</Label>
-			<Label id="levelLabel" class="metalabel">Level</Label>
-			<Label id="typeLabel" class="metalabel">Session type</Label>
-		</View>
-		
+        <ScrollView>
+			<Label id="titleLabel" class="header">Title</Label>
+			<Label id="descriptionLabel" class="content"></Label>
+			
+			<Label id="nameLabel" class="header">Speaker</Label>
+			<ImageView id="pictureView"></ImageView>
+			<Label id="bioLabel" class="content"></Label>
+			
+			<View class="metadata">
+				<Label id="dateLabel" class="metalabel">Date / Time</Label>
+				<Label id="roomLabel" class="metalabel">Room</Label>
+				<Label id="levelLabel" class="metalabel">Level</Label>
+				<Label id="typeLabel" class="metalabel">Session type</Label>
+			</View>
+		</ScrollView>
 	</Window>
 </Alloy>

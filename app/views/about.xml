@@ -1,24 +1,22 @@
 <Alloy>
 	<Window id="aboutWindow" title="About" class="container" layout="vertical">
 		<Toolbar platform="ios" bottom="0" borderTop="true" borderBottom="false">
-
             <Items>
                 <Button id="backButton" onClick="closeWindow" title="Back" style="Ti.UI.iPhone.SystemButtonStyle.DONE" />
             </Items>
-
         </Toolbar>
-		<Label class="header">About the Conference</Label>
-		<Label id="aboutLabel" class="content"></Label>
-		
-		<Label class="header">Sponsors</Label>
-		<View id="sponsorsView" layout="vertical">			
-		</View>
-		
-		<Label class="header">Crew</Label>
-		<View id="crewView" layout="vertical">			
-		</View>
-		
-		<Label class="header">About the app</Label>
-		<Label class="content">This app has been created by Martin de Keijzer</Label>
+        <ScrollView>
+			<Label class="header">About the Conference</Label>
+			<Label id="aboutLabel" class="content"></Label>
+			
+			<Label class="header">Sponsors</Label>
+			<View id="sponsorsView" layout="vertical"></View>
+			
+			<Label class="header">Crew</Label>
+			<View id="crewView" layout="vertical"></View>
+			
+			<Label class="header">About the app</Label>
+			<Label class="content">This app has been created by Martin de Keijzer</Label>
+		</ScrollView>
 	</Window>
 </Alloy>
