@@ -1,0 +1,7 @@
+<Alloy>
+	<View class="container">
+		<Label id="nameLabel"></Label>
+		<ImageView id="pictureImage"></ImageView>
+		<Label id="contentLabel"></Label>
+	</View>
+</Alloy>

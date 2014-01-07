@@ -2,6 +2,57 @@ function Controller() {
     function closeWindow() {
         $.aboutWindow.close();
     }
+    function loadAbout() {
+        var httpClient = Ti.Network.createHTTPClient(httpClientDefaults);
+        httpClient.open("GET", "http://conference.phpbenelux.eu/2014/api/get_page/?slug=about");
+        httpClient.send();
+        httpClient.onload = function() {
+            var json = JSON.parse(this.responseText);
+            0 == json.length && ($.aboutLabel.text = "Text could not be updated");
+            $.aboutLabel.text = json.page.content;
+        };
+    }
+    function loadSponsors() {
+        var httpClient = Ti.Network.createHTTPClient(httpClientDefaults);
+        httpClient.open("GET", "http://conference.phpbenelux.eu/2014/api/phpbenelux/sponsors");
+        httpClient.send();
+        httpClient.onload = function() {
+            var json = JSON.parse(this.responseText);
+            if (0 == json.length) {
+                noDataLbl = Ti.UI.createLabel({
+                    text: "No sponsor data available"
+                });
+                $.sponsorsView.add(noDataLbl);
+            }
+            var sponsors = json.posts;
+            for (var i = 0, iLen = sponsors.length; iLen > i; i++) var sponsorBlock = Alloy.createController("sponsorblock", {
+                name: sponsors[i].post_title,
+                logo: sponsors[i].logo
+            }).getView();
+            $.sponsorsView.add(sponsorBlock);
+        };
+    }
+    function loadCrew() {
+        var httpClient = Ti.Network.createHTTPClient(httpClientDefaults);
+        httpClient.open("GET", "http://conference.phpbenelux.eu/2014/api/phpbenelux/crew");
+        httpClient.send();
+        httpClient.onload = function() {
+            var json = JSON.parse(this.responseText);
+            if (0 == json.length) {
+                noDataLbl = Ti.UI.createLabel({
+                    text: "No crew data available"
+                });
+                $.crewView.add(noDataLbl);
+            }
+            var crew = json.posts;
+            for (var i = 0, iLen = crew.length; iLen > i; i++) var crewBlock = Alloy.createController("crewblock", {
+                name: crew[i].post_title,
+                content: crew[i].post_content,
+                picture: crew[i].picture
+            }).getView();
+            $.crewView.add(crewBlock);
+        };
+    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "about";
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
@@ -104,6 +155,15 @@ function Controller() {
     exports.destroy = function() {};
     _.extend($, $.__views);
     arguments[0] || {};
+    var httpClientDefaults = {
+        onerror: function(e) {
+            Ti.API.debug(e.error);
+            alert("Unable to retrieve the data");
+        }
+    };
+    loadAbout();
+    loadCrew();
+    loadSponsors();
     __defers["$.__views.backButton!click!closeWindow"] && $.__views.backButton.addEventListener("click", closeWindow);
     _.extend($, exports);
 }
