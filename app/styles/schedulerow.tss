@@ -22,4 +22,11 @@
 		fontStyle: 'normal',
 		fontWeight: 'normal'
 	}
+},
+"View": {
+	height: Ti.UI.SIZE,
+	left: 0
+},
+"TableViewRow": {
+	height: Ti.UI.SIZE
 }

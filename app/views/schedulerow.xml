@@ -1,11 +1,11 @@
 <Alloy>
-	<TableViewRow onClick="openDetail">
-		<View layout="vertical">
+	<TableViewRow onClick="openDetail" layout="horizontal">
+		<View id="timing" layout="vertical">
 			<Label class="timeText" id="startTimeLabel"></Label>
 			<Label class="timeText"> - </Label>
 			<Label class="timeText" id="endTimeLabel"></Label>
 		</View>
-		<View layout="vertical">
+		<View id="session" layout="vertical">
 			<Label id="titleLabel"></Label>
 			<Label id="speakerLabel"></Label>
 		</View>
