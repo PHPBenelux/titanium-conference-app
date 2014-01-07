@@ -7,5 +7,5 @@ function closeWindow(e) {
 
 
 $.titleLabel.text = args.title;
-$.contentLabel.text = args.content;
+$.contentLabel.html = args.content;
 $.postDateLabel.text = args.postDate;

@@ -7,11 +7,11 @@
         </Toolbar>
         <ScrollView>
 			<Label id="titleLabel" class="header">Title</Label>
-			<Label id="descriptionLabel" class="content"></Label>
+			<WebView id="descriptionLabel" class="content"></WebView>
 			
 			<Label id="nameLabel" class="header">Speaker</Label>
 			<ImageView id="pictureView"></ImageView>
-			<Label id="bioLabel" class="content"></Label>
+			<WebView id="bioLabel" class="content"></WebView>
 			
 			<View class="metadata">
 				<Label id="dateLabel" class="metalabel">Date / Time</Label>

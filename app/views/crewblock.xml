@@ -2,6 +2,6 @@
 	<View class="container">
 		<Label id="nameLabel"></Label>
 		<ImageView id="pictureImage"></ImageView>
-		<Label id="contentLabel"></Label>
+		<WebView id="contentLabel"></WebView>
 	</View>
 </Alloy>

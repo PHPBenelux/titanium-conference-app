@@ -7,7 +7,7 @@
         </Toolbar>
         <ScrollView>
 			<Label class="header">About the Conference</Label>
-			<Label id="aboutLabel" class="content"></Label>
+			<WebView id="aboutLabel" class="content"></WebView>
 			
 			<Label class="header">Sponsors</Label>
 			<View id="sponsorsView" layout="vertical"></View>
