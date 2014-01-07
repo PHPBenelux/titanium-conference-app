@@ -1,7 +1,0 @@
-<Alloy>
-	<TableViewRow>
-		<ImageView id="pictureView"></ImageView>
-		<Label id="nameLabel" class="header"></Label>
-		<Label id="bioLabel" class="content"></Label>
-	</TableViewRow>
-</Alloy>
