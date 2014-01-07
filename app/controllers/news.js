@@ -12,7 +12,7 @@ var httpClient = Ti.Network.createHTTPClient({
 	}
 });
 
-httpClient.open('GET', 'http://conference.phpbenelux.eu/2014/api/get_recent_posts');
+httpClient.open('GET', Alloy.CFG.apiUrl + 'get_recent_posts');
 httpClient.send();
 httpClient.onload = function() {
 	var json = JSON.parse(this.responseText);

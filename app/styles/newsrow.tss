@@ -1,10 +1,18 @@
 "#titleLabel": {
-	fontSize: '12dp',
-	fontStyle: 'normal',
-	fontWeight: 'bold'
+	width: Ti.UI.FILL,
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	font: {
+		fontSize: '12dp',
+		fontStyle: 'normal',
+		fontWeight: 'bold'
+	}
 },
 "#postDateLabel": {
-	fontSize: '10dp',
-	fontStyle: 'normal',
-	fontWeight: 'normal'
+	width: Ti.UI.FILL,
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	font: {
+		fontSize: '10dp',
+		fontStyle: 'normal',
+		fontWeight: 'normal'
+	}
 }

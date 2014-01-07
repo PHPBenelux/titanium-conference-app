@@ -1,0 +1,25 @@
+".timeText": {	
+	font: {
+		fontSize: '8dp',
+		fontStyle: 'normal',
+		fontWeight: 'bold'
+	}
+},
+"#titleLabel": {
+	width: Ti.UI.FILL,
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	font: {
+		fontSize: '12dp',
+		fontStyle: 'normal',
+		fontWeight: 'bold'
+	}
+},
+"#speakerLabel": {
+	width: Ti.UI.FILL,
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	font: {
+		fontSize: '10dp',
+		fontStyle: 'normal',
+		fontWeight: 'normal'
+	}
+}

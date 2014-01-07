@@ -18,22 +18,6 @@ function Controller() {
         title: "News"
     });
     $.__views.newsWindow && $.addTopLevelView($.__views.newsWindow);
-    var __alloyId14 = [];
-    $.__views.backButton = Ti.UI.createButton({
-        id: "backButton",
-        title: "Back",
-        style: Ti.UI.iPhone.SystemButtonStyle.DONE
-    });
-    __alloyId14.push($.__views.backButton);
-    closeWindow ? $.__views.backButton.addEventListener("click", closeWindow) : __defers["$.__views.backButton!click!closeWindow"] = true;
-    $.__views.__alloyId12 = Ti.UI.iOS.createToolbar({
-        items: __alloyId14,
-        bottom: "0",
-        borderTop: "true",
-        borderBottom: "false",
-        id: "__alloyId12"
-    });
-    $.__views.newsWindow.add($.__views.__alloyId12);
     $.__views.table = Ti.UI.createTableView({
         id: "table"
     });

@@ -18,22 +18,6 @@ function Controller() {
         title: "schedule"
     });
     $.__views.scheduleWindow && $.addTopLevelView($.__views.scheduleWindow);
-    var __alloyId21 = [];
-    $.__views.backButton = Ti.UI.createButton({
-        id: "backButton",
-        title: "Back",
-        style: Ti.UI.iPhone.SystemButtonStyle.DONE
-    });
-    __alloyId21.push($.__views.backButton);
-    closeWindow ? $.__views.backButton.addEventListener("click", closeWindow) : __defers["$.__views.backButton!click!closeWindow"] = true;
-    $.__views.__alloyId19 = Ti.UI.iOS.createToolbar({
-        items: __alloyId21,
-        bottom: "0",
-        borderTop: "true",
-        borderBottom: "false",
-        id: "__alloyId19"
-    });
-    $.__views.scheduleWindow.add($.__views.__alloyId19);
     $.__views.table = Ti.UI.createTableView({
         id: "table"
     });

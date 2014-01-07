@@ -1,5 +1,7 @@
 {
-	"global": {}, 
+	"global": {
+		"apiUrl": "http://conference.phpbenelux.eu/2014/api/"
+	}, 
 	"env:development": {}, 
 	"env:test": {}, 
 	"env:production": {}, 

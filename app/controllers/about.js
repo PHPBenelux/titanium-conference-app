@@ -12,7 +12,7 @@ function closeWindow(e) {
 
 function loadAbout() {
 	var httpClient = Ti.Network.createHTTPClient(httpClientDefaults);	
-	httpClient.open('GET', 'http://conference.phpbenelux.eu/2014/api/get_page/?slug=about');
+	httpClient.open('GET', Alloy.CFG.apiUrl + 'get_page/?slug=about');
 	httpClient.send();
 	httpClient.onload = function() {
 		var json = JSON.parse(this.responseText);
@@ -26,7 +26,7 @@ function loadAbout() {
 
 function loadSponsors() {
 	var httpClient = Ti.Network.createHTTPClient(httpClientDefaults);	
-	httpClient.open('GET', 'http://conference.phpbenelux.eu/2014/api/phpbenelux/sponsors');
+	httpClient.open('GET', Alloy.CFG.apiUrl + 'phpbenelux/sponsors');
 	httpClient.send();
 	httpClient.onload = function() {
 		var json = JSON.parse(this.responseText);
@@ -47,9 +47,8 @@ function loadSponsors() {
 }
 
 function loadCrew() {
-	var data = [];
 	var httpClient = Ti.Network.createHTTPClient(httpClientDefaults);	
-	httpClient.open('GET', 'http://conference.phpbenelux.eu/2014/api/phpbenelux/crew');
+	httpClient.open('GET', Alloy.CFG.apiUrl + 'phpbenelux/crew');
 	httpClient.send();
 	httpClient.onload = function() {
 		var json = JSON.parse(this.responseText);

@@ -1,11 +1,9 @@
 <Alloy>
 	<Window id="newsWindow" title="News">
 		<Toolbar platform="ios" bottom="0" borderTop="true" borderBottom="false">
-
             <Items>
                 <Button id="backButton" onClick="closeWindow" title="Back" style="Ti.UI.iPhone.SystemButtonStyle.DONE" />
             </Items>
-
         </Toolbar>
 		<TableView id="table"></TableView>
 	</Window>

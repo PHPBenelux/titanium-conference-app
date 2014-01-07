@@ -1,8 +1,9 @@
 <Alloy>
 	<TableViewRow onClick="openDetail">
 		<View layout="vertical">
-			<Label id="startTimeLabel"></Label>
-			<Label id="endTimeLabel"></Label>
+			<Label class="timeText" id="startTimeLabel"></Label>
+			<Label class="timeText"> - </Label>
+			<Label class="timeText" id="endTimeLabel"></Label>
 		</View>
 		<View layout="vertical">
 			<Label id="titleLabel"></Label>

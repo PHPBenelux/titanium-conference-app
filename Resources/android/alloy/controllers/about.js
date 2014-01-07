@@ -69,22 +69,6 @@ function Controller() {
         title: "About"
     });
     $.__views.aboutWindow && $.addTopLevelView($.__views.aboutWindow);
-    var __alloyId2 = [];
-    $.__views.backButton = Ti.UI.createButton({
-        id: "backButton",
-        title: "Back",
-        style: Ti.UI.iPhone.SystemButtonStyle.DONE
-    });
-    __alloyId2.push($.__views.backButton);
-    closeWindow ? $.__views.backButton.addEventListener("click", closeWindow) : __defers["$.__views.backButton!click!closeWindow"] = true;
-    $.__views.__alloyId0 = Ti.UI.iOS.createToolbar({
-        items: __alloyId2,
-        bottom: "0",
-        borderTop: "true",
-        borderBottom: "false",
-        id: "__alloyId0"
-    });
-    $.__views.aboutWindow.add($.__views.__alloyId0);
     $.__views.__alloyId3 = Ti.UI.createScrollView({
         id: "__alloyId3"
     });

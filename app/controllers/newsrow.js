@@ -5,5 +5,5 @@ function openDetail(e) {
     newsDetailWin.open();
 }
 
-$.titleLabel.text = args.title;
+$.titleLabel.text = Ti.Network.decodeURIComponent(args.title);
 $.postDateLabel.text = args.postDate;

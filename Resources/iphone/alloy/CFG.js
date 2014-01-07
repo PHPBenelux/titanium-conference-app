@@ -1,1 +1,1 @@
-module.exports={"dependencies":{}};
+module.exports={"dependencies":{},"apiUrl":"http://conference.phpbenelux.eu/2014/api/"};
