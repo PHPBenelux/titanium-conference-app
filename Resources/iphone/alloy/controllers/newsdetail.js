@@ -15,15 +15,22 @@ function Controller() {
     });
     $.__views.newsDetailWindow && $.addTopLevelView($.__views.newsDetailWindow);
     $.__views.__alloyId10 = Ti.UI.createScrollView({
+        width: Ti.UI.FILL,
+        layout: "vertical",
+        showVerticalScrollIndicator: true,
+        scrollType: "vertical",
         id: "__alloyId10"
     });
     $.__views.newsDetailWindow.add($.__views.__alloyId10);
     $.__views.titleLabel = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
+        width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
         color: "#000",
-        fontSize: 12,
-        fontWeight: "bold",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        font: {
+            fontSize: 16,
+            fontWeight: "bold"
+        },
         id: "titleLabel"
     });
     $.__views.__alloyId10.add($.__views.titleLabel);
@@ -31,12 +38,20 @@ function Controller() {
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
-        fontSize: 8,
+        font: {
+            fontSize: 10
+        },
         id: "postDateLabel"
     });
     $.__views.__alloyId10.add($.__views.postDateLabel);
     $.__views.contentLabel = Ti.UI.createWebView({
-        fontSize: 10,
+        width: Ti.UI.FILL,
+        height: Ti.UI.SIZE,
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        font: {
+            fontSize: 12,
+            fontWeight: "bold"
+        },
         id: "contentLabel"
     });
     $.__views.__alloyId10.add($.__views.contentLabel);
@@ -44,7 +59,7 @@ function Controller() {
     _.extend($, $.__views);
     var args = arguments[0] || {};
     $.titleLabel.text = args.title;
-    $.contentLabel.html = args.content;
+    $.contentLabel.html = args.content + Alloy.CFG.css;
     $.postDateLabel.text = args.postDate;
     _.extend($, exports);
 }

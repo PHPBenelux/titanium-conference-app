@@ -7,5 +7,5 @@ function closeWindow(e) {
 
 
 $.titleLabel.text = args.title;
-$.contentLabel.html = args.content;
+$.contentLabel.html = args.content + Alloy.CFG.css;
 $.postDateLabel.text = args.postDate;

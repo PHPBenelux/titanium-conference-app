@@ -1,6 +1,6 @@
 <Alloy>
-	<Window id="aboutWindow" title="About" class="container" layout="vertical">
-        <ScrollView>
+	<Window id="aboutWindow" title="About" class="container">
+        <ScrollView layout="vertical">
 			<Label class="header">About the Conference</Label>
 			<WebView id="aboutLabel" class="content"></WebView>
 			

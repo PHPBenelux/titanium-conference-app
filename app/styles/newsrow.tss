@@ -1,17 +1,20 @@
 "#titleLabel": {
 	width: Ti.UI.FILL,
+	left: '30px',
 	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	color: '#469AE7',
 	font: {
-		fontSize: '12dp',
+		fontSize: 14,
 		fontStyle: 'normal',
 		fontWeight: 'bold'
 	}
 },
 "#postDateLabel": {
 	width: Ti.UI.FILL,
+	left: '30px',
 	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
 	font: {
-		fontSize: '10dp',
+		fontSize: 10,
 		fontStyle: 'normal',
 		fontWeight: 'normal'
 	}

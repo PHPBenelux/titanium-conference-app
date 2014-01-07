@@ -24,6 +24,8 @@ function Controller() {
     });
     $.__views.crewblock.add($.__views.pictureImage);
     $.__views.contentLabel = Ti.UI.createWebView({
+        width: Ti.UI.FILL,
+        height: Ti.UI.SIZE,
         id: "contentLabel"
     });
     $.__views.crewblock.add($.__views.contentLabel);
@@ -32,7 +34,7 @@ function Controller() {
     var args = arguments[0] || {};
     $.pictureImage.image = args.picture;
     $.nameLabel.text = args.name;
-    $.contentLabel.html = args.content;
+    $.contentLabel.html = args.content + Alloy.CFG.css;
     _.extend($, exports);
 }
 

@@ -2,19 +2,43 @@
 	backgroundColor:"white"
 },
 ".header": {
-	fontSize: 12,
-	fontWeight: 'bold'
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	font: {
+		fontSize: 16,
+		fontWeight: 'bold'
+	},
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE
+	
 },
 ".content": {
-	fontSize: 10
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	font: {
+		fontSize: 12,
+		fontWeight: 'bold'
+	},
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE
 },
 ".metalabel": {
-	fontSize: 8
+	font: {
+		fontSize: 10
+	}
 },
 "Window": {
 	fullscreen: true,
 	backgroundColor: "white",
 	layout: "vertical"
+},
+"WebView": {
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE
+},
+"ScrollView": {
+	width: Ti.UI.FILL,
+	layout: "vertical",
+	showVerticalScrollIndicator: true,
+	scrollType: "vertical"
 },
 "Label": {
 	width: Ti.UI.SIZE,

@@ -1,6 +1,6 @@
 <Alloy>
 	<Window id="scheduleDetailWindow" title="Schedule item">
-        <ScrollView>
+        <ScrollView layout="vertical">
 			<Label id="titleLabel" class="header">Title</Label>
 			<WebView id="descriptionLabel" class="content"></WebView>
 			

@@ -17,10 +17,10 @@ function loadAbout() {
 	httpClient.onload = function() {
 		var json = JSON.parse(this.responseText);
 		if (json.length == 0) {
-			$.aboutLabel.html = "Text could not be updated";
+			$.aboutLabel.html = "Text could not be updated" + Alloy.CFG.css;
 		}
 		
-		$.aboutLabel.html = json.page.content;
+		$.aboutLabel.html = json.page.content + Alloy.CFG.css;
 	};	
 }
 

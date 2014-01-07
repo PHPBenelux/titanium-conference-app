@@ -22,10 +22,11 @@ function Controller() {
     $.__views.titleLabel = Ti.UI.createLabel({
         width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
-        color: "#000",
+        color: "#469AE7",
+        left: "30px",
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
         font: {
-            fontSize: "12dp",
+            fontSize: 14,
             fontStyle: "normal",
             fontWeight: "bold"
         },
@@ -36,9 +37,10 @@ function Controller() {
         width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
         color: "#000",
+        left: "30px",
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
         font: {
-            fontSize: "10dp",
+            fontSize: 10,
             fontStyle: "normal",
             fontWeight: "normal"
         },
