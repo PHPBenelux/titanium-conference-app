@@ -1,10 +1,5 @@
 <Alloy>
 	<Window id="aboutWindow" title="About" class="container" layout="vertical">
-		<Toolbar platform="ios" bottom="0" borderTop="true" borderBottom="false">
-            <Items>
-                <Button id="backButton" onClick="closeWindow" title="Back" style="Ti.UI.iPhone.SystemButtonStyle.DONE" />
-            </Items>
-        </Toolbar>
         <ScrollView>
 			<Label class="header">About the Conference</Label>
 			<WebView id="aboutLabel" class="content"></WebView>

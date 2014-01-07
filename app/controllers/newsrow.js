@@ -2,7 +2,7 @@ var args = arguments[0] || {};
 
 function openDetail(e) {
     var newsDetailWin = Alloy.createController('newsdetail', args).getView();
-    newsDetailWin.open();
+    Alloy.Globals.navWindow.openWindow(newsDetailWin, {animated:true});
 }
 
 $.titleLabel.text = Ti.Network.decodeURIComponent(args.title);

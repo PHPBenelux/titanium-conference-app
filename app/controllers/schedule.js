@@ -1,7 +1,7 @@
 var args = arguments[0] || {};
 
 function closeWindow(e) {
-    $.scheduleWindow.close();
+    $.scheduleWindow.closeWindow();
 }
 
 var data = [];

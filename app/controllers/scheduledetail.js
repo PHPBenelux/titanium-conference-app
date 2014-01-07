@@ -1,7 +1,7 @@
 var args = arguments[0] || {};
 
 function closeWindow(e) {
-    $.scheduleDetailWindow.close();
+    $.scheduleDetailWindow.closeWindow();
 }
 
 $.titleLabel.text = "Title";

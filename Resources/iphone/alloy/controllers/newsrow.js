@@ -1,7 +1,9 @@
 function Controller() {
     function openDetail() {
         var newsDetailWin = Alloy.createController("newsdetail", args).getView();
-        newsDetailWin.open();
+        Alloy.Globals.navWindow.openWindow(newsDetailWin, {
+            animated: true
+        });
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "newsrow";

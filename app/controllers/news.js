@@ -1,7 +1,7 @@
 var args = arguments[0] || {};
 
 function closeWindow(e) {
-    $.newsWindow.close();
+    $.newsWindow.closeWindow();
 }
 
 var data = [];

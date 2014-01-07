@@ -1,16 +1,17 @@
 function openNews(e) {
 	var newsWin = Alloy.createController('news').getView();
-	newsWin.open();
+	$.navWindow.openWindow(newsWin, { animated:true });
 }
 
 function openSchedule(e) {
 	var scheduleWin = Alloy.createController('schedule').getView();
-	scheduleWin.open();
+	$.navWindow.openWindow(scheduleWin, { animated:true });
 }
 
 function openAbout(e) {
 	var aboutWin = Alloy.createController('about').getView();
-	aboutWin.open();
+	$.navWindow.openWindow(aboutWin, { animated:true });
 }
 
-$.index.open();
+$.navWindow.open();
+Alloy.Globals.navWindow = $.navWindow;

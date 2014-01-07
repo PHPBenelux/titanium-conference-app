@@ -3,7 +3,7 @@ var args = arguments[0] || {};
 
 function openDetail(e) {
     var scheduleDetailWin = Alloy.createController('scheduledetail', args).getView();
-    scheduleDetailWin.open();
+    Alloy.Globals.navWindow.openWindow(scheduleDetailWin, {animated:true});
 }
 
 $.titleLabel.text = args.title;

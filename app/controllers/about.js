@@ -7,7 +7,7 @@ var httpClientDefaults = {
 	};
 
 function closeWindow(e) {
-    $.aboutWindow.close();
+    $.aboutWindow.closeWindow();
 }
 
 function loadAbout() {

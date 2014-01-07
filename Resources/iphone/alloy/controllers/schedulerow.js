@@ -1,7 +1,9 @@
 function Controller() {
     function openDetail() {
         var scheduleDetailWin = Alloy.createController("scheduledetail", args).getView();
-        scheduleDetailWin.open();
+        Alloy.Globals.navWindow.openWindow(scheduleDetailWin, {
+            animated: true
+        });
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "schedulerow";
@@ -16,44 +18,79 @@ function Controller() {
     });
     $.__views.schedulerow && $.addTopLevelView($.__views.schedulerow);
     openDetail ? $.__views.schedulerow.addEventListener("click", openDetail) : __defers["$.__views.schedulerow!click!openDetail"] = true;
-    $.__views.__alloyId27 = Ti.UI.createView({
+    $.__views.__alloyId16 = Ti.UI.createView({
         layout: "vertical",
-        id: "__alloyId27"
+        id: "__alloyId16"
     });
-    $.__views.schedulerow.add($.__views.__alloyId27);
+    $.__views.schedulerow.add($.__views.__alloyId16);
     $.__views.startTimeLabel = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
+        font: {
+            fontSize: "8dp",
+            fontStyle: "normal",
+            fontWeight: "bold"
+        },
         id: "startTimeLabel"
     });
-    $.__views.__alloyId27.add($.__views.startTimeLabel);
+    $.__views.__alloyId16.add($.__views.startTimeLabel);
+    $.__views.__alloyId17 = Ti.UI.createLabel({
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        color: "#000",
+        font: {
+            fontSize: "8dp",
+            fontStyle: "normal",
+            fontWeight: "bold"
+        },
+        text: "-",
+        id: "__alloyId17"
+    });
+    $.__views.__alloyId16.add($.__views.__alloyId17);
     $.__views.endTimeLabel = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
+        font: {
+            fontSize: "8dp",
+            fontStyle: "normal",
+            fontWeight: "bold"
+        },
         id: "endTimeLabel"
     });
-    $.__views.__alloyId27.add($.__views.endTimeLabel);
-    $.__views.__alloyId28 = Ti.UI.createView({
+    $.__views.__alloyId16.add($.__views.endTimeLabel);
+    $.__views.__alloyId18 = Ti.UI.createView({
         layout: "vertical",
-        id: "__alloyId28"
+        id: "__alloyId18"
     });
-    $.__views.schedulerow.add($.__views.__alloyId28);
+    $.__views.schedulerow.add($.__views.__alloyId18);
     $.__views.titleLabel = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
+        width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
         color: "#000",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        font: {
+            fontSize: "12dp",
+            fontStyle: "normal",
+            fontWeight: "bold"
+        },
         id: "titleLabel"
     });
-    $.__views.__alloyId28.add($.__views.titleLabel);
+    $.__views.__alloyId18.add($.__views.titleLabel);
     $.__views.speakerLabel = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
+        width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
         color: "#000",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        font: {
+            fontSize: "10dp",
+            fontStyle: "normal",
+            fontWeight: "normal"
+        },
         id: "speakerLabel"
     });
-    $.__views.__alloyId28.add($.__views.speakerLabel);
+    $.__views.__alloyId18.add($.__views.speakerLabel);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = arguments[0] || {};
