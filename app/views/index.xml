@@ -2,7 +2,7 @@
 	<Window title="PHPBenelux Conference 2014" class="container">
 		<View layout="vertical">
 			<ImageView image="http://conference.phpbenelux.eu/2014/wp-content/uploads/2013/08/phpbenelux_conference_logo-2014-e1377030913837.png"></ImageView>
-			<View layout="horizontal">
+			<View class="buttonbar">
 				<Button id="news" onClick="openNews">News</Button>
 				<Button id="schedule" onClick="openSchedule">Schedule</Button>
 				<Button id="about" onClick="openAbout">About</Button>
