@@ -1,15 +1,12 @@
-".timeText": {	
-	font: {
-		fontSize: '8dp',
-		fontStyle: 'normal',
-		fontWeight: 'bold'
-	}
-},
+"#scheduleRow": {
+	height: Ti.UI.SIZE,
+	hasChild: true
+}
 "#titleLabel": {
 	width: Ti.UI.FILL,
 	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
 	font: {
-		fontSize: '12dp',
+		fontSize: 14,
 		fontStyle: 'normal',
 		fontWeight: 'bold'
 	}
@@ -18,7 +15,7 @@
 	width: Ti.UI.FILL,
 	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
 	font: {
-		fontSize: '10dp',
+		fontSize: 12,
 		fontStyle: 'normal',
 		fontWeight: 'normal'
 	}
@@ -26,7 +23,4 @@
 "View": {
 	height: Ti.UI.SIZE,
 	left: 0
-},
-"TableViewRow": {
-	height: Ti.UI.SIZE
 }

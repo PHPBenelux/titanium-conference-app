@@ -1,9 +1,7 @@
 <Alloy>
-	<TableViewRow onClick="openDetail" layout="horizontal">
-		<View class="timeblock">
-			<Label class="timeText" id="startTimeLabel"></Label>
-			<Label class="timeText"> - </Label>
-			<Label class="timeText" id="endTimeLabel"></Label>
+	<TableViewRow id="scheduleRow" onClick="openDetail">
+		<View class="roomblock">
+			<Label id="roomLabel"></Label>
 		</View>
 		<View class="infoblock">
 			<Label id="titleLabel"></Label>
