@@ -1,4 +1,12 @@
 function Controller() {
+    function sortObj(arr) {
+        var sortedKeys = new Array();
+        var sortedObj = {};
+        for (var i in arr) sortedKeys.push(i);
+        sortedKeys.sort();
+        for (var i in sortedKeys) sortedObj[sortedKeys[i]] = arr[sortedKeys[i]];
+        return sortedObj;
+    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "schedule";
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
@@ -57,10 +65,11 @@ function Controller() {
                 type: schedule[i].talk_type
             }).getView());
         }
+        sectionSchedule = sortObj(sectionSchedule);
         for (var jIndex in sectionSchedule) {
             var currentSection = sectionSchedule[jIndex];
             var sectionHeader = Ti.UI.createTableViewSection({
-                headerTitle: moment(jIndex).format("DD MMM HH:mm")
+                headerTitle: moment(jIndex.toString(), "X").format("DD MMM HH:mm")
             });
             for (var k = 0, kLen = currentSection.length; kLen > k; k++) sectionHeader.add(currentSection[k]);
             sections.push(sectionHeader);

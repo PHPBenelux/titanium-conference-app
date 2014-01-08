@@ -5,6 +5,24 @@ function closeWindow(e) {
     $.scheduleWindow.closeWindow();
 }
 
+function sortObj(arr){
+	// Setup Arrays
+	var sortedKeys = new Array();
+	var sortedObj = {};
+
+	// Separate keys and sort them
+	for (var i in arr){
+		sortedKeys.push(i);
+	}
+	sortedKeys.sort();
+
+	// Reconstruct sorted obj based on keys
+	for (var i in sortedKeys){
+		sortedObj[sortedKeys[i]] = arr[sortedKeys[i]];
+	}
+	return sortedObj;
+}
+
 var data = [];
 var httpClient = Ti.Network.createHTTPClient({
     onerror: function(e) {
@@ -55,9 +73,12 @@ httpClient.onload = function() {
         }).getView());
     }
     
+    sectionSchedule = sortObj(sectionSchedule);
+    
     for (var jIndex in sectionSchedule) {
     	var currentSection = sectionSchedule[jIndex];
-    	var sectionHeader = Ti.UI.createTableViewSection({ headerTitle: moment(jIndex).format('DD MMM HH:mm')});
+    	//moment(jIndex).format('DD MMM HH:mm')
+    	var sectionHeader = Ti.UI.createTableViewSection({ headerTitle: moment(jIndex.toString(), 'X').format('DD MMM HH:mm')});
     	
     	for (var k = 0, kLen = currentSection.length; k < kLen; k++) {
     		sectionHeader.add(currentSection[k]);
