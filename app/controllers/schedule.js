@@ -1,4 +1,5 @@
 var args = arguments[0] || {};
+var moment = require('alloy/moment');
 
 function closeWindow(e) {
     $.scheduleWindow.closeWindow();
@@ -21,8 +22,11 @@ httpClient.onload = function() {
     }
     
     var schedule = json.posts;
+    var sectionSchedule = [];
+    var sections = [];
     for (var i = 0, iLen = schedule.length; i < iLen; i++) {
     	
+    	// Handle items without an assigned speaker    	
     	if (schedule[i].speaker.length == 0 || !schedule[i].speaker) {
     		schedule[i].speaker = [{
     			post_title: 'PHPBenelux',
@@ -30,8 +34,14 @@ httpClient.onload = function() {
     			picture_src: ''
     		}];
     	}
-        
-        data.push(Alloy.createController('schedulerow', {
+    	
+    	// divide data into sections
+    	var timestampKey = moment(schedule[i].timestamp_start).format('X');
+    	if (!sectionSchedule[timestampKey]) {
+    		sectionSchedule[timestampKey] = [];
+    	}
+    	
+    	sectionSchedule[timestampKey].push(Alloy.createController('schedulerow', {
             title: schedule[i].title,
             content: schedule[i].content,
             speaker: schedule[i].speaker[0].post_title,
@@ -45,5 +55,15 @@ httpClient.onload = function() {
         }).getView());
     }
     
-    $.table.setData(data);
+    for (var jIndex in sectionSchedule) {
+    	var currentSection = sectionSchedule[jIndex];
+    	var sectionHeader = Ti.UI.createTableViewSection({ headerTitle: moment(jIndex).format('DD MMM HH:mm')});
+    	
+    	for (var k = 0, kLen = currentSection.length; k < kLen; k++) {
+    		sectionHeader.add(currentSection[k]);
+    	}
+    	sections.push(sectionHeader);
+    }
+    
+    $.table.setData(sections);
 };

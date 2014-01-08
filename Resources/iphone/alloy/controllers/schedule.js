@@ -21,7 +21,7 @@ function Controller() {
     exports.destroy = function() {};
     _.extend($, $.__views);
     arguments[0] || {};
-    var data = [];
+    var moment = require("alloy/moment");
     var httpClient = Ti.Network.createHTTPClient({
         onerror: function(e) {
             Ti.API.debug(e.error);
@@ -34,13 +34,17 @@ function Controller() {
         var json = JSON.parse(this.responseText);
         0 == json.length && ($.table.headerTitle = "No data");
         var schedule = json.posts;
+        var sectionSchedule = [];
+        var sections = [];
         for (var i = 0, iLen = schedule.length; iLen > i; i++) {
             0 != schedule[i].speaker.length && schedule[i].speaker || (schedule[i].speaker = [ {
                 post_title: "PHPBenelux",
                 post_content: "",
                 picture_src: ""
             } ]);
-            data.push(Alloy.createController("schedulerow", {
+            var timestampKey = moment(schedule[i].timestamp_start).format("X");
+            sectionSchedule[timestampKey] || (sectionSchedule[timestampKey] = []);
+            sectionSchedule[timestampKey].push(Alloy.createController("schedulerow", {
                 title: schedule[i].title,
                 content: schedule[i].content,
                 speaker: schedule[i].speaker[0].post_title,
@@ -53,7 +57,15 @@ function Controller() {
                 type: schedule[i].talk_type
             }).getView());
         }
-        $.table.setData(data);
+        for (var jIndex in sectionSchedule) {
+            var currentSection = sectionSchedule[jIndex];
+            var sectionHeader = Ti.UI.createTableViewSection({
+                headerTitle: moment(jIndex).format("DD MMM HH:mm")
+            });
+            for (var k = 0, kLen = currentSection.length; kLen > k; k++) sectionHeader.add(currentSection[k]);
+            sections.push(sectionHeader);
+        }
+        $.table.setData(sections);
     };
     _.extend($, exports);
 }
