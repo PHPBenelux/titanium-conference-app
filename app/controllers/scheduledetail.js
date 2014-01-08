@@ -4,12 +4,12 @@ function closeWindow(e) {
     $.scheduleDetailWindow.close();
 }
 
-$.titleLabel.text = "Title";
-$.descriptionLabel.html = "Description";
-$.nameLabel.text = "Speaker name";
-$.pictureView.image = "";
-$.bioLabel.html = "Speaker bio";
-$.dateLabel.text = "start - end";
-$.roomLabel.text = "room name";
-$.levelLabel.text = "level";
-$.typeLabel.text = "type";
+$.titleLabel.text = args.title;
+$.descriptionLabel.html = args.content;
+$.nameLabel.text = args.speaker;
+$.pictureView.image = args.picture;
+$.bioLabel.html = args.bio;
+$.dateLabel.text = args.startDate + " - " + args.endDate;
+$.roomLabel.text = args.room;
+$.levelLabel.text = args.level;
+$.typeLabel.text = args.type;
