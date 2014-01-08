@@ -22,6 +22,7 @@ function Controller() {
     _.extend($, $.__views);
     arguments[0] || {};
     var moment = require("alloy/moment");
+    Alloy.createCollection("news");
     var data = [];
     var httpClient = Ti.Network.createHTTPClient({
         onerror: function(e) {
