@@ -14,6 +14,7 @@ function Controller() {
     var exports = {};
     var __defers = {};
     $.__views.scheduleRow = Ti.UI.createTableViewRow({
+        layout: "horizontal",
         height: Ti.UI.SIZE,
         hasChild: true,
         id: "scheduleRow"
@@ -22,20 +23,27 @@ function Controller() {
     openDetail ? $.__views.scheduleRow.addEventListener("click", openDetail) : __defers["$.__views.scheduleRow!click!openDetail"] = true;
     $.__views.__alloyId12 = Ti.UI.createView({
         height: Ti.UI.SIZE,
-        left: 0,
+        left: 30,
+        layout: "composite",
         id: "__alloyId12"
     });
     $.__views.scheduleRow.add($.__views.__alloyId12);
     $.__views.roomLabel = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
+        width: 300,
         height: Ti.UI.SIZE,
         color: "#000",
+        font: {
+            fontSize: 10,
+            fontStyle: "normal",
+            fontWeight: "bold"
+        },
         id: "roomLabel"
     });
     $.__views.__alloyId12.add($.__views.roomLabel);
     $.__views.__alloyId13 = Ti.UI.createView({
         height: Ti.UI.SIZE,
-        left: 0,
+        left: 30,
+        layout: "vertical",
         id: "__alloyId13"
     });
     $.__views.scheduleRow.add($.__views.__alloyId13);

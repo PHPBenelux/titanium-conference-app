@@ -1,9 +1,9 @@
 <Alloy>
 	<TableViewRow id="scheduleRow" onClick="openDetail">
-		<View class="roomblock">
+		<View class="roomBlock">
 			<Label id="roomLabel"></Label>
 		</View>
-		<View class="infoblock">
+		<View class="infoBlock">
 			<Label id="titleLabel"></Label>
 			<Label id="speakerLabel"></Label>
 		</View>

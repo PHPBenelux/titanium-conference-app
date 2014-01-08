@@ -71,6 +71,7 @@ function Controller() {
     $.__views.__alloyId8.add($.__views.about);
     openAbout ? $.__views.about.addEventListener("click", openAbout) : __defers["$.__views.about!click!openAbout"] = true;
     $.__views.navWindow = Ti.UI.iOS.createNavigationWindow({
+        orientationModes: [ Ti.UI.PORTRAIT, Ti.UI.UPSIDE_PORTRAIT ],
         window: $.__views.__alloyId6,
         id: "navWindow"
     });

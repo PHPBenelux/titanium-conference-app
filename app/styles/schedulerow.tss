@@ -1,7 +1,26 @@
 "#scheduleRow": {
+	layout: 'horizontal',
 	height: Ti.UI.SIZE,
 	hasChild: true
-}
+},
+"View": {
+	height: Ti.UI.SIZE,
+	left: 30
+},
+".roomBlock": {
+	layout: 'composite'
+},
+".infoBlock": {
+	layout: 'vertical'
+},
+"#roomLabel": {
+	width: 300,
+	font: {
+		fontSize: 10,
+		fontStyle: 'normal',
+		fontWeight: 'bold'
+	}	
+},
 "#titleLabel": {
 	width: Ti.UI.FILL,
 	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
@@ -19,8 +38,4 @@
 		fontStyle: 'normal',
 		fontWeight: 'normal'
 	}
-},
-"View": {
-	height: Ti.UI.SIZE,
-	left: 0
 }
