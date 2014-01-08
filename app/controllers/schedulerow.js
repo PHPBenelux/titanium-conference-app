@@ -1,12 +1,14 @@
 var args = arguments[0] || {};
-
+var moment = require('alloy/moment');
 
 function openDetail(e) {
     var scheduleDetailWin = Alloy.createController('scheduledetail', args).getView();
-    scheduleDetailWin.open();
+    Alloy.Globals.navWindow.openWindow(scheduleDetailWin, {animated:true});
 }
+var startDate = moment(args.startDate);
+var endDate = moment(args.endDate);
 
-$.startTimeLabel.text = args.startDate;
-$.endTimeLabel.text = args.endDate;
 $.titleLabel.text = args.title;
-$.speakerLabel.text = args.speaker;
+$.startTimeLabel.text = startDate.format('DD MMM, HH:mm');
+$.endTimeLabel.text = startDate.format('DD MMM, HH:mm');
+$.speakerLabel.text = 'speaker';

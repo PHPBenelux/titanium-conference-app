@@ -1,11 +1,6 @@
 <Alloy>
 	<Window id="scheduleDetailWindow" title="Schedule item">
-		<Toolbar platform="ios" bottom="0" borderTop="true" borderBottom="false">
-            <Items>
-                <Button id="backButton" onClick="closeWindow" title="Back" style="Ti.UI.iPhone.SystemButtonStyle.DONE" />
-            </Items>
-        </Toolbar>
-        <ScrollView>
+        <ScrollView layout="vertical">
 			<Label id="titleLabel" class="header">Title</Label>
 			<WebView id="descriptionLabel" class="content"></WebView>
 			

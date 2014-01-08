@@ -1,7 +1,4 @@
 function Controller() {
-    function closeWindow() {
-        $.scheduleDetailWindow.close();
-    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "scheduledetail";
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
@@ -9,7 +6,6 @@ function Controller() {
     arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
-    var __defers = {};
     $.__views.scheduleDetailWindow = Ti.UI.createWindow({
         fullscreen: true,
         backgroundColor: "white",
@@ -18,113 +14,126 @@ function Controller() {
         title: "Schedule item"
     });
     $.__views.scheduleDetailWindow && $.addTopLevelView($.__views.scheduleDetailWindow);
-    var __alloyId24 = [];
-    $.__views.backButton = Ti.UI.createButton({
-        id: "backButton",
-        title: "Back",
-        style: Ti.UI.iPhone.SystemButtonStyle.DONE
+    $.__views.__alloyId11 = Ti.UI.createScrollView({
+        width: Ti.UI.FILL,
+        layout: "vertical",
+        showVerticalScrollIndicator: true,
+        scrollType: "vertical",
+        id: "__alloyId11"
     });
-    __alloyId24.push($.__views.backButton);
-    closeWindow ? $.__views.backButton.addEventListener("click", closeWindow) : __defers["$.__views.backButton!click!closeWindow"] = true;
-    $.__views.__alloyId22 = Ti.UI.iOS.createToolbar({
-        items: __alloyId24,
-        bottom: "0",
-        borderTop: "true",
-        borderBottom: "false",
-        id: "__alloyId22"
-    });
-    $.__views.scheduleDetailWindow.add($.__views.__alloyId22);
-    $.__views.__alloyId25 = Ti.UI.createScrollView({
-        id: "__alloyId25"
-    });
-    $.__views.scheduleDetailWindow.add($.__views.__alloyId25);
+    $.__views.scheduleDetailWindow.add($.__views.__alloyId11);
     $.__views.titleLabel = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
+        width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
         color: "#000",
-        fontSize: 12,
-        fontWeight: "bold",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        font: {
+            fontSize: 16,
+            fontWeight: "bold"
+        },
         text: "Title",
         id: "titleLabel"
     });
-    $.__views.__alloyId25.add($.__views.titleLabel);
+    $.__views.__alloyId11.add($.__views.titleLabel);
     $.__views.descriptionLabel = Ti.UI.createWebView({
-        fontSize: 10,
+        width: Ti.UI.FILL,
+        height: Ti.UI.SIZE,
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        font: {
+            fontSize: 12,
+            fontWeight: "bold"
+        },
         id: "descriptionLabel"
     });
-    $.__views.__alloyId25.add($.__views.descriptionLabel);
+    $.__views.__alloyId11.add($.__views.descriptionLabel);
     $.__views.nameLabel = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
+        width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
         color: "#000",
-        fontSize: 12,
-        fontWeight: "bold",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        font: {
+            fontSize: 16,
+            fontWeight: "bold"
+        },
         text: "Speaker",
         id: "nameLabel"
     });
-    $.__views.__alloyId25.add($.__views.nameLabel);
+    $.__views.__alloyId11.add($.__views.nameLabel);
     $.__views.pictureView = Ti.UI.createImageView({
         id: "pictureView"
     });
-    $.__views.__alloyId25.add($.__views.pictureView);
+    $.__views.__alloyId11.add($.__views.pictureView);
     $.__views.bioLabel = Ti.UI.createWebView({
-        fontSize: 10,
+        width: Ti.UI.FILL,
+        height: Ti.UI.SIZE,
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        font: {
+            fontSize: 12,
+            fontWeight: "bold"
+        },
         id: "bioLabel"
     });
-    $.__views.__alloyId25.add($.__views.bioLabel);
-    $.__views.__alloyId26 = Ti.UI.createView({
-        id: "__alloyId26"
+    $.__views.__alloyId11.add($.__views.bioLabel);
+    $.__views.__alloyId12 = Ti.UI.createView({
+        id: "__alloyId12"
     });
-    $.__views.__alloyId25.add($.__views.__alloyId26);
+    $.__views.__alloyId11.add($.__views.__alloyId12);
     $.__views.dateLabel = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
-        fontSize: 8,
+        font: {
+            fontSize: 10
+        },
         text: "Date / Time",
         id: "dateLabel"
     });
-    $.__views.__alloyId26.add($.__views.dateLabel);
+    $.__views.__alloyId12.add($.__views.dateLabel);
     $.__views.roomLabel = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
-        fontSize: 8,
+        font: {
+            fontSize: 10
+        },
         text: "Room",
         id: "roomLabel"
     });
-    $.__views.__alloyId26.add($.__views.roomLabel);
+    $.__views.__alloyId12.add($.__views.roomLabel);
     $.__views.levelLabel = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
-        fontSize: 8,
+        font: {
+            fontSize: 10
+        },
         text: "Level",
         id: "levelLabel"
     });
-    $.__views.__alloyId26.add($.__views.levelLabel);
+    $.__views.__alloyId12.add($.__views.levelLabel);
     $.__views.typeLabel = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
-        fontSize: 8,
+        font: {
+            fontSize: 10
+        },
         text: "Session type",
         id: "typeLabel"
     });
-    $.__views.__alloyId26.add($.__views.typeLabel);
+    $.__views.__alloyId12.add($.__views.typeLabel);
     exports.destroy = function() {};
     _.extend($, $.__views);
     arguments[0] || {};
     $.titleLabel.text = "Title";
-    $.descriptionLabel.html = "Description";
+    $.descriptionLabel.html = "Description" + Alloy.CFG.css;
     $.nameLabel.text = "Speaker name";
     $.pictureView.image = "";
-    $.bioLabel.html = "Speaker bio";
+    $.bioLabel.html = "Speaker bio" + Alloy.CFG.css;
     $.dateLabel.text = "start - end";
     $.roomLabel.text = "room name";
     $.levelLabel.text = "level";
     $.typeLabel.text = "type";
-    __defers["$.__views.backButton!click!closeWindow"] && $.__views.backButton.addEventListener("click", closeWindow);
     _.extend($, exports);
 }
 

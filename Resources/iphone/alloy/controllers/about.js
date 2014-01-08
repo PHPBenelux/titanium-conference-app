@@ -1,15 +1,12 @@
 function Controller() {
-    function closeWindow() {
-        $.aboutWindow.close();
-    }
     function loadAbout() {
         var httpClient = Ti.Network.createHTTPClient(httpClientDefaults);
         httpClient.open("GET", Alloy.CFG.apiUrl + "get_page/?slug=about");
         httpClient.send();
         httpClient.onload = function() {
             var json = JSON.parse(this.responseText);
-            0 == json.length && ($.aboutLabel.html = "Text could not be updated");
-            $.aboutLabel.html = json.page.content;
+            0 == json.length && ($.aboutLabel.html = "Text could not be updated" + Alloy.CFG.css);
+            $.aboutLabel.html = json.page.content + Alloy.CFG.css;
         };
     }
     function loadSponsors() {
@@ -60,7 +57,6 @@ function Controller() {
     arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
-    var __defers = {};
     $.__views.aboutWindow = Ti.UI.createWindow({
         fullscreen: true,
         backgroundColor: "white",
@@ -69,90 +65,100 @@ function Controller() {
         title: "About"
     });
     $.__views.aboutWindow && $.addTopLevelView($.__views.aboutWindow);
-    var __alloyId2 = [];
-    $.__views.backButton = Ti.UI.createButton({
-        id: "backButton",
-        title: "Back",
-        style: Ti.UI.iPhone.SystemButtonStyle.DONE
-    });
-    __alloyId2.push($.__views.backButton);
-    closeWindow ? $.__views.backButton.addEventListener("click", closeWindow) : __defers["$.__views.backButton!click!closeWindow"] = true;
-    $.__views.__alloyId0 = Ti.UI.iOS.createToolbar({
-        items: __alloyId2,
-        bottom: "0",
-        borderTop: "true",
-        borderBottom: "false",
+    $.__views.__alloyId0 = Ti.UI.createScrollView({
+        width: Ti.UI.FILL,
+        layout: "vertical",
+        showVerticalScrollIndicator: true,
+        scrollType: "vertical",
         id: "__alloyId0"
     });
     $.__views.aboutWindow.add($.__views.__alloyId0);
-    $.__views.__alloyId3 = Ti.UI.createScrollView({
-        id: "__alloyId3"
-    });
-    $.__views.aboutWindow.add($.__views.__alloyId3);
-    $.__views.__alloyId4 = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
+    $.__views.__alloyId1 = Ti.UI.createLabel({
+        width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
         color: "#000",
-        fontSize: 12,
-        fontWeight: "bold",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        font: {
+            fontSize: 16,
+            fontWeight: "bold"
+        },
         text: "About the Conference",
-        id: "__alloyId4"
+        id: "__alloyId1"
     });
-    $.__views.__alloyId3.add($.__views.__alloyId4);
+    $.__views.__alloyId0.add($.__views.__alloyId1);
     $.__views.aboutLabel = Ti.UI.createWebView({
-        fontSize: 10,
+        width: Ti.UI.FILL,
+        height: Ti.UI.SIZE,
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        font: {
+            fontSize: 12,
+            fontWeight: "bold"
+        },
         id: "aboutLabel"
     });
-    $.__views.__alloyId3.add($.__views.aboutLabel);
-    $.__views.__alloyId5 = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
+    $.__views.__alloyId0.add($.__views.aboutLabel);
+    $.__views.__alloyId2 = Ti.UI.createLabel({
+        width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
         color: "#000",
-        fontSize: 12,
-        fontWeight: "bold",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        font: {
+            fontSize: 16,
+            fontWeight: "bold"
+        },
         text: "Sponsors",
-        id: "__alloyId5"
+        id: "__alloyId2"
     });
-    $.__views.__alloyId3.add($.__views.__alloyId5);
+    $.__views.__alloyId0.add($.__views.__alloyId2);
     $.__views.sponsorsView = Ti.UI.createView({
         id: "sponsorsView",
         layout: "vertical"
     });
-    $.__views.__alloyId3.add($.__views.sponsorsView);
-    $.__views.__alloyId6 = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
+    $.__views.__alloyId0.add($.__views.sponsorsView);
+    $.__views.__alloyId3 = Ti.UI.createLabel({
+        width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
         color: "#000",
-        fontSize: 12,
-        fontWeight: "bold",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        font: {
+            fontSize: 16,
+            fontWeight: "bold"
+        },
         text: "Crew",
-        id: "__alloyId6"
+        id: "__alloyId3"
     });
-    $.__views.__alloyId3.add($.__views.__alloyId6);
+    $.__views.__alloyId0.add($.__views.__alloyId3);
     $.__views.crewView = Ti.UI.createView({
         id: "crewView",
         layout: "vertical"
     });
-    $.__views.__alloyId3.add($.__views.crewView);
-    $.__views.__alloyId7 = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
+    $.__views.__alloyId0.add($.__views.crewView);
+    $.__views.__alloyId4 = Ti.UI.createLabel({
+        width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
         color: "#000",
-        fontSize: 12,
-        fontWeight: "bold",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        font: {
+            fontSize: 16,
+            fontWeight: "bold"
+        },
         text: "About the app",
-        id: "__alloyId7"
+        id: "__alloyId4"
     });
-    $.__views.__alloyId3.add($.__views.__alloyId7);
-    $.__views.__alloyId8 = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
+    $.__views.__alloyId0.add($.__views.__alloyId4);
+    $.__views.__alloyId5 = Ti.UI.createLabel({
+        width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
         color: "#000",
-        fontSize: 10,
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        font: {
+            fontSize: 12,
+            fontWeight: "bold"
+        },
         text: "This app has been created by Martin de Keijzer",
-        id: "__alloyId8"
+        id: "__alloyId5"
     });
-    $.__views.__alloyId3.add($.__views.__alloyId8);
+    $.__views.__alloyId0.add($.__views.__alloyId5);
     exports.destroy = function() {};
     _.extend($, $.__views);
     arguments[0] || {};
@@ -165,7 +171,6 @@ function Controller() {
     loadAbout();
     loadCrew();
     loadSponsors();
-    __defers["$.__views.backButton!click!closeWindow"] && $.__views.backButton.addEventListener("click", closeWindow);
     _.extend($, exports);
 }
 

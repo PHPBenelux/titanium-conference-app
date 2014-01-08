@@ -1,1 +1,1 @@
-module.exports={"dependencies":{},"apiUrl":"http://conference.phpbenelux.eu/2014/api/"};
+module.exports={"dependencies":{},"apiUrl":"http://conference.phpbenelux.eu/2014/api/","css":"<style>img { max-width:100% } html { font-family: \"Helvetica\"; font-size: 12pt; } .liquid-video-wrapper{max-width:100%;}</style>"};

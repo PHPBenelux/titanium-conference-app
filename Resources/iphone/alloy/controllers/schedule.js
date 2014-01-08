@@ -1,7 +1,4 @@
 function Controller() {
-    function closeWindow() {
-        $.scheduleWindow.close();
-    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "schedule";
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
@@ -9,31 +6,14 @@ function Controller() {
     arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
-    var __defers = {};
     $.__views.scheduleWindow = Ti.UI.createWindow({
         fullscreen: true,
         backgroundColor: "white",
         layout: "vertical",
         id: "scheduleWindow",
-        title: "schedule"
+        title: "Schedule"
     });
     $.__views.scheduleWindow && $.addTopLevelView($.__views.scheduleWindow);
-    var __alloyId21 = [];
-    $.__views.backButton = Ti.UI.createButton({
-        id: "backButton",
-        title: "Back",
-        style: Ti.UI.iPhone.SystemButtonStyle.DONE
-    });
-    __alloyId21.push($.__views.backButton);
-    closeWindow ? $.__views.backButton.addEventListener("click", closeWindow) : __defers["$.__views.backButton!click!closeWindow"] = true;
-    $.__views.__alloyId19 = Ti.UI.iOS.createToolbar({
-        items: __alloyId21,
-        bottom: "0",
-        borderTop: "true",
-        borderBottom: "false",
-        id: "__alloyId19"
-    });
-    $.__views.scheduleWindow.add($.__views.__alloyId19);
     $.__views.table = Ti.UI.createTableView({
         id: "table"
     });
@@ -62,7 +42,6 @@ function Controller() {
         }).getView());
         $.table.setData(data);
     };
-    __defers["$.__views.backButton!click!closeWindow"] && $.__views.backButton.addEventListener("click", closeWindow);
     _.extend($, exports);
 }
 

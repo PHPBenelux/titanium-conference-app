@@ -1,7 +1,9 @@
 function Controller() {
     function openDetail() {
         var scheduleDetailWin = Alloy.createController("scheduledetail", args).getView();
-        scheduleDetailWin.open();
+        Alloy.Globals.navWindow.openWindow(scheduleDetailWin, {
+            animated: true
+        });
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "schedulerow";
@@ -12,54 +14,98 @@ function Controller() {
     var exports = {};
     var __defers = {};
     $.__views.schedulerow = Ti.UI.createTableViewRow({
+        height: Ti.UI.SIZE,
+        layout: "horizontal",
         id: "schedulerow"
     });
     $.__views.schedulerow && $.addTopLevelView($.__views.schedulerow);
     openDetail ? $.__views.schedulerow.addEventListener("click", openDetail) : __defers["$.__views.schedulerow!click!openDetail"] = true;
-    $.__views.__alloyId27 = Ti.UI.createView({
-        layout: "vertical",
-        id: "__alloyId27"
+    $.__views.timing = Ti.UI.createView({
+        height: Ti.UI.SIZE,
+        left: 0,
+        id: "timing",
+        layout: "vertical"
     });
-    $.__views.schedulerow.add($.__views.__alloyId27);
+    $.__views.schedulerow.add($.__views.timing);
     $.__views.startTimeLabel = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
+        font: {
+            fontSize: "8dp",
+            fontStyle: "normal",
+            fontWeight: "bold"
+        },
         id: "startTimeLabel"
     });
-    $.__views.__alloyId27.add($.__views.startTimeLabel);
+    $.__views.timing.add($.__views.startTimeLabel);
+    $.__views.__alloyId13 = Ti.UI.createLabel({
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        color: "#000",
+        font: {
+            fontSize: "8dp",
+            fontStyle: "normal",
+            fontWeight: "bold"
+        },
+        text: "-",
+        id: "__alloyId13"
+    });
+    $.__views.timing.add($.__views.__alloyId13);
     $.__views.endTimeLabel = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
+        font: {
+            fontSize: "8dp",
+            fontStyle: "normal",
+            fontWeight: "bold"
+        },
         id: "endTimeLabel"
     });
-    $.__views.__alloyId27.add($.__views.endTimeLabel);
-    $.__views.__alloyId28 = Ti.UI.createView({
-        layout: "vertical",
-        id: "__alloyId28"
+    $.__views.timing.add($.__views.endTimeLabel);
+    $.__views.session = Ti.UI.createView({
+        height: Ti.UI.SIZE,
+        left: 0,
+        id: "session",
+        layout: "vertical"
     });
-    $.__views.schedulerow.add($.__views.__alloyId28);
+    $.__views.schedulerow.add($.__views.session);
     $.__views.titleLabel = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
+        width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
         color: "#000",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        font: {
+            fontSize: "12dp",
+            fontStyle: "normal",
+            fontWeight: "bold"
+        },
         id: "titleLabel"
     });
-    $.__views.__alloyId28.add($.__views.titleLabel);
+    $.__views.session.add($.__views.titleLabel);
     $.__views.speakerLabel = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
+        width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
         color: "#000",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        font: {
+            fontSize: "10dp",
+            fontStyle: "normal",
+            fontWeight: "normal"
+        },
         id: "speakerLabel"
     });
-    $.__views.__alloyId28.add($.__views.speakerLabel);
+    $.__views.session.add($.__views.speakerLabel);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = arguments[0] || {};
+    var moment = require("alloy/moment");
+    var startDate = moment(args.startDate);
+    moment(args.endDate);
     $.titleLabel.text = args.title;
-    $.startTimeLabel.text = args.startDate;
-    $.endTimeLabel.text = args.endDate;
+    $.startTimeLabel.text = startDate.format("DD MMM, HH:mm");
+    $.endTimeLabel.text = startDate.format("DD MMM, HH:mm");
     $.speakerLabel.text = "speaker";
     __defers["$.__views.schedulerow!click!openDetail"] && $.__views.schedulerow.addEventListener("click", openDetail);
     _.extend($, exports);

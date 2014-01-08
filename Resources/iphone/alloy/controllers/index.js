@@ -1,15 +1,21 @@
 function Controller() {
     function openNews() {
         var newsWin = Alloy.createController("news").getView();
-        newsWin.open();
+        $.navWindow.openWindow(newsWin, {
+            animated: true
+        });
     }
     function openSchedule() {
         var scheduleWin = Alloy.createController("schedule").getView();
-        scheduleWin.open();
+        $.navWindow.openWindow(scheduleWin, {
+            animated: true
+        });
     }
     function openAbout() {
         var aboutWin = Alloy.createController("about").getView();
-        aboutWin.open();
+        $.navWindow.openWindow(aboutWin, {
+            animated: true
+        });
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "index";
@@ -19,52 +25,59 @@ function Controller() {
     var $ = this;
     var exports = {};
     var __defers = {};
-    $.__views.index = Ti.UI.createWindow({
+    $.__views.__alloyId6 = Ti.UI.createWindow({
         fullscreen: true,
         backgroundColor: "white",
         layout: "vertical",
         title: "PHPBenelux Conference 2014",
-        id: "index"
+        id: "__alloyId6"
     });
-    $.__views.index && $.addTopLevelView($.__views.index);
-    $.__views.__alloyId9 = Ti.UI.createView({
+    $.__views.__alloyId7 = Ti.UI.createView({
         layout: "vertical",
-        id: "__alloyId9"
+        id: "__alloyId7"
     });
-    $.__views.index.add($.__views.__alloyId9);
-    $.__views.__alloyId10 = Ti.UI.createImageView({
+    $.__views.__alloyId6.add($.__views.__alloyId7);
+    $.__views.__alloyId8 = Ti.UI.createImageView({
         image: "http://conference.phpbenelux.eu/2014/wp-content/uploads/2013/08/phpbenelux_conference_logo-2014-e1377030913837.png",
-        id: "__alloyId10"
+        id: "__alloyId8"
     });
-    $.__views.__alloyId9.add($.__views.__alloyId10);
-    $.__views.__alloyId11 = Ti.UI.createView({
+    $.__views.__alloyId7.add($.__views.__alloyId8);
+    $.__views.__alloyId9 = Ti.UI.createView({
         layout: "horizontal",
         height: Ti.UI.SIZE,
         width: Ti.UI.SIZE,
-        id: "__alloyId11"
+        id: "__alloyId9"
     });
-    $.__views.__alloyId9.add($.__views.__alloyId11);
+    $.__views.__alloyId7.add($.__views.__alloyId9);
     $.__views.news = Ti.UI.createButton({
+        left: 5,
         title: "News",
         id: "news"
     });
-    $.__views.__alloyId11.add($.__views.news);
+    $.__views.__alloyId9.add($.__views.news);
     openNews ? $.__views.news.addEventListener("click", openNews) : __defers["$.__views.news!click!openNews"] = true;
     $.__views.schedule = Ti.UI.createButton({
         title: "Schedule",
         id: "schedule"
     });
-    $.__views.__alloyId11.add($.__views.schedule);
+    $.__views.__alloyId9.add($.__views.schedule);
     openSchedule ? $.__views.schedule.addEventListener("click", openSchedule) : __defers["$.__views.schedule!click!openSchedule"] = true;
     $.__views.about = Ti.UI.createButton({
+        right: 5,
         title: "About",
         id: "about"
     });
-    $.__views.__alloyId11.add($.__views.about);
+    $.__views.__alloyId9.add($.__views.about);
     openAbout ? $.__views.about.addEventListener("click", openAbout) : __defers["$.__views.about!click!openAbout"] = true;
+    $.__views.navWindow = Ti.UI.iOS.createNavigationWindow({
+        window: $.__views.__alloyId6,
+        id: "navWindow"
+    });
+    $.__views.navWindow && $.addTopLevelView($.__views.navWindow);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    $.index.open();
+    $.navWindow.open();
+    Alloy.Globals.navWindow = $.navWindow;
     __defers["$.__views.news!click!openNews"] && $.__views.news.addEventListener("click", openNews);
     __defers["$.__views.schedule!click!openSchedule"] && $.__views.schedule.addEventListener("click", openSchedule);
     __defers["$.__views.about!click!openAbout"] && $.__views.about.addEventListener("click", openAbout);

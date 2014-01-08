@@ -2,4 +2,14 @@
     layout: 'horizontal',
     height: Ti.UI.SIZE,
     width: Ti.UI.SIZE
+},
+"#news": {
+	left: 5
+},
+"#schedule": {
+	
+}
+,
+"#about": {
+	right: 5
 }

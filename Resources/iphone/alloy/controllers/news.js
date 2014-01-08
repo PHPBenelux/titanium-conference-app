@@ -1,7 +1,4 @@
 function Controller() {
-    function closeWindow() {
-        $.newsWindow.close();
-    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "news";
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
@@ -9,7 +6,6 @@ function Controller() {
     arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
-    var __defers = {};
     $.__views.newsWindow = Ti.UI.createWindow({
         fullscreen: true,
         backgroundColor: "white",
@@ -18,22 +14,6 @@ function Controller() {
         title: "News"
     });
     $.__views.newsWindow && $.addTopLevelView($.__views.newsWindow);
-    var __alloyId14 = [];
-    $.__views.backButton = Ti.UI.createButton({
-        id: "backButton",
-        title: "Back",
-        style: Ti.UI.iPhone.SystemButtonStyle.DONE
-    });
-    __alloyId14.push($.__views.backButton);
-    closeWindow ? $.__views.backButton.addEventListener("click", closeWindow) : __defers["$.__views.backButton!click!closeWindow"] = true;
-    $.__views.__alloyId12 = Ti.UI.iOS.createToolbar({
-        items: __alloyId14,
-        bottom: "0",
-        borderTop: "true",
-        borderBottom: "false",
-        id: "__alloyId12"
-    });
-    $.__views.newsWindow.add($.__views.__alloyId12);
     $.__views.table = Ti.UI.createTableView({
         id: "table"
     });
@@ -66,7 +46,6 @@ function Controller() {
         }
         $.table.setData(data);
     };
-    __defers["$.__views.backButton!click!closeWindow"] && $.__views.backButton.addEventListener("click", closeWindow);
     _.extend($, exports);
 }
 
