@@ -32,6 +32,7 @@ function Controller() {
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#333333",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
         font: {
             fontSize: 10,
             fontStyle: "normal",
@@ -51,6 +52,7 @@ function Controller() {
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#469AE7",
+        left: 10,
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
         font: {
             fontSize: 12,
@@ -65,6 +67,7 @@ function Controller() {
         height: Ti.UI.SIZE,
         color: "#000",
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        left: 10,
         font: {
             fontSize: 10,
             fontStyle: "normal",
