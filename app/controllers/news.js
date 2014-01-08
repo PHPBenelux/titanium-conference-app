@@ -1,4 +1,5 @@
 var args = arguments[0] || {};
+var moment = require('alloy/moment');
 
 function closeWindow(e) {
     $.newsWindow.closeWindow();
@@ -22,15 +23,11 @@ httpClient.onload = function() {
 	
 	var news = json.posts;
 	for (var i = 0, iLen = news.length; i < iLen; i++) {
-        
-        Ti.API.info(news[i].title);
-        Ti.API.info(news[i].content);
-        Ti.API.info(news[i].modified);
-        
+		var postDate = moment(news[i].date);
 		data.push(Alloy.createController('newsrow', {
 			title: news[i].title,
 			content: news[i].content,
-			postDate: news[i].modified
+			postDate: postDate.format('DD MMM YYYY, HH:mm')
 		}).getView());
 	}
 	

@@ -14,6 +14,7 @@ function Controller() {
     var exports = {};
     var __defers = {};
     $.__views.newsrow = Ti.UI.createTableViewRow({
+        hasChild: true,
         layout: "vertical",
         id: "newsrow"
     });

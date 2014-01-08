@@ -21,6 +21,7 @@ function Controller() {
     exports.destroy = function() {};
     _.extend($, $.__views);
     arguments[0] || {};
+    var moment = require("alloy/moment");
     var data = [];
     var httpClient = Ti.Network.createHTTPClient({
         onerror: function(e) {
@@ -35,13 +36,11 @@ function Controller() {
         0 == json.length && ($.table.headerTitle = "No data");
         var news = json.posts;
         for (var i = 0, iLen = news.length; iLen > i; i++) {
-            Ti.API.info(news[i].title);
-            Ti.API.info(news[i].content);
-            Ti.API.info(news[i].modified);
+            var postDate = moment(news[i].date);
             data.push(Alloy.createController("newsrow", {
                 title: news[i].title,
                 content: news[i].content,
-                postDate: news[i].modified
+                postDate: postDate.format("DD MMM YYYY, HH:mm")
             }).getView());
         }
         $.table.setData(data);

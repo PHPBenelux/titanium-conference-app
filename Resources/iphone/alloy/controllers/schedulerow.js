@@ -13,99 +13,65 @@ function Controller() {
     var $ = this;
     var exports = {};
     var __defers = {};
-    $.__views.schedulerow = Ti.UI.createTableViewRow({
+    $.__views.scheduleRow = Ti.UI.createTableViewRow({
         height: Ti.UI.SIZE,
-        layout: "horizontal",
-        id: "schedulerow"
+        hasChild: true,
+        id: "scheduleRow"
     });
-    $.__views.schedulerow && $.addTopLevelView($.__views.schedulerow);
-    openDetail ? $.__views.schedulerow.addEventListener("click", openDetail) : __defers["$.__views.schedulerow!click!openDetail"] = true;
+    $.__views.scheduleRow && $.addTopLevelView($.__views.scheduleRow);
+    openDetail ? $.__views.scheduleRow.addEventListener("click", openDetail) : __defers["$.__views.scheduleRow!click!openDetail"] = true;
     $.__views.__alloyId12 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         left: 0,
         id: "__alloyId12"
     });
-    $.__views.schedulerow.add($.__views.__alloyId12);
-    $.__views.startTimeLabel = Ti.UI.createLabel({
+    $.__views.scheduleRow.add($.__views.__alloyId12);
+    $.__views.roomLabel = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "#000",
-        font: {
-            fontSize: "8dp",
-            fontStyle: "normal",
-            fontWeight: "bold"
-        },
-        id: "startTimeLabel"
+        id: "roomLabel"
     });
-    $.__views.__alloyId12.add($.__views.startTimeLabel);
-    $.__views.__alloyId13 = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
-        height: Ti.UI.SIZE,
-        color: "#000",
-        font: {
-            fontSize: "8dp",
-            fontStyle: "normal",
-            fontWeight: "bold"
-        },
-        text: "-",
-        id: "__alloyId13"
-    });
-    $.__views.__alloyId12.add($.__views.__alloyId13);
-    $.__views.endTimeLabel = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
-        height: Ti.UI.SIZE,
-        color: "#000",
-        font: {
-            fontSize: "8dp",
-            fontStyle: "normal",
-            fontWeight: "bold"
-        },
-        id: "endTimeLabel"
-    });
-    $.__views.__alloyId12.add($.__views.endTimeLabel);
-    $.__views.__alloyId14 = Ti.UI.createView({
+    $.__views.__alloyId12.add($.__views.roomLabel);
+    $.__views.__alloyId13 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         left: 0,
-        id: "__alloyId14"
+        id: "__alloyId13"
     });
-    $.__views.schedulerow.add($.__views.__alloyId14);
+    $.__views.scheduleRow.add($.__views.__alloyId13);
     $.__views.titleLabel = Ti.UI.createLabel({
         width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
         color: "#000",
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
         font: {
-            fontSize: "12dp",
+            fontSize: 14,
             fontStyle: "normal",
             fontWeight: "bold"
         },
         id: "titleLabel"
     });
-    $.__views.__alloyId14.add($.__views.titleLabel);
+    $.__views.__alloyId13.add($.__views.titleLabel);
     $.__views.speakerLabel = Ti.UI.createLabel({
         width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
         color: "#000",
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
         font: {
-            fontSize: "10dp",
+            fontSize: 12,
             fontStyle: "normal",
             fontWeight: "normal"
         },
         id: "speakerLabel"
     });
-    $.__views.__alloyId14.add($.__views.speakerLabel);
+    $.__views.__alloyId13.add($.__views.speakerLabel);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = arguments[0] || {};
-    var moment = require("alloy/moment");
-    var startDate = moment(args.startDate);
-    moment(args.endDate);
+    $.roomLabel.text = args.room;
     $.titleLabel.text = args.title;
-    $.startTimeLabel.text = startDate.format("DD MMM, HH:mm");
-    $.endTimeLabel.text = startDate.format("DD MMM, HH:mm");
-    $.speakerLabel.text = "speaker";
-    __defers["$.__views.schedulerow!click!openDetail"] && $.__views.schedulerow.addEventListener("click", openDetail);
+    $.speakerLabel.text = args.speaker;
+    __defers["$.__views.scheduleRow!click!openDetail"] && $.__views.scheduleRow.addEventListener("click", openDetail);
     _.extend($, exports);
 }
 
