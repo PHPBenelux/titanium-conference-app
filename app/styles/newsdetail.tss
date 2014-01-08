@@ -1,0 +1,4 @@
+"#detailScrollView": {
+	width: Ti.UI.FILL,
+	contentWidth: '100%',
+}

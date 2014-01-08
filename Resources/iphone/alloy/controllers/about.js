@@ -76,10 +76,11 @@ function Controller() {
     $.__views.__alloyId1 = Ti.UI.createLabel({
         width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
-        color: "#000",
+        color: "#469AE7",
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
         font: {
-            fontSize: 16,
+            fontSize: 14,
+            fontStyle: "normal",
             fontWeight: "bold"
         },
         text: "About the Conference",
@@ -99,10 +100,11 @@ function Controller() {
     $.__views.__alloyId2 = Ti.UI.createLabel({
         width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
-        color: "#000",
+        color: "#469AE7",
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
         font: {
-            fontSize: 16,
+            fontSize: 14,
+            fontStyle: "normal",
             fontWeight: "bold"
         },
         text: "Sponsors",
@@ -117,10 +119,11 @@ function Controller() {
     $.__views.__alloyId3 = Ti.UI.createLabel({
         width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
-        color: "#000",
+        color: "#469AE7",
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
         font: {
-            fontSize: 16,
+            fontSize: 14,
+            fontStyle: "normal",
             fontWeight: "bold"
         },
         text: "Crew",
@@ -135,10 +138,11 @@ function Controller() {
     $.__views.__alloyId4 = Ti.UI.createLabel({
         width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
-        color: "#000",
+        color: "#469AE7",
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
         font: {
-            fontSize: 16,
+            fontSize: 14,
+            fontStyle: "normal",
             fontWeight: "bold"
         },
         text: "About the app",

@@ -14,36 +14,39 @@ function Controller() {
         title: "News item"
     });
     $.__views.newsDetailWindow && $.addTopLevelView($.__views.newsDetailWindow);
-    $.__views.__alloyId9 = Ti.UI.createScrollView({
+    $.__views.detailScrollView = Ti.UI.createScrollView({
         width: Ti.UI.FILL,
         layout: "vertical",
         showVerticalScrollIndicator: true,
         scrollType: "vertical",
-        id: "__alloyId9"
+        contentWidth: "100%",
+        id: "detailScrollView"
     });
-    $.__views.newsDetailWindow.add($.__views.__alloyId9);
+    $.__views.newsDetailWindow.add($.__views.detailScrollView);
     $.__views.titleLabel = Ti.UI.createLabel({
+        width: Ti.UI.FILL,
+        height: Ti.UI.SIZE,
+        color: "#469AE7",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        font: {
+            fontSize: 14,
+            fontStyle: "normal",
+            fontWeight: "bold"
+        },
+        id: "titleLabel"
+    });
+    $.__views.detailScrollView.add($.__views.titleLabel);
+    $.__views.postDateLabel = Ti.UI.createLabel({
         width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
         color: "#000",
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
         font: {
-            fontSize: 16,
-            fontWeight: "bold"
-        },
-        id: "titleLabel"
-    });
-    $.__views.__alloyId9.add($.__views.titleLabel);
-    $.__views.postDateLabel = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
-        height: Ti.UI.SIZE,
-        color: "#000",
-        font: {
             fontSize: 10
         },
         id: "postDateLabel"
     });
-    $.__views.__alloyId9.add($.__views.postDateLabel);
+    $.__views.detailScrollView.add($.__views.postDateLabel);
     $.__views.contentLabel = Ti.UI.createWebView({
         width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
@@ -53,7 +56,7 @@ function Controller() {
         },
         id: "contentLabel"
     });
-    $.__views.__alloyId9.add($.__views.contentLabel);
+    $.__views.detailScrollView.add($.__views.contentLabel);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = arguments[0] || {};

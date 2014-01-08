@@ -3,8 +3,10 @@
 },
 ".header": {
 	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	color: '#469AE7',
 	font: {
-		fontSize: 16,
+		fontSize: 14,
+		fontStyle: 'normal',
 		fontWeight: 'bold'
 	},
 	width: Ti.UI.FILL,
@@ -20,9 +22,12 @@
 	height: Ti.UI.SIZE
 },
 ".metalabel": {
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
 	font: {
 		fontSize: 10
-	}
+	},
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE
 },
 "Window": {
 	fullscreen: true,

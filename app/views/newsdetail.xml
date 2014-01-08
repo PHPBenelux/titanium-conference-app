@@ -1,6 +1,6 @@
 <Alloy>
 	<Window id="newsDetailWindow" title="News item">
-        <ScrollView>
+        <ScrollView id="detailScrollView">
 			<Label id="titleLabel" class="header"></Label>
 			<Label id="postDateLabel" class="metalabel"></Label>
 			<WebView id="contentLabel" class="content"></WebView>

@@ -9,10 +9,27 @@
 			<Label id="bioLabel" class="content"></Label>
 			
 			<View class="metadata">
-				<Label id="dateLabel" class="metalabel">Date / Time</Label>
-				<Label id="roomLabel" class="metalabel">Room</Label>
-				<Label id="levelLabel" class="metalabel">Level</Label>
-				<Label id="typeLabel" class="metalabel">Session type</Label>
+				
+				<View class="labelLine">
+					<Label class="metaBoldLabel">Date / Time:</Label>
+					<Label id="dateLabel" class="metalabel">Date / Time</Label>
+				</View>
+				
+				<View class="labelLine">
+					<Label class="metaBoldLabel">Room:</Label>
+					<Label id="roomLabel" class="metalabel">Room</Label>
+				</View>
+				
+				<View class="labelLine">
+					<Label class="metaBoldLabel">Level:</Label>
+					<Label id="levelLabel" class="metalabel">Level</Label>
+				</View>
+				
+				<View class="labelLine">
+					<Label class="metaBoldLabel">Session Type:</Label>
+					<Label id="typeLabel" class="metalabel">Session type</Label>
+				</View>
+				
 			</View>
 		</ScrollView>
 	</Window>
