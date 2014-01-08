@@ -37,37 +37,38 @@ function Controller() {
         id: "__alloyId7"
     });
     $.__views.__alloyId6.add($.__views.__alloyId7);
-    $.__views.__alloyId8 = Ti.UI.createImageView({
-        image: "http://conference.phpbenelux.eu/2014/wp-content/uploads/2013/08/phpbenelux_conference_logo-2014-e1377030913837.png",
+    $.__views.logoImage = Ti.UI.createImageView({
+        top: 10,
+        id: "logoImage",
+        image: "http://conference.phpbenelux.eu/2014/wp-content/uploads/2013/08/phpbenelux_conference_logo-2014-e1377030913837.png"
+    });
+    $.__views.__alloyId7.add($.__views.logoImage);
+    $.__views.__alloyId8 = Ti.UI.createView({
+        layout: "composite",
+        height: Ti.UI.SIZE,
+        width: Ti.UI.FILL,
         id: "__alloyId8"
     });
     $.__views.__alloyId7.add($.__views.__alloyId8);
-    $.__views.__alloyId9 = Ti.UI.createView({
-        layout: "horizontal",
-        height: Ti.UI.SIZE,
-        width: Ti.UI.SIZE,
-        id: "__alloyId9"
-    });
-    $.__views.__alloyId7.add($.__views.__alloyId9);
     $.__views.news = Ti.UI.createButton({
-        left: 5,
+        left: 30,
         title: "News",
         id: "news"
     });
-    $.__views.__alloyId9.add($.__views.news);
+    $.__views.__alloyId8.add($.__views.news);
     openNews ? $.__views.news.addEventListener("click", openNews) : __defers["$.__views.news!click!openNews"] = true;
     $.__views.schedule = Ti.UI.createButton({
         title: "Schedule",
         id: "schedule"
     });
-    $.__views.__alloyId9.add($.__views.schedule);
+    $.__views.__alloyId8.add($.__views.schedule);
     openSchedule ? $.__views.schedule.addEventListener("click", openSchedule) : __defers["$.__views.schedule!click!openSchedule"] = true;
     $.__views.about = Ti.UI.createButton({
-        right: 5,
+        right: 30,
         title: "About",
         id: "about"
     });
-    $.__views.__alloyId9.add($.__views.about);
+    $.__views.__alloyId8.add($.__views.about);
     openAbout ? $.__views.about.addEventListener("click", openAbout) : __defers["$.__views.about!click!openAbout"] = true;
     $.__views.navWindow = Ti.UI.iOS.createNavigationWindow({
         window: $.__views.__alloyId6,

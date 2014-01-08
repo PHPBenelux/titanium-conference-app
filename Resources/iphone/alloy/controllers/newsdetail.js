@@ -14,14 +14,14 @@ function Controller() {
         title: "News item"
     });
     $.__views.newsDetailWindow && $.addTopLevelView($.__views.newsDetailWindow);
-    $.__views.__alloyId10 = Ti.UI.createScrollView({
+    $.__views.__alloyId9 = Ti.UI.createScrollView({
         width: Ti.UI.FILL,
         layout: "vertical",
         showVerticalScrollIndicator: true,
         scrollType: "vertical",
-        id: "__alloyId10"
+        id: "__alloyId9"
     });
-    $.__views.newsDetailWindow.add($.__views.__alloyId10);
+    $.__views.newsDetailWindow.add($.__views.__alloyId9);
     $.__views.titleLabel = Ti.UI.createLabel({
         width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
@@ -33,7 +33,7 @@ function Controller() {
         },
         id: "titleLabel"
     });
-    $.__views.__alloyId10.add($.__views.titleLabel);
+    $.__views.__alloyId9.add($.__views.titleLabel);
     $.__views.postDateLabel = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
@@ -43,7 +43,7 @@ function Controller() {
         },
         id: "postDateLabel"
     });
-    $.__views.__alloyId10.add($.__views.postDateLabel);
+    $.__views.__alloyId9.add($.__views.postDateLabel);
     $.__views.contentLabel = Ti.UI.createWebView({
         width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
@@ -54,7 +54,7 @@ function Controller() {
         },
         id: "contentLabel"
     });
-    $.__views.__alloyId10.add($.__views.contentLabel);
+    $.__views.__alloyId9.add($.__views.contentLabel);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = arguments[0] || {};

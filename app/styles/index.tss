@@ -1,15 +1,18 @@
 ".buttonbar": {
-    layout: 'horizontal',
+    layout: 'composite',
     height: Ti.UI.SIZE,
-    width: Ti.UI.SIZE
+    width: Ti.UI.FILL
 },
+"#logoImage": {
+	top: 10
+}
 "#news": {
-	left: 5
+	left: 30
 },
 "#schedule": {
 	
 }
 ,
 "#about": {
-	right: 5
+	right: 30
 }
