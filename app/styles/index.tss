@@ -1,3 +1,6 @@
+"NavigationWindow": {
+	orientationModes: [Ti.UI.PORTRAIT, Ti.UI.UPSIDE_PORTRAIT]
+},
 ".buttonbar": {
     layout: 'composite',
     height: Ti.UI.SIZE,
