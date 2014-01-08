@@ -91,8 +91,7 @@ function Controller() {
         height: Ti.UI.SIZE,
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
         font: {
-            fontSize: 12,
-            fontWeight: "bold"
+            fontSize: 12
         },
         id: "aboutLabel"
     });
@@ -152,8 +151,7 @@ function Controller() {
         color: "#000",
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
         font: {
-            fontSize: 12,
-            fontWeight: "bold"
+            fontSize: 12
         },
         text: "This app has been created by Martin de Keijzer",
         id: "__alloyId5"

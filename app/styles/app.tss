@@ -14,8 +14,7 @@
 ".content": {
 	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
 	font: {
-		fontSize: 12,
-		fontWeight: 'bold'
+		fontSize: 12
 	},
 	width: Ti.UI.FILL,
 	height: Ti.UI.SIZE

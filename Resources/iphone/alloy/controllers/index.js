@@ -37,12 +37,6 @@ function Controller() {
         id: "__alloyId7"
     });
     $.__views.__alloyId6.add($.__views.__alloyId7);
-    $.__views.logoImage = Ti.UI.createImageView({
-        top: 10,
-        id: "logoImage",
-        image: "http://conference.phpbenelux.eu/2014/wp-content/uploads/2013/08/phpbenelux_conference_logo-2014-e1377030913837.png"
-    });
-    $.__views.__alloyId7.add($.__views.logoImage);
     $.__views.__alloyId8 = Ti.UI.createView({
         layout: "composite",
         height: Ti.UI.SIZE,

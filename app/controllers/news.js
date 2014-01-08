@@ -1,8 +1,13 @@
 var args = arguments[0] || {};
 var moment = require('alloy/moment');
+var newsCollection = Alloy.createCollection('news');
 
 function closeWindow(e) {
     $.newsWindow.closeWindow();
+}
+
+function getNewsData() {
+	
 }
 
 var data = [];

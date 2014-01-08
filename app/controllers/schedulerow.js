@@ -6,5 +6,5 @@ function openDetail(e) {
 }
 
 $.roomLabel.text = args.room;
-$.titleLabel.text = args.title;
+$.titleLabel.html = args.title;
 $.speakerLabel.text = args.speaker;

@@ -1,0 +1,16 @@
+".detailScroll": {
+	layout: 'vertical'
+},
+".metadata": {
+	layout: 'vertical'
+},
+".metalabel": {
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE,
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	font: {
+		fontSize: 10,
+		fontStyle: 'normal',
+		fontWeight: 'normal'
+	}
+}

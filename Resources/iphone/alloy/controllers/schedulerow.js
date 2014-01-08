@@ -77,7 +77,7 @@ function Controller() {
     _.extend($, $.__views);
     var args = arguments[0] || {};
     $.roomLabel.text = args.room;
-    $.titleLabel.text = args.title;
+    $.titleLabel.html = args.title;
     $.speakerLabel.text = args.speaker;
     __defers["$.__views.scheduleRow!click!openDetail"] && $.__views.scheduleRow.addEventListener("click", openDetail);
     _.extend($, exports);

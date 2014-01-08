@@ -1,12 +1,12 @@
 <Alloy>
 	<Window id="scheduleDetailWindow" title="Schedule item">
-        <ScrollView layout="vertical">
+        <ScrollView class="detailScroll">
 			<Label id="titleLabel" class="header">Title</Label>
-			<WebView id="descriptionLabel" class="content"></WebView>
+			<Label id="descriptionLabel" class="content"></Label>
 			
 			<Label id="nameLabel" class="header">Speaker</Label>
 			<ImageView id="pictureView"></ImageView>
-			<WebView id="bioLabel" class="content"></WebView>
+			<Label id="bioLabel" class="content"></Label>
 			
 			<View class="metadata">
 				<Label id="dateLabel" class="metalabel">Date / Time</Label>

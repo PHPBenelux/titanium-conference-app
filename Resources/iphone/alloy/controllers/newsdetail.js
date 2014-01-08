@@ -49,8 +49,7 @@ function Controller() {
         height: Ti.UI.SIZE,
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
         font: {
-            fontSize: 12,
-            fontWeight: "bold"
+            fontSize: 12
         },
         id: "contentLabel"
     });
