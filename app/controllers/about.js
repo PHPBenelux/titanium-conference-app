@@ -31,7 +31,7 @@ function loadSponsors() {
 	httpClient.onload = function() {
 		var json = JSON.parse(this.responseText);
 		if (json.length == 0) {
-			noDataLbl = Ti.UI.createLabel({text: "No sponsor data available"});
+			noDataLbl = Ti.UI.createLabel({text: "No sponsor data available", height: Ti.UI.Size});
 			$.sponsorsView.add(noDataLbl);
 		}
 		
@@ -41,8 +41,8 @@ function loadSponsors() {
 				name: sponsors[i].post_title,
 				logo: sponsors[i].logo
 			}).getView();
+            $.sponsorsView.add(sponsorBlock);
 		}
-		$.sponsorsView.add(sponsorBlock);
 	};
 }
 
@@ -53,7 +53,7 @@ function loadCrew() {
 	httpClient.onload = function() {
 		var json = JSON.parse(this.responseText);
 		if (json.length == 0) {
-			noDataLbl = Ti.UI.createLabel({text: "No crew data available"});
+			noDataLbl = Ti.UI.createLabel({text: "No crew data available",height: Ti.UI.Size});
 			$.crewView.add(noDataLbl);
 		}
 		
@@ -64,8 +64,8 @@ function loadCrew() {
 				content: crew[i].post_content,
 				picture: crew[i].picture
 			}).getView();
+            $.crewView.add(crewBlock);
 		}
-		$.crewView.add(crewBlock);
 	};
 }
 

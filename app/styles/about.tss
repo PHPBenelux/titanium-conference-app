@@ -1,0 +1,11 @@
+"#sponsorsView": {
+	height: Ti.UI.SIZE,
+	layout: 'vertical'
+}
+"#crewView": {
+	height: Ti.UI.SIZE,
+	layout: 'vertical'
+},
+"ImageView": {
+	borderRadius: 5
+}

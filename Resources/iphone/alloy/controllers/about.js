@@ -17,16 +17,19 @@ function Controller() {
             var json = JSON.parse(this.responseText);
             if (0 == json.length) {
                 noDataLbl = Ti.UI.createLabel({
-                    text: "No sponsor data available"
+                    text: "No sponsor data available",
+                    height: Ti.UI.Size
                 });
                 $.sponsorsView.add(noDataLbl);
             }
             var sponsors = json.posts;
-            for (var i = 0, iLen = sponsors.length; iLen > i; i++) var sponsorBlock = Alloy.createController("sponsorblock", {
-                name: sponsors[i].post_title,
-                logo: sponsors[i].logo
-            }).getView();
-            $.sponsorsView.add(sponsorBlock);
+            for (var i = 0, iLen = sponsors.length; iLen > i; i++) {
+                var sponsorBlock = Alloy.createController("sponsorblock", {
+                    name: sponsors[i].post_title,
+                    logo: sponsors[i].logo
+                }).getView();
+                $.sponsorsView.add(sponsorBlock);
+            }
         };
     }
     function loadCrew() {
@@ -37,17 +40,20 @@ function Controller() {
             var json = JSON.parse(this.responseText);
             if (0 == json.length) {
                 noDataLbl = Ti.UI.createLabel({
-                    text: "No crew data available"
+                    text: "No crew data available",
+                    height: Ti.UI.Size
                 });
                 $.crewView.add(noDataLbl);
             }
             var crew = json.posts;
-            for (var i = 0, iLen = crew.length; iLen > i; i++) var crewBlock = Alloy.createController("crewblock", {
-                name: crew[i].post_title,
-                content: crew[i].post_content,
-                picture: crew[i].picture
-            }).getView();
-            $.crewView.add(crewBlock);
+            for (var i = 0, iLen = crew.length; iLen > i; i++) {
+                var crewBlock = Alloy.createController("crewblock", {
+                    name: crew[i].post_title,
+                    content: crew[i].post_content,
+                    picture: crew[i].picture
+                }).getView();
+                $.crewView.add(crewBlock);
+            }
         };
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
@@ -112,8 +118,9 @@ function Controller() {
     });
     $.__views.__alloyId0.add($.__views.__alloyId2);
     $.__views.sponsorsView = Ti.UI.createView({
-        id: "sponsorsView",
-        layout: "vertical"
+        height: Ti.UI.SIZE,
+        layout: "vertical",
+        id: "sponsorsView"
     });
     $.__views.__alloyId0.add($.__views.sponsorsView);
     $.__views.__alloyId3 = Ti.UI.createLabel({
@@ -131,8 +138,9 @@ function Controller() {
     });
     $.__views.__alloyId0.add($.__views.__alloyId3);
     $.__views.crewView = Ti.UI.createView({
-        id: "crewView",
-        layout: "vertical"
+        height: Ti.UI.SIZE,
+        layout: "vertical",
+        id: "crewView"
     });
     $.__views.__alloyId0.add($.__views.crewView);
     $.__views.__alloyId4 = Ti.UI.createLabel({
