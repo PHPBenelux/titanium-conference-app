@@ -1,7 +1,29 @@
 ".detailScroll": {
 	width: Ti.UI.FILL,
 	contentWidth: '100%',
-	layout: 'vertical'
+	layout: 'vertical',
+	top: 5,
+	bottom: 5,
+	left: 5,
+	right: 5
+},
+"#titleLabel": {
+	top: 5,
+	bottom: 5,
+	font: {
+		fontSize: 18,
+		fontStyle: 'normal',
+		fontWeight: 'bold'
+	}
+},
+"#nameLabel": {
+	top: 5,
+	bottom: 5,
+	font: {
+		fontSize: 18,
+		fontStyle: 'normal',
+		fontWeight: 'bold'
+	}
 },
 "ImageView": {
 	borderRadius: 5

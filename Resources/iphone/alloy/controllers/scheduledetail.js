@@ -20,6 +20,10 @@ function Controller() {
         showVerticalScrollIndicator: true,
         scrollType: "vertical",
         contentWidth: "100%",
+        top: 5,
+        bottom: 5,
+        left: 5,
+        right: 5,
         id: "__alloyId8"
     });
     $.__views.scheduleDetailWindow.add($.__views.__alloyId8);
@@ -29,10 +33,12 @@ function Controller() {
         color: "#469AE7",
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
         font: {
-            fontSize: 14,
+            fontSize: 18,
             fontStyle: "normal",
             fontWeight: "bold"
         },
+        top: 5,
+        bottom: 5,
         text: "Title",
         id: "titleLabel"
     });
@@ -54,10 +60,12 @@ function Controller() {
         color: "#469AE7",
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
         font: {
-            fontSize: 14,
+            fontSize: 18,
             fontStyle: "normal",
             fontWeight: "bold"
         },
+        top: 5,
+        bottom: 5,
         text: "Speaker",
         id: "nameLabel"
     });
