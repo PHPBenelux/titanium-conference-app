@@ -14,19 +14,32 @@ function Controller() {
     });
     $.__views.crewblock && $.addTopLevelView($.__views.crewblock);
     $.__views.nameLabel = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
+        width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
-        color: "#000",
+        color: "#469AE7",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        font: {
+            fontSize: 16,
+            fontStyle: "normal",
+            fontWeight: "bold"
+        },
+        top: 5,
+        bottom: 5,
         id: "nameLabel"
     });
     $.__views.crewblock.add($.__views.nameLabel);
     $.__views.pictureImage = Ti.UI.createImageView({
+        borderRadius: 5,
         id: "pictureImage"
     });
     $.__views.crewblock.add($.__views.pictureImage);
     $.__views.contentLabel = Ti.UI.createWebView({
         width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        font: {
+            fontSize: 12
+        },
         id: "contentLabel"
     });
     $.__views.crewblock.add($.__views.contentLabel);

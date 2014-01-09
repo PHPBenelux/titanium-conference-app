@@ -1,6 +1,6 @@
 <Alloy>
 	<Window id="aboutWindow" title="About" class="container">
-        <ScrollView layout="vertical">
+        <ScrollView id="aboutScroll">
 			<Label class="header">About the Conference</Label>
 			<WebView id="aboutLabel" class="content"></WebView>
 			
@@ -11,7 +11,7 @@
 			<View id="crewView"></View>
 			
 			<Label class="header">About the app</Label>
-			<Label class="content">This app has been created by Martin de Keijzer</Label>
+			<Label class="content">This app has been created by Martin de Keijzer, and is open sourced on http://github.com/PHPBenelux/titanium-conference-app</Label>
 		</ScrollView>
 	</Window>
 </Alloy>

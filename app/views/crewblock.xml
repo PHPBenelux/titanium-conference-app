@@ -1,7 +1,7 @@
 <Alloy>
 	<View class="container" layout="vertical">
-		<Label id="nameLabel"></Label>
+		<Label id="nameLabel" class="header"></Label>
 		<ImageView id="pictureImage"></ImageView>
-		<WebView id="contentLabel"></WebView>
+		<WebView id="contentLabel" class="content"></WebView>
 	</View>
 </Alloy>

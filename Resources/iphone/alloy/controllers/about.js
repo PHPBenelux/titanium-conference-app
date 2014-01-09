@@ -71,28 +71,35 @@ function Controller() {
         title: "About"
     });
     $.__views.aboutWindow && $.addTopLevelView($.__views.aboutWindow);
-    $.__views.__alloyId0 = Ti.UI.createScrollView({
+    $.__views.aboutScroll = Ti.UI.createScrollView({
         width: Ti.UI.FILL,
         layout: "vertical",
         showVerticalScrollIndicator: true,
         scrollType: "vertical",
-        id: "__alloyId0"
+        contentWidth: "100%",
+        top: 5,
+        bottom: 5,
+        left: 5,
+        right: 5,
+        id: "aboutScroll"
     });
-    $.__views.aboutWindow.add($.__views.__alloyId0);
-    $.__views.__alloyId1 = Ti.UI.createLabel({
+    $.__views.aboutWindow.add($.__views.aboutScroll);
+    $.__views.__alloyId0 = Ti.UI.createLabel({
         width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
         color: "#469AE7",
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
         font: {
-            fontSize: 14,
+            fontSize: 18,
             fontStyle: "normal",
             fontWeight: "bold"
         },
+        top: 5,
+        bottom: 5,
         text: "About the Conference",
-        id: "__alloyId1"
+        id: "__alloyId0"
     });
-    $.__views.__alloyId0.add($.__views.__alloyId1);
+    $.__views.aboutScroll.add($.__views.__alloyId0);
     $.__views.aboutLabel = Ti.UI.createWebView({
         width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
@@ -102,62 +109,68 @@ function Controller() {
         },
         id: "aboutLabel"
     });
-    $.__views.__alloyId0.add($.__views.aboutLabel);
+    $.__views.aboutScroll.add($.__views.aboutLabel);
+    $.__views.__alloyId1 = Ti.UI.createLabel({
+        width: Ti.UI.FILL,
+        height: Ti.UI.SIZE,
+        color: "#469AE7",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        font: {
+            fontSize: 18,
+            fontStyle: "normal",
+            fontWeight: "bold"
+        },
+        top: 5,
+        bottom: 5,
+        text: "Sponsors",
+        id: "__alloyId1"
+    });
+    $.__views.aboutScroll.add($.__views.__alloyId1);
+    $.__views.sponsorsView = Ti.UI.createView({
+        height: Ti.UI.SIZE,
+        layout: "horizontal",
+        id: "sponsorsView"
+    });
+    $.__views.aboutScroll.add($.__views.sponsorsView);
     $.__views.__alloyId2 = Ti.UI.createLabel({
         width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
         color: "#469AE7",
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
         font: {
-            fontSize: 14,
+            fontSize: 18,
             fontStyle: "normal",
             fontWeight: "bold"
         },
-        text: "Sponsors",
+        top: 5,
+        bottom: 5,
+        text: "Crew",
         id: "__alloyId2"
     });
-    $.__views.__alloyId0.add($.__views.__alloyId2);
-    $.__views.sponsorsView = Ti.UI.createView({
+    $.__views.aboutScroll.add($.__views.__alloyId2);
+    $.__views.crewView = Ti.UI.createView({
         height: Ti.UI.SIZE,
         layout: "vertical",
-        id: "sponsorsView"
+        id: "crewView"
     });
-    $.__views.__alloyId0.add($.__views.sponsorsView);
+    $.__views.aboutScroll.add($.__views.crewView);
     $.__views.__alloyId3 = Ti.UI.createLabel({
         width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
         color: "#469AE7",
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
         font: {
-            fontSize: 14,
+            fontSize: 18,
             fontStyle: "normal",
             fontWeight: "bold"
         },
-        text: "Crew",
+        top: 5,
+        bottom: 5,
+        text: "About the app",
         id: "__alloyId3"
     });
-    $.__views.__alloyId0.add($.__views.__alloyId3);
-    $.__views.crewView = Ti.UI.createView({
-        height: Ti.UI.SIZE,
-        layout: "vertical",
-        id: "crewView"
-    });
-    $.__views.__alloyId0.add($.__views.crewView);
+    $.__views.aboutScroll.add($.__views.__alloyId3);
     $.__views.__alloyId4 = Ti.UI.createLabel({
-        width: Ti.UI.FILL,
-        height: Ti.UI.SIZE,
-        color: "#469AE7",
-        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
-        font: {
-            fontSize: 14,
-            fontStyle: "normal",
-            fontWeight: "bold"
-        },
-        text: "About the app",
-        id: "__alloyId4"
-    });
-    $.__views.__alloyId0.add($.__views.__alloyId4);
-    $.__views.__alloyId5 = Ti.UI.createLabel({
         width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
         color: "#000",
@@ -166,9 +179,9 @@ function Controller() {
             fontSize: 12
         },
         text: "This app has been created by Martin de Keijzer",
-        id: "__alloyId5"
+        id: "__alloyId4"
     });
-    $.__views.__alloyId0.add($.__views.__alloyId5);
+    $.__views.aboutScroll.add($.__views.__alloyId4);
     exports.destroy = function() {};
     _.extend($, $.__views);
     arguments[0] || {};

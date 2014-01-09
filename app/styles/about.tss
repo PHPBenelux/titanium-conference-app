@@ -1,6 +1,15 @@
+"#aboutScroll": {
+	width: Ti.UI.FILL,
+	contentWidth: '100%',
+	layout: 'vertical',
+	top: 5,
+	bottom: 5,
+	left: 5,
+	right: 5
+},
 "#sponsorsView": {
 	height: Ti.UI.SIZE,
-	layout: 'vertical'
+	layout: 'horizontal'
 }
 "#crewView": {
 	height: Ti.UI.SIZE,
@@ -8,4 +17,13 @@
 },
 "ImageView": {
 	borderRadius: 5
+},
+".header": {
+	top: 5,
+	bottom: 5,
+	font: {
+		fontSize: 18,
+		fontStyle: 'normal',
+		fontWeight: 'bold'
+	}
 }
