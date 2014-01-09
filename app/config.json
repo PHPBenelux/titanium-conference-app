@@ -1,7 +1,8 @@
 {
 	"global": {
 		"apiUrl": "http://conference.phpbenelux.eu/2014/api/",
-		"css": "<style>img { max-width:100% } html { font-family: \"Helvetica\"; font-size: 12px; } .liquid-video-wrapper{max-width:100%;} iframe{max-width:100%;}</style>"
+		"htmlPrepend": "<html><head><meta name=\"viewport\" content=\"width=device-width\" /></head><body>",
+		"htmlSuffix": "<style>img { max-width:100% } html { font-family: \"Helvetica\"; font-size: 12px; } .liquid-video-wrapper{max-width:100%;} iframe{max-width:100%;}</style><script>for(var c = document.getElementsByTagName(\"a\"), a = 0;a < c.length;a++) { var b = c[a]; b.getAttribute(\"href\") && b.hostname !== location.hostname && (b.target = \"_blank\") }</script></body></html>"
 	}, 
 	"env:development": {}, 
 	"env:test": {}, 

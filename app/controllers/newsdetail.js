@@ -5,5 +5,5 @@ function closeWindow(e) {
 }
 
 $.titleLabel.text = args.title;
-$.contentLabel.html = args.content + Alloy.CFG.css;
-$.postDateLabel.text = args.postDate;
+$.contentLabel.html = Alloy.CFG.htmlPrepend + args.content + Alloy.CFG.htmlSuffix;
+$.postDateLabel.text = "Posted on " + args.postDate;

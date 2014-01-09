@@ -5,8 +5,8 @@ function Controller() {
         httpClient.send();
         httpClient.onload = function() {
             var json = JSON.parse(this.responseText);
-            0 == json.length && ($.aboutLabel.html = "Text could not be updated" + Alloy.CFG.css);
-            $.aboutLabel.html = json.page.content + Alloy.CFG.css;
+            0 == json.length && ($.aboutLabel.html = Alloy.CFG.htmlPrepend + "Text could not be updated" + Alloy.CFG.htmlSuffix);
+            $.aboutLabel.html = Alloy.CFG.htmlPrepend + json.page.content + Alloy.CFG.htmlSuffix;
         };
     }
     function loadSponsors() {

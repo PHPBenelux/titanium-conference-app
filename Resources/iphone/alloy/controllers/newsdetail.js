@@ -29,10 +29,14 @@ function Controller() {
         color: "#469AE7",
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
         font: {
-            fontSize: 14,
+            fontSize: 18,
             fontStyle: "normal",
             fontWeight: "bold"
         },
+        top: 5,
+        bottom: 5,
+        left: 5,
+        right: 5,
         id: "titleLabel"
     });
     $.__views.detailScrollView.add($.__views.titleLabel);
@@ -44,6 +48,10 @@ function Controller() {
         font: {
             fontSize: 10
         },
+        top: 5,
+        bottom: 5,
+        left: 5,
+        right: 5,
         id: "postDateLabel"
     });
     $.__views.detailScrollView.add($.__views.postDateLabel);
@@ -61,8 +69,8 @@ function Controller() {
     _.extend($, $.__views);
     var args = arguments[0] || {};
     $.titleLabel.text = args.title;
-    $.contentLabel.html = args.content + Alloy.CFG.css;
-    $.postDateLabel.text = args.postDate;
+    $.contentLabel.html = Alloy.CFG.htmlPrepend + args.content + Alloy.CFG.htmlSuffix;
+    $.postDateLabel.text = "Posted on " + args.postDate;
     _.extend($, exports);
 }
 
