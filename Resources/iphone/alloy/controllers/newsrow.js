@@ -24,6 +24,8 @@ function Controller() {
         width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
         color: "#469AE7",
+        top: 5,
+        bottom: 5,
         left: "30px",
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
         font: {
@@ -38,6 +40,8 @@ function Controller() {
         width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
         color: "#000",
+        top: 5,
+        bottom: 5,
         left: "30px",
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
         font: {

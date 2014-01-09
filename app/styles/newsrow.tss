@@ -21,4 +21,8 @@
 },
 "TableViewRow": {
 	hasChild: true
+},
+"Label": {
+	top: 5,
+	bottom: 5
 }
