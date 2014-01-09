@@ -1,7 +1,4 @@
 function Controller() {
-    function closeWindow() {
-        $.newsWindow.close();
-    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "news";
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
@@ -9,7 +6,6 @@ function Controller() {
     arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
-    var __defers = {};
     $.__views.newsWindow = Ti.UI.createWindow({
         fullscreen: true,
         backgroundColor: "white",
@@ -25,6 +21,8 @@ function Controller() {
     exports.destroy = function() {};
     _.extend($, $.__views);
     arguments[0] || {};
+    var moment = require("alloy/moment");
+    Alloy.createCollection("news");
     var data = [];
     var httpClient = Ti.Network.createHTTPClient({
         onerror: function(e) {
@@ -39,18 +37,15 @@ function Controller() {
         0 == json.length && ($.table.headerTitle = "No data");
         var news = json.posts;
         for (var i = 0, iLen = news.length; iLen > i; i++) {
-            Ti.API.info(news[i].title);
-            Ti.API.info(news[i].content);
-            Ti.API.info(news[i].modified);
+            var postDate = moment(news[i].date);
             data.push(Alloy.createController("newsrow", {
                 title: news[i].title,
                 content: news[i].content,
-                postDate: news[i].modified
+                postDate: postDate.format("DD MMM YYYY, HH:mm")
             }).getView());
         }
         $.table.setData(data);
     };
-    __defers["$.__views.backButton!click!closeWindow"] && $.__views.backButton.addEventListener("click", closeWindow);
     _.extend($, exports);
 }
 

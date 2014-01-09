@@ -1,7 +1,9 @@
 function Controller() {
     function openDetail() {
         var newsDetailWin = Alloy.createController("newsdetail", args).getView();
-        Alloy.Globals.navWindow.openWindow(newsDetailWin, {
+        Alloy.Globals.navWindow ? Alloy.Globals.navWindow.openWindow(newsDetailWin, {
+            animated: true
+        }) : newsDetailWin.open({
             animated: true
         });
     }

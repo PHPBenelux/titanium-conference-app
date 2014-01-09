@@ -1,15 +1,12 @@
 function Controller() {
-    function closeWindow() {
-        $.aboutWindow.close();
-    }
     function loadAbout() {
         var httpClient = Ti.Network.createHTTPClient(httpClientDefaults);
         httpClient.open("GET", Alloy.CFG.apiUrl + "get_page/?slug=about");
         httpClient.send();
         httpClient.onload = function() {
             var json = JSON.parse(this.responseText);
-            0 == json.length && ($.aboutLabel.html = "Text could not be updated");
-            $.aboutLabel.html = json.page.content;
+            0 == json.length && ($.aboutLabel.html = Alloy.CFG.htmlPrepend + "Text could not be updated" + Alloy.CFG.htmlSuffix);
+            $.aboutLabel.html = Alloy.CFG.htmlPrepend + json.page.content + Alloy.CFG.htmlSuffix;
         };
     }
     function loadSponsors() {
@@ -20,16 +17,19 @@ function Controller() {
             var json = JSON.parse(this.responseText);
             if (0 == json.length) {
                 noDataLbl = Ti.UI.createLabel({
-                    text: "No sponsor data available"
+                    text: "No sponsor data available",
+                    height: Ti.UI.Size
                 });
                 $.sponsorsView.add(noDataLbl);
             }
             var sponsors = json.posts;
-            for (var i = 0, iLen = sponsors.length; iLen > i; i++) var sponsorBlock = Alloy.createController("sponsorblock", {
-                name: sponsors[i].post_title,
-                logo: sponsors[i].logo
-            }).getView();
-            $.sponsorsView.add(sponsorBlock);
+            for (var i = 0, iLen = sponsors.length; iLen > i; i++) {
+                var sponsorBlock = Alloy.createController("sponsorblock", {
+                    name: sponsors[i].post_title,
+                    logo: sponsors[i].logo
+                }).getView();
+                $.sponsorsView.add(sponsorBlock);
+            }
         };
     }
     function loadCrew() {
@@ -40,17 +40,20 @@ function Controller() {
             var json = JSON.parse(this.responseText);
             if (0 == json.length) {
                 noDataLbl = Ti.UI.createLabel({
-                    text: "No crew data available"
+                    text: "No crew data available",
+                    height: Ti.UI.Size
                 });
                 $.crewView.add(noDataLbl);
             }
             var crew = json.posts;
-            for (var i = 0, iLen = crew.length; iLen > i; i++) var crewBlock = Alloy.createController("crewblock", {
-                name: crew[i].post_title,
-                content: crew[i].post_content,
-                picture: crew[i].picture
-            }).getView();
-            $.crewView.add(crewBlock);
+            for (var i = 0, iLen = crew.length; iLen > i; i++) {
+                var crewBlock = Alloy.createController("crewblock", {
+                    name: crew[i].post_title,
+                    content: crew[i].post_content,
+                    picture: crew[i].picture
+                }).getView();
+                $.crewView.add(crewBlock);
+            }
         };
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
@@ -60,7 +63,6 @@ function Controller() {
     arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
-    var __defers = {};
     $.__views.aboutWindow = Ti.UI.createWindow({
         fullscreen: true,
         backgroundColor: "white",
@@ -69,74 +71,117 @@ function Controller() {
         title: "About"
     });
     $.__views.aboutWindow && $.addTopLevelView($.__views.aboutWindow);
-    $.__views.__alloyId3 = Ti.UI.createScrollView({
-        id: "__alloyId3"
+    $.__views.aboutScroll = Ti.UI.createScrollView({
+        width: Ti.UI.FILL,
+        layout: "vertical",
+        showVerticalScrollIndicator: true,
+        scrollType: "vertical",
+        contentWidth: "100%",
+        top: 5,
+        bottom: 5,
+        left: 5,
+        right: 5,
+        id: "aboutScroll"
     });
-    $.__views.aboutWindow.add($.__views.__alloyId3);
-    $.__views.__alloyId4 = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
+    $.__views.aboutWindow.add($.__views.aboutScroll);
+    $.__views.__alloyId0 = Ti.UI.createLabel({
+        width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
-        color: "#000",
-        fontSize: 12,
-        fontWeight: "bold",
+        color: "#469AE7",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        font: {
+            fontSize: 18,
+            fontStyle: "normal",
+            fontWeight: "bold"
+        },
+        top: 5,
+        bottom: 5,
         text: "About the Conference",
-        id: "__alloyId4"
+        id: "__alloyId0"
     });
-    $.__views.__alloyId3.add($.__views.__alloyId4);
+    $.__views.aboutScroll.add($.__views.__alloyId0);
     $.__views.aboutLabel = Ti.UI.createWebView({
-        fontSize: 10,
+        width: Ti.UI.FILL,
+        height: Ti.UI.SIZE,
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        font: {
+            fontSize: 12
+        },
         id: "aboutLabel"
     });
-    $.__views.__alloyId3.add($.__views.aboutLabel);
-    $.__views.__alloyId5 = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
+    $.__views.aboutScroll.add($.__views.aboutLabel);
+    $.__views.__alloyId1 = Ti.UI.createLabel({
+        width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
-        color: "#000",
-        fontSize: 12,
-        fontWeight: "bold",
+        color: "#469AE7",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        font: {
+            fontSize: 18,
+            fontStyle: "normal",
+            fontWeight: "bold"
+        },
+        top: 5,
+        bottom: 5,
         text: "Sponsors",
-        id: "__alloyId5"
+        id: "__alloyId1"
     });
-    $.__views.__alloyId3.add($.__views.__alloyId5);
+    $.__views.aboutScroll.add($.__views.__alloyId1);
     $.__views.sponsorsView = Ti.UI.createView({
-        id: "sponsorsView",
-        layout: "vertical"
-    });
-    $.__views.__alloyId3.add($.__views.sponsorsView);
-    $.__views.__alloyId6 = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
-        color: "#000",
-        fontSize: 12,
-        fontWeight: "bold",
+        layout: "horizontal",
+        id: "sponsorsView"
+    });
+    $.__views.aboutScroll.add($.__views.sponsorsView);
+    $.__views.__alloyId2 = Ti.UI.createLabel({
+        width: Ti.UI.FILL,
+        height: Ti.UI.SIZE,
+        color: "#469AE7",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        font: {
+            fontSize: 18,
+            fontStyle: "normal",
+            fontWeight: "bold"
+        },
+        top: 5,
+        bottom: 5,
         text: "Crew",
-        id: "__alloyId6"
+        id: "__alloyId2"
     });
-    $.__views.__alloyId3.add($.__views.__alloyId6);
+    $.__views.aboutScroll.add($.__views.__alloyId2);
     $.__views.crewView = Ti.UI.createView({
-        id: "crewView",
-        layout: "vertical"
-    });
-    $.__views.__alloyId3.add($.__views.crewView);
-    $.__views.__alloyId7 = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
-        color: "#000",
-        fontSize: 12,
-        fontWeight: "bold",
+        layout: "vertical",
+        id: "crewView"
+    });
+    $.__views.aboutScroll.add($.__views.crewView);
+    $.__views.__alloyId3 = Ti.UI.createLabel({
+        width: Ti.UI.FILL,
+        height: Ti.UI.SIZE,
+        color: "#469AE7",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        font: {
+            fontSize: 18,
+            fontStyle: "normal",
+            fontWeight: "bold"
+        },
+        top: 5,
+        bottom: 5,
         text: "About the app",
-        id: "__alloyId7"
+        id: "__alloyId3"
     });
-    $.__views.__alloyId3.add($.__views.__alloyId7);
-    $.__views.__alloyId8 = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
+    $.__views.aboutScroll.add($.__views.__alloyId3);
+    $.__views.__alloyId4 = Ti.UI.createLabel({
+        width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
         color: "#000",
-        fontSize: 10,
-        text: "This app has been created by Martin de Keijzer",
-        id: "__alloyId8"
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        font: {
+            fontSize: 12
+        },
+        text: "This app has been created by Martin de Keijzer, and is open sourced on http://github.com/PHPBenelux/titanium-conference-app",
+        id: "__alloyId4"
     });
-    $.__views.__alloyId3.add($.__views.__alloyId8);
+    $.__views.aboutScroll.add($.__views.__alloyId4);
     exports.destroy = function() {};
     _.extend($, $.__views);
     arguments[0] || {};
@@ -149,7 +194,6 @@ function Controller() {
     loadAbout();
     loadCrew();
     loadSponsors();
-    __defers["$.__views.backButton!click!closeWindow"] && $.__views.backButton.addEventListener("click", closeWindow);
     _.extend($, exports);
 }
 

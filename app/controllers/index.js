@@ -1,17 +1,27 @@
+function openNewWindow(viewName) {
+	var newWin = Alloy.createController(viewName).getView();
+	if ($.navWindow) {
+		$.navWindow.openWindow(newWin, { animated:true });
+	} else {
+		newWin.open({animated: true});	
+	}
+}
+
 function openNews(e) {
-	var newsWin = Alloy.createController('news').getView();
-	$.navWindow.openWindow(newsWin, { animated:true });
+	openNewWindow('news');
 }
 
 function openSchedule(e) {
-	var scheduleWin = Alloy.createController('schedule').getView();
-	$.navWindow.openWindow(scheduleWin, { animated:true });
+	openNewWindow('schedule');
 }
 
 function openAbout(e) {
-	var aboutWin = Alloy.createController('about').getView();
-	$.navWindow.openWindow(aboutWin, { animated:true });
+	openNewWindow('about');
 }
 
-$.navWindow.open();
-Alloy.Globals.navWindow = $.navWindow;
+if ($.navWindow) {
+	$.navWindow.open();
+	Alloy.Globals.navWindow = $.navWindow;
+} else {
+	$.indexWindow.open();
+}

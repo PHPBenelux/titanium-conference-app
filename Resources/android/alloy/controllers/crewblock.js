@@ -8,22 +8,38 @@ function Controller() {
     var exports = {};
     $.__views.crewblock = Ti.UI.createView({
         backgroundColor: "white",
+        height: Ti.UI.SIZE,
         layout: "vertical",
         id: "crewblock"
     });
     $.__views.crewblock && $.addTopLevelView($.__views.crewblock);
     $.__views.nameLabel = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
+        width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
-        color: "#000",
+        color: "#469AE7",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        font: {
+            fontSize: 16,
+            fontStyle: "normal",
+            fontWeight: "bold"
+        },
+        top: 5,
+        bottom: 5,
         id: "nameLabel"
     });
     $.__views.crewblock.add($.__views.nameLabel);
     $.__views.pictureImage = Ti.UI.createImageView({
+        borderRadius: 5,
         id: "pictureImage"
     });
     $.__views.crewblock.add($.__views.pictureImage);
     $.__views.contentLabel = Ti.UI.createWebView({
+        width: Ti.UI.FILL,
+        height: Ti.UI.SIZE,
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        font: {
+            fontSize: 12
+        },
         id: "contentLabel"
     });
     $.__views.crewblock.add($.__views.contentLabel);
@@ -32,7 +48,7 @@ function Controller() {
     var args = arguments[0] || {};
     $.pictureImage.image = args.picture;
     $.nameLabel.text = args.name;
-    $.contentLabel.html = args.content;
+    $.contentLabel.html = Alloy.CFG.htmlPrepend + args.content + Alloy.CFG.htmlSuffix;
     _.extend($, exports);
 }
 

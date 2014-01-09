@@ -1,15 +1,20 @@
 function Controller() {
+    function openNewWindow(viewName) {
+        var newWin = Alloy.createController(viewName).getView();
+        $.navWindow ? $.navWindow.openWindow(newWin, {
+            animated: true
+        }) : newWin.open({
+            animated: true
+        });
+    }
     function openNews() {
-        var newsWin = Alloy.createController("news").getView();
-        newsWin.open();
+        openNewWindow("news");
     }
     function openSchedule() {
-        var scheduleWin = Alloy.createController("schedule").getView();
-        scheduleWin.open();
+        openNewWindow("schedule");
     }
     function openAbout() {
-        var aboutWin = Alloy.createController("about").getView();
-        aboutWin.open();
+        openNewWindow("about");
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "index";
@@ -19,52 +24,60 @@ function Controller() {
     var $ = this;
     var exports = {};
     var __defers = {};
-    $.__views.index = Ti.UI.createWindow({
+    $.__views.indexWindow = Ti.UI.createWindow({
         fullscreen: true,
         backgroundColor: "white",
         layout: "vertical",
-        title: "PHPBenelux Conference 2014",
-        id: "index"
+        id: "indexWindow",
+        title: "PHPBenelux Conference 2014"
     });
-    $.__views.index && $.addTopLevelView($.__views.index);
-    $.__views.__alloyId9 = Ti.UI.createView({
+    $.__views.indexWindow && $.addTopLevelView($.__views.indexWindow);
+    $.__views.indexView = Ti.UI.createView({
         layout: "vertical",
-        id: "__alloyId9"
+        top: 40,
+        id: "indexView"
     });
-    $.__views.index.add($.__views.__alloyId9);
-    $.__views.__alloyId10 = Ti.UI.createImageView({
-        image: "http://conference.phpbenelux.eu/2014/wp-content/uploads/2013/08/phpbenelux_conference_logo-2014-e1377030913837.png",
-        id: "__alloyId10"
+    $.__views.indexWindow.add($.__views.indexView);
+    $.__views.logoImage = Ti.UI.createImageView({
+        top: 10,
+        id: "logoImage",
+        image: "/images/phpbenelux_conference_logo-2014.png"
     });
-    $.__views.__alloyId9.add($.__views.__alloyId10);
-    $.__views.__alloyId11 = Ti.UI.createView({
-        layout: "horizontal",
+    $.__views.indexView.add($.__views.logoImage);
+    $.__views.__alloyId5 = Ti.UI.createView({
+        top: 40,
+        layout: "composite",
         height: Ti.UI.SIZE,
-        width: Ti.UI.SIZE,
-        id: "__alloyId11"
+        width: Ti.UI.FILL,
+        id: "__alloyId5"
     });
-    $.__views.__alloyId9.add($.__views.__alloyId11);
+    $.__views.indexView.add($.__views.__alloyId5);
     $.__views.news = Ti.UI.createButton({
+        left: 30,
         title: "News",
         id: "news"
     });
-    $.__views.__alloyId11.add($.__views.news);
+    $.__views.__alloyId5.add($.__views.news);
     openNews ? $.__views.news.addEventListener("click", openNews) : __defers["$.__views.news!click!openNews"] = true;
     $.__views.schedule = Ti.UI.createButton({
         title: "Schedule",
         id: "schedule"
     });
-    $.__views.__alloyId11.add($.__views.schedule);
+    $.__views.__alloyId5.add($.__views.schedule);
     openSchedule ? $.__views.schedule.addEventListener("click", openSchedule) : __defers["$.__views.schedule!click!openSchedule"] = true;
     $.__views.about = Ti.UI.createButton({
+        right: 30,
         title: "About",
         id: "about"
     });
-    $.__views.__alloyId11.add($.__views.about);
+    $.__views.__alloyId5.add($.__views.about);
     openAbout ? $.__views.about.addEventListener("click", openAbout) : __defers["$.__views.about!click!openAbout"] = true;
     exports.destroy = function() {};
     _.extend($, $.__views);
-    $.index.open();
+    if ($.navWindow) {
+        $.navWindow.open();
+        Alloy.Globals.navWindow = $.navWindow;
+    } else $.indexWindow.open();
     __defers["$.__views.news!click!openNews"] && $.__views.news.addEventListener("click", openNews);
     __defers["$.__views.schedule!click!openSchedule"] && $.__views.schedule.addEventListener("click", openSchedule);
     __defers["$.__views.about!click!openAbout"] && $.__views.about.addEventListener("click", openAbout);

@@ -178,7 +178,7 @@ function Controller() {
         font: {
             fontSize: 12
         },
-        text: "This app has been created by Martin de Keijzer",
+        text: "This app has been created by Martin de Keijzer, and is open sourced on http://github.com/PHPBenelux/titanium-conference-app",
         id: "__alloyId4"
     });
     $.__views.aboutScroll.add($.__views.__alloyId4);

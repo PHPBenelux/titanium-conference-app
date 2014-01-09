@@ -1,7 +1,9 @@
 function Controller() {
     function openDetail() {
         var scheduleDetailWin = Alloy.createController("scheduledetail", args).getView();
-        Alloy.Globals.navWindow.openWindow(scheduleDetailWin, {
+        Alloy.Globals.navWindow ? Alloy.Globals.navWindow.openWindow(scheduleDetailWin, {
+            animated: true
+        }) : scheduleDetailWin.open({
             animated: true
         });
     }
