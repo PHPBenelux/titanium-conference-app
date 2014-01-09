@@ -1,7 +1,12 @@
 "NavigationWindow": {
 	orientationModes: [Ti.UI.PORTRAIT, Ti.UI.UPSIDE_PORTRAIT]
 },
+"#indexView": {
+	 layout: "vertical",
+	 top: 40
+},
 ".buttonbar": {
+	top: 40,
     layout: 'composite',
     height: Ti.UI.SIZE,
     width: Ti.UI.FILL

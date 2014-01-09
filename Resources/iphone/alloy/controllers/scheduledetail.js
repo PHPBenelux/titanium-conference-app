@@ -14,15 +14,15 @@ function Controller() {
         title: "Schedule item"
     });
     $.__views.scheduleDetailWindow && $.addTopLevelView($.__views.scheduleDetailWindow);
-    $.__views.__alloyId9 = Ti.UI.createScrollView({
+    $.__views.__alloyId8 = Ti.UI.createScrollView({
         width: Ti.UI.FILL,
         layout: "vertical",
         showVerticalScrollIndicator: true,
         scrollType: "vertical",
         contentWidth: "100%",
-        id: "__alloyId9"
+        id: "__alloyId8"
     });
-    $.__views.scheduleDetailWindow.add($.__views.__alloyId9);
+    $.__views.scheduleDetailWindow.add($.__views.__alloyId8);
     $.__views.titleLabel = Ti.UI.createLabel({
         width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
@@ -36,7 +36,7 @@ function Controller() {
         text: "Title",
         id: "titleLabel"
     });
-    $.__views.__alloyId9.add($.__views.titleLabel);
+    $.__views.__alloyId8.add($.__views.titleLabel);
     $.__views.descriptionLabel = Ti.UI.createLabel({
         width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
@@ -47,7 +47,7 @@ function Controller() {
         },
         id: "descriptionLabel"
     });
-    $.__views.__alloyId9.add($.__views.descriptionLabel);
+    $.__views.__alloyId8.add($.__views.descriptionLabel);
     $.__views.nameLabel = Ti.UI.createLabel({
         width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
@@ -61,12 +61,12 @@ function Controller() {
         text: "Speaker",
         id: "nameLabel"
     });
-    $.__views.__alloyId9.add($.__views.nameLabel);
+    $.__views.__alloyId8.add($.__views.nameLabel);
     $.__views.pictureView = Ti.UI.createImageView({
         borderRadius: 5,
         id: "pictureView"
     });
-    $.__views.__alloyId9.add($.__views.pictureView);
+    $.__views.__alloyId8.add($.__views.pictureView);
     $.__views.bioLabel = Ti.UI.createLabel({
         width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
@@ -77,8 +77,8 @@ function Controller() {
         },
         id: "bioLabel"
     });
-    $.__views.__alloyId9.add($.__views.bioLabel);
-    $.__views.__alloyId10 = Ti.UI.createView({
+    $.__views.__alloyId8.add($.__views.bioLabel);
+    $.__views.__alloyId9 = Ti.UI.createView({
         top: 5,
         height: Ti.UI.SIZE,
         width: 200,
@@ -87,19 +87,19 @@ function Controller() {
         borderColor: "#232733",
         borderWidth: 2,
         borderRadius: 3,
-        id: "__alloyId10"
+        id: "__alloyId9"
     });
-    $.__views.__alloyId9.add($.__views.__alloyId10);
-    $.__views.__alloyId11 = Ti.UI.createView({
+    $.__views.__alloyId8.add($.__views.__alloyId9);
+    $.__views.__alloyId10 = Ti.UI.createView({
         layout: "horizontal",
         height: Ti.UI.SIZE,
         left: 10,
         top: 5,
         bottom: 5,
-        id: "__alloyId11"
+        id: "__alloyId10"
     });
-    $.__views.__alloyId10.add($.__views.__alloyId11);
-    $.__views.__alloyId12 = Ti.UI.createLabel({
+    $.__views.__alloyId9.add($.__views.__alloyId10);
+    $.__views.__alloyId11 = Ti.UI.createLabel({
         width: 100,
         height: Ti.UI.SIZE,
         color: "#000",
@@ -109,9 +109,9 @@ function Controller() {
             fontWeight: "bold"
         },
         text: "Date / Time:",
-        id: "__alloyId12"
+        id: "__alloyId11"
     });
-    $.__views.__alloyId11.add($.__views.__alloyId12);
+    $.__views.__alloyId10.add($.__views.__alloyId11);
     $.__views.dateLabel = Ti.UI.createLabel({
         width: 150,
         height: Ti.UI.SIZE,
@@ -125,17 +125,17 @@ function Controller() {
         text: "Date / Time",
         id: "dateLabel"
     });
-    $.__views.__alloyId11.add($.__views.dateLabel);
-    $.__views.__alloyId13 = Ti.UI.createView({
+    $.__views.__alloyId10.add($.__views.dateLabel);
+    $.__views.__alloyId12 = Ti.UI.createView({
         layout: "horizontal",
         height: Ti.UI.SIZE,
         left: 10,
         top: 5,
         bottom: 5,
-        id: "__alloyId13"
+        id: "__alloyId12"
     });
-    $.__views.__alloyId10.add($.__views.__alloyId13);
-    $.__views.__alloyId14 = Ti.UI.createLabel({
+    $.__views.__alloyId9.add($.__views.__alloyId12);
+    $.__views.__alloyId13 = Ti.UI.createLabel({
         width: 100,
         height: Ti.UI.SIZE,
         color: "#000",
@@ -145,9 +145,9 @@ function Controller() {
             fontWeight: "bold"
         },
         text: "Room:",
-        id: "__alloyId14"
+        id: "__alloyId13"
     });
-    $.__views.__alloyId13.add($.__views.__alloyId14);
+    $.__views.__alloyId12.add($.__views.__alloyId13);
     $.__views.roomLabel = Ti.UI.createLabel({
         width: 150,
         height: Ti.UI.SIZE,
@@ -161,17 +161,17 @@ function Controller() {
         text: "Room",
         id: "roomLabel"
     });
-    $.__views.__alloyId13.add($.__views.roomLabel);
-    $.__views.__alloyId15 = Ti.UI.createView({
+    $.__views.__alloyId12.add($.__views.roomLabel);
+    $.__views.__alloyId14 = Ti.UI.createView({
         layout: "horizontal",
         height: Ti.UI.SIZE,
         left: 10,
         top: 5,
         bottom: 5,
-        id: "__alloyId15"
+        id: "__alloyId14"
     });
-    $.__views.__alloyId10.add($.__views.__alloyId15);
-    $.__views.__alloyId16 = Ti.UI.createLabel({
+    $.__views.__alloyId9.add($.__views.__alloyId14);
+    $.__views.__alloyId15 = Ti.UI.createLabel({
         width: 100,
         height: Ti.UI.SIZE,
         color: "#000",
@@ -181,9 +181,9 @@ function Controller() {
             fontWeight: "bold"
         },
         text: "Level:",
-        id: "__alloyId16"
+        id: "__alloyId15"
     });
-    $.__views.__alloyId15.add($.__views.__alloyId16);
+    $.__views.__alloyId14.add($.__views.__alloyId15);
     $.__views.levelLabel = Ti.UI.createLabel({
         width: 150,
         height: Ti.UI.SIZE,
@@ -197,17 +197,17 @@ function Controller() {
         text: "Level",
         id: "levelLabel"
     });
-    $.__views.__alloyId15.add($.__views.levelLabel);
-    $.__views.__alloyId17 = Ti.UI.createView({
+    $.__views.__alloyId14.add($.__views.levelLabel);
+    $.__views.__alloyId16 = Ti.UI.createView({
         layout: "horizontal",
         height: Ti.UI.SIZE,
         left: 10,
         top: 5,
         bottom: 5,
-        id: "__alloyId17"
+        id: "__alloyId16"
     });
-    $.__views.__alloyId10.add($.__views.__alloyId17);
-    $.__views.__alloyId18 = Ti.UI.createLabel({
+    $.__views.__alloyId9.add($.__views.__alloyId16);
+    $.__views.__alloyId17 = Ti.UI.createLabel({
         width: 100,
         height: Ti.UI.SIZE,
         color: "#000",
@@ -217,9 +217,9 @@ function Controller() {
             fontWeight: "bold"
         },
         text: "Session Type:",
-        id: "__alloyId18"
+        id: "__alloyId17"
     });
-    $.__views.__alloyId17.add($.__views.__alloyId18);
+    $.__views.__alloyId16.add($.__views.__alloyId17);
     $.__views.typeLabel = Ti.UI.createLabel({
         width: 150,
         height: Ti.UI.SIZE,
@@ -233,7 +233,7 @@ function Controller() {
         text: "Session type",
         id: "typeLabel"
     });
-    $.__views.__alloyId17.add($.__views.typeLabel);
+    $.__views.__alloyId16.add($.__views.typeLabel);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = arguments[0] || {};
