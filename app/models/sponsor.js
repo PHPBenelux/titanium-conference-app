@@ -6,9 +6,18 @@ exports.definition = {
 		    "post_content": "string",
 		    "logo": "string"
 		},
+		URL: 'http://conference.phpbenelux.eu/2014/api/phpbenelux/sponsors',
+		debug: 0,
+		useStrictValidation: 0,
+		parentNode: "posts",
 		adapter: {
-			type: "sql",
-			collection_name: "sponsor"
+			idAttribute: "ID",
+			type: "sqlrest",
+			collection_name: "sponsor",
+
+            // optimise the amount of data transfer from remote server to app
+            "addModifedToUrl": true,
+            "lastModifiedColumn": "modified"
 		}
 	},
 	extendModel: function(Model) {
