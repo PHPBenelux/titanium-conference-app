@@ -30,6 +30,7 @@ function Controller() {
     _.extend($, $.__views);
     arguments[0] || {};
     var moment = require("alloy/moment");
+    var decoder = require("entitydecoder");
     var httpClient = Ti.Network.createHTTPClient({
         onerror: function(e) {
             Ti.API.debug(e.error);
@@ -53,7 +54,7 @@ function Controller() {
             var timestampKey = moment(schedule[i].timestamp_start).format("X");
             sectionSchedule[timestampKey] || (sectionSchedule[timestampKey] = []);
             sectionSchedule[timestampKey].push(Alloy.createController("schedulerow", {
-                title: schedule[i].title,
+                title: decoder.decode(schedule[i].title),
                 content: schedule[i].content,
                 speaker: schedule[i].speaker[0].post_title,
                 bio: schedule[i].speaker[0].post_content,

@@ -68,9 +68,11 @@ function Controller() {
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = arguments[0] || {};
-    $.titleLabel.text = args.title;
+    var moment = require("alloy/moment");
+    var decoder = require("entitydecoder");
+    $.titleLabel.text = decoder.decode(args.title);
     $.contentLabel.html = Alloy.CFG.htmlPrepend + args.content + Alloy.CFG.htmlSuffix;
-    $.postDateLabel.text = "Posted on " + args.postDate;
+    $.postDateLabel.text = "Posted on " + moment(args.postDate).format("DD MMM YYYY, HH:mm");
     _.extend($, exports);
 }
 

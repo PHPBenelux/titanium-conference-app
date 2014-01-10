@@ -6,8 +6,13 @@ exports.definition = {
             post_content: "string",
             picture: "string"
         },
+        URL: "http://conference.phpbenelux.eu/2014/api/phpbenelux/crew",
+        debug: 0,
+        useStrictValidation: 0,
+        parentNode: "posts",
         adapter: {
-            type: "sql",
+            idAttribute: "ID",
+            type: "sqlrest",
             collection_name: "crew"
         }
     },

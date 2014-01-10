@@ -3,8 +3,11 @@
 	<Collection src="crew" />
 	<Window id="aboutWindow" title="About" class="container">
         <ScrollView id="aboutScroll">
+        	<ImageView id="logoImage" image="/images/phpbenelux_conference_logo-2014.png"></ImageView>
 			<Label class="header">About the Conference</Label>
-			<WebView id="aboutLabel" class="content"></WebView>
+			<Label class="content">PHPBenelux is a non-profit usergroup for PHP developers in the Benelux and surrounding area. We organise monthly user group meetings, theme events and an annual conference.</Label>
+			<Label class="content">The conference and tutorials will take place at Hotel Ter Elst in Antwerp (Belgium). Friday morning January 24th we have a set of tutorials. The conference is spread over 2 days: Friday afternoon (after the tutorials) and Saturday. Tutorials as well as the conference itself are spread over several parallel tracks.</Label>
+			<Label class="content">On Friday and saturday evening, we’re having the conference social. This will include drinks and all the cool side activities. </Label>
 			
 			<Label class="header">Sponsors</Label>
 			<View id="sponsorsView"></View>

@@ -10,20 +10,6 @@ function closeWindow(e) {
     $.aboutWindow.closeWindow();
 }
 
-function loadAbout() {
-	var httpClient = Ti.Network.createHTTPClient(httpClientDefaults);	
-	httpClient.open('GET', Alloy.CFG.apiUrl + 'get_page/?slug=about');
-	httpClient.send();
-	httpClient.onload = function() {
-		var json = JSON.parse(this.responseText);
-		if (json.length == 0) {
-			$.aboutLabel.html = Alloy.CFG.htmlPrepend + "Text could not be updated" + Alloy.CFG.htmlSuffix;
-		}
-		
-		$.aboutLabel.html = Alloy.CFG.htmlPrepend + json.page.content + Alloy.CFG.htmlSuffix;
-	};	
-}
-
 function loadSponsors(collection, response, options) {		
 	var sponsors = collection.toJSON();
 	for (var i = 0, iLen = sponsors.length; i < iLen; i++) {
@@ -47,8 +33,5 @@ function loadCrew(collection, response, options) {
         $.crewView.add(crewBlock);
 	}
 }
-
-loadAbout();
-
 Alloy.Collections.sponsor.fetch({ success: loadSponsors });
 Alloy.Collections.crew.fetch({ success: loadCrew });

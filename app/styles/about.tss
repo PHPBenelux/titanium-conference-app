@@ -7,6 +7,14 @@
 	left: 5,
 	right: 5
 },
+"#logoImage": {
+	top: 5,
+	left: 5,
+	right: 5,
+	bottom: 5,
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE
+},
 "#sponsorsView": {
 	height: Ti.UI.SIZE,
 	layout: 'horizontal'

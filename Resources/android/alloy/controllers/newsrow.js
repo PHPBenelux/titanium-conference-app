@@ -1,27 +1,18 @@
 function Controller() {
-    function openDetail() {
-        var newsDetailWin = Alloy.createController("newsdetail", args).getView();
-        Alloy.Globals.navWindow ? Alloy.Globals.navWindow.openWindow(newsDetailWin, {
-            animated: true
-        }) : newsDetailWin.open({
-            animated: true
-        });
-    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "newsrow";
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
+    var $model = arguments[0] ? arguments[0]["$model"] : null;
     arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
-    var __defers = {};
     $.__views.newsrow = Ti.UI.createTableViewRow({
         hasChild: true,
         layout: "vertical",
+        model: "undefined" != typeof $model.__transform["id"] ? $model.__transform["id"] : $model.get("id"),
         id: "newsrow"
     });
     $.__views.newsrow && $.addTopLevelView($.__views.newsrow);
-    openDetail ? $.__views.newsrow.addEventListener("click", openDetail) : __defers["$.__views.newsrow!click!openDetail"] = true;
     $.__views.titleLabel = Ti.UI.createLabel({
         width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
@@ -35,7 +26,8 @@ function Controller() {
             fontStyle: "normal",
             fontWeight: "bold"
         },
-        id: "titleLabel"
+        id: "titleLabel",
+        text: "undefined" != typeof $model.__transform["title"] ? $model.__transform["title"] : $model.get("title")
     });
     $.__views.newsrow.add($.__views.titleLabel);
     $.__views.postDateLabel = Ti.UI.createLabel({
@@ -51,15 +43,13 @@ function Controller() {
             fontStyle: "normal",
             fontWeight: "normal"
         },
-        id: "postDateLabel"
+        id: "postDateLabel",
+        text: "undefined" != typeof $model.__transform["date"] ? $model.__transform["date"] : $model.get("date")
     });
     $.__views.newsrow.add($.__views.postDateLabel);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var args = arguments[0] || {};
-    $.titleLabel.text = Ti.Network.decodeURIComponent(args.title);
-    $.postDateLabel.text = args.postDate;
-    __defers["$.__views.newsrow!click!openDetail"] && $.__views.newsrow.addEventListener("click", openDetail);
+    arguments[0] || {};
     _.extend($, exports);
 }
 

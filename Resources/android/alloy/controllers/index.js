@@ -44,33 +44,33 @@ function Controller() {
         image: "/images/phpbenelux_conference_logo-2014.png"
     });
     $.__views.indexView.add($.__views.logoImage);
-    $.__views.__alloyId5 = Ti.UI.createView({
+    $.__views.__alloyId12 = Ti.UI.createView({
         top: 40,
         layout: "composite",
         height: Ti.UI.SIZE,
         width: Ti.UI.FILL,
-        id: "__alloyId5"
+        id: "__alloyId12"
     });
-    $.__views.indexView.add($.__views.__alloyId5);
+    $.__views.indexView.add($.__views.__alloyId12);
     $.__views.news = Ti.UI.createButton({
         left: 30,
         title: "News",
         id: "news"
     });
-    $.__views.__alloyId5.add($.__views.news);
+    $.__views.__alloyId12.add($.__views.news);
     openNews ? $.__views.news.addEventListener("click", openNews) : __defers["$.__views.news!click!openNews"] = true;
     $.__views.schedule = Ti.UI.createButton({
         title: "Schedule",
         id: "schedule"
     });
-    $.__views.__alloyId5.add($.__views.schedule);
+    $.__views.__alloyId12.add($.__views.schedule);
     openSchedule ? $.__views.schedule.addEventListener("click", openSchedule) : __defers["$.__views.schedule!click!openSchedule"] = true;
     $.__views.about = Ti.UI.createButton({
         right: 30,
         title: "About",
         id: "about"
     });
-    $.__views.__alloyId5.add($.__views.about);
+    $.__views.__alloyId12.add($.__views.about);
     openAbout ? $.__views.about.addEventListener("click", openAbout) : __defers["$.__views.about!click!openAbout"] = true;
     exports.destroy = function() {};
     _.extend($, $.__views);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
     <id>eu.phpbenelux.conference</id>
-    <name>phpbnlmodels</name>
+    <name>PHPBenelux Conference</name>
     <version>1.0</version>
     <publisher>PHPBenelux</publisher>
     <url>http://phpcon.eu</url>

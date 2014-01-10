@@ -23,13 +23,13 @@ function Controller() {
     });
     $.__views.scheduleRow && $.addTopLevelView($.__views.scheduleRow);
     openDetail ? $.__views.scheduleRow.addEventListener("click", openDetail) : __defers["$.__views.scheduleRow!click!openDetail"] = true;
-    $.__views.__alloyId16 = Ti.UI.createView({
+    $.__views.__alloyId32 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         width: 100,
         layout: "composite",
-        id: "__alloyId16"
+        id: "__alloyId32"
     });
-    $.__views.scheduleRow.add($.__views.__alloyId16);
+    $.__views.scheduleRow.add($.__views.__alloyId32);
     $.__views.roomLabel = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
@@ -42,14 +42,14 @@ function Controller() {
         },
         id: "roomLabel"
     });
-    $.__views.__alloyId16.add($.__views.roomLabel);
-    $.__views.__alloyId17 = Ti.UI.createView({
+    $.__views.__alloyId32.add($.__views.roomLabel);
+    $.__views.__alloyId33 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         width: 160,
         layout: "vertical",
-        id: "__alloyId17"
+        id: "__alloyId33"
     });
-    $.__views.scheduleRow.add($.__views.__alloyId17);
+    $.__views.scheduleRow.add($.__views.__alloyId33);
     $.__views.titleLabel = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
@@ -63,7 +63,7 @@ function Controller() {
         },
         id: "titleLabel"
     });
-    $.__views.__alloyId17.add($.__views.titleLabel);
+    $.__views.__alloyId33.add($.__views.titleLabel);
     $.__views.speakerLabel = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
@@ -77,7 +77,7 @@ function Controller() {
         },
         id: "speakerLabel"
     });
-    $.__views.__alloyId17.add($.__views.speakerLabel);
+    $.__views.__alloyId33.add($.__views.speakerLabel);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = arguments[0] || {};
