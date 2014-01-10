@@ -20,11 +20,7 @@ exports.definition = {
 		adapter: {
 			idAttribute: "id",
 			type: "sqlrest",
-			collection_name: "schedule",
-
-            // optimise the amount of data transfer from remote server to app
-            "addModifedToUrl": true,
-            "lastModifiedColumn": "modified"
+			collection_name: "schedule"
 		}
 	},
 	extendModel: function(Model) {

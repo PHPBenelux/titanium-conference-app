@@ -6,8 +6,13 @@ exports.definition = {
             post_content: "string",
             logo: "string"
         },
+        URL: "http://conference.phpbenelux.eu/2014/api/phpbenelux/sponsors",
+        debug: 0,
+        useStrictValidation: 0,
+        parentNode: "posts",
         adapter: {
-            type: "sql",
+            idAttribute: "ID",
+            type: "sqlrest",
             collection_name: "sponsor"
         }
     },

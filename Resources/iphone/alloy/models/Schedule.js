@@ -13,8 +13,13 @@ exports.definition = {
             level: "string",
             type: "string"
         },
+        URL: "http://conference.phpbenelux.eu/2014/api/phpbenelux/schedule",
+        debug: 0,
+        useStrictValidation: 0,
+        parentNode: "posts",
         adapter: {
-            type: "sql",
+            idAttribute: "id",
+            type: "sqlrest",
             collection_name: "schedule"
         }
     },

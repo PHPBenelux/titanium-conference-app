@@ -1,4 +1,6 @@
 <Alloy>
+	<Collection src="sponsor" />
+	<Collection src="crew" />
 	<Window id="aboutWindow" title="About" class="container">
         <ScrollView id="aboutScroll">
 			<Label class="header">About the Conference</Label>

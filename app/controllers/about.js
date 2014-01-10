@@ -24,51 +24,31 @@ function loadAbout() {
 	};	
 }
 
-function loadSponsors() {
-	var httpClient = Ti.Network.createHTTPClient(httpClientDefaults);	
-	httpClient.open('GET', Alloy.CFG.apiUrl + 'phpbenelux/sponsors');
-	httpClient.send();
-	httpClient.onload = function() {
-		var json = JSON.parse(this.responseText);
-		if (json.length == 0) {
-			noDataLbl = Ti.UI.createLabel({text: "No sponsor data available", height: Ti.UI.Size});
-			$.sponsorsView.add(noDataLbl);
-		}
-		
-		var sponsors = json.posts;
-		for (var i = 0, iLen = sponsors.length; i < iLen; i++) {
-			var sponsorBlock = Alloy.createController('sponsorblock', {
-				name: sponsors[i].post_title,
-				logo: sponsors[i].logo
-			}).getView();
-            $.sponsorsView.add(sponsorBlock);
-		}
-	};
-}
+function loadSponsors(collection, response, options) {		
+	var sponsors = collection.toJSON();
+	for (var i = 0, iLen = sponsors.length; i < iLen; i++) {
+		var sponsorBlock = Alloy.createController('sponsorblock', {
+			name: sponsors[i].post_title,
+			logo: sponsors[i].logo
+		}).getView();
+        $.sponsorsView.add(sponsorBlock);
+	}
+};
 
-function loadCrew() {
-	var httpClient = Ti.Network.createHTTPClient(httpClientDefaults);	
-	httpClient.open('GET', Alloy.CFG.apiUrl + 'phpbenelux/crew');
-	httpClient.send();
-	httpClient.onload = function() {
-		var json = JSON.parse(this.responseText);
-		if (json.length == 0) {
-			noDataLbl = Ti.UI.createLabel({text: "No crew data available",height: Ti.UI.Size});
-			$.crewView.add(noDataLbl);
-		}
-		
-		var crew = json.posts;
-		for (var i = 0, iLen = crew.length; i < iLen; i++) {
-			var crewBlock = Alloy.createController('crewblock', {
-				name: crew[i].post_title,
-				content: crew[i].post_content,
-				picture: crew[i].picture
-			}).getView();
-            $.crewView.add(crewBlock);
-		}
-	};
+
+function loadCrew(collection, response, options) {		
+	var crew = collection.toJSON();
+	for (var i = 0, iLen = crew.length; i < iLen; i++) {
+		var crewBlock = Alloy.createController('crewblock', {
+			name: crew[i].post_title,
+			content: crew[i].post_content,
+			picture: crew[i].picture
+		}).getView();
+        $.crewView.add(crewBlock);
+	}
 }
 
 loadAbout();
-loadCrew();
-loadSponsors();
+
+Alloy.Collections.sponsor.fetch({ success: loadSponsors });
+Alloy.Collections.crew.fetch({ success: loadCrew });

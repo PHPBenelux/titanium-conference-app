@@ -1,18 +1,18 @@
 function Controller() {
-    function __alloyId15(e) {
+    function __alloyId19(e) {
         if (e && e.fromAdapter) return;
-        __alloyId15.opts || {};
-        var models = __alloyId14.models;
+        __alloyId19.opts || {};
+        var models = __alloyId18.models;
         var len = models.length;
         var rows = [];
         for (var i = 0; len > i; i++) {
-            var __alloyId11 = models[i];
-            __alloyId11.__transform = cleanData(__alloyId11);
-            var __alloyId13 = Alloy.createController("newsrow", {
-                $model: __alloyId11,
+            var __alloyId15 = models[i];
+            __alloyId15.__transform = cleanData(__alloyId15);
+            var __alloyId17 = Alloy.createController("newsrow", {
+                $model: __alloyId15,
                 __parentSymbol: __parentSymbol
             });
-            rows.push(__alloyId13.getViewEx({
+            rows.push(__alloyId17.getViewEx({
                 recurse: true
             }));
         }
@@ -44,10 +44,10 @@ function Controller() {
         id: "table"
     });
     $.__views.newsWindow.add($.__views.table);
-    var __alloyId14 = Alloy.Collections["news"] || news;
-    __alloyId14.on("fetch destroy change add remove reset", __alloyId15);
+    var __alloyId18 = Alloy.Collections["news"] || news;
+    __alloyId18.on("fetch destroy change add remove reset", __alloyId19);
     exports.destroy = function() {
-        __alloyId14.off("fetch destroy change add remove reset", __alloyId15);
+        __alloyId18.off("fetch destroy change add remove reset", __alloyId19);
     };
     _.extend($, $.__views);
     arguments[0] || {};
