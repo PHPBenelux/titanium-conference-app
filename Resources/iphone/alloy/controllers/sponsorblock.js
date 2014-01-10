@@ -12,13 +12,6 @@ function Controller() {
         id: "sponsorblock"
     });
     $.__views.sponsorblock && $.addTopLevelView($.__views.sponsorblock);
-    $.__views.nameLabel = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
-        height: Ti.UI.SIZE,
-        color: "#000",
-        id: "nameLabel"
-    });
-    $.__views.sponsorblock.add($.__views.nameLabel);
     $.__views.logoImage = Ti.UI.createImageView({
         id: "logoImage"
     });
@@ -27,7 +20,6 @@ function Controller() {
     _.extend($, $.__views);
     var args = arguments[0] || {};
     $.logoImage.image = args.logo;
-    $.nameLabel.text = args.name;
     _.extend($, exports);
 }
 
