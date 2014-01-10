@@ -1,5 +1,6 @@
 var args = arguments[0] || {};
 var moment = require('alloy/moment');
+var decoder = require('entitydecoder');
 
 function closeWindow(e) {
     $.scheduleWindow.closeWindow();
@@ -60,7 +61,7 @@ httpClient.onload = function() {
     	}
     	
     	sectionSchedule[timestampKey].push(Alloy.createController('schedulerow', {
-            title: schedule[i].title,
+            title: decoder.decode(schedule[i].title),
             content: schedule[i].content,
             speaker: schedule[i].speaker[0].post_title,
             bio: schedule[i].speaker[0].post_content,
