@@ -1,9 +1,11 @@
 var args = arguments[0] || {};
+var moment = require('alloy/moment');
+var decoder = require('entitydecoder');
 
 function closeWindow(e) {
     $.newsDetailWindow.closeWindow();
 }
 
-$.titleLabel.text = args.title;
+$.titleLabel.text = decoder.decode(args.title);
 $.contentLabel.html = Alloy.CFG.htmlPrepend + args.content + Alloy.CFG.htmlSuffix;
-$.postDateLabel.text = "Posted on " + args.postDate;
+$.postDateLabel.text = "Posted on " + moment(args.postDate).format('DD MMM YYYY, HH:mm');

@@ -1,7 +1,8 @@
 <Alloy>
-	
-		<Window id="newsWindow" title="News">
-		<TableView id="table"></TableView>
-		</Window>
-	
+	<Collection src="news" />
+	<Window id="newsWindow" title="News">
+		<TableView id="table" dataCollection="news" dataTransform="cleanData">
+			<Require src="newsrow"/>
+		</TableView>
+	</Window>	
 </Alloy>

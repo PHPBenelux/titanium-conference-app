@@ -1,40 +1,27 @@
 var args = arguments[0] || {};
 var moment = require('alloy/moment');
-var newsCollection = Alloy.createCollection('news');
+var decoder = require('entitydecoder');
 
 function closeWindow(e) {
     $.newsWindow.closeWindow();
 }
 
-function getNewsData() {
-	
+function cleanData(model) {
+	var transform = model.toJSON();
+	transform.title = decoder.decode(transform.title);
+	transform.date = moment(transform.date).format('DD MMM YYYY, HH:mm');
+	return transform;
 }
 
-var data = [];
-var httpClient = Ti.Network.createHTTPClient({
-	onerror: function(e) {
-		Ti.API.debug(e.error);
-		alert('Unable to retrieve the data');
+$.table.addEventListener('click', function(e) {
+	var modelData = Alloy.Collections.news.get(e.rowData.model).toJSON(); 
+    var newsDetailWin = Alloy.createController('newsdetail', modelData).getView();
+    
+	if (Alloy.Globals.navWindow) {
+		Alloy.Globals.navWindow.openWindow(newsDetailWin, {animated:true});
+	} else {
+		newsDetailWin.open({animated: true});	
 	}
 });
 
-httpClient.open('GET', Alloy.CFG.apiUrl + 'get_recent_posts');
-httpClient.send();
-httpClient.onload = function() {
-	var json = JSON.parse(this.responseText);
-	if (json.length == 0) {
-		$.table.headerTitle = "No data";
-	}
-	
-	var news = json.posts;
-	for (var i = 0, iLen = news.length; i < iLen; i++) {
-		var postDate = moment(news[i].date);
-		data.push(Alloy.createController('newsrow', {
-			title: news[i].title,
-			content: news[i].content,
-			postDate: postDate.format('DD MMM YYYY, HH:mm')
-		}).getView());
-	}
-	
-	$.table.setData(data);
-};
+Alloy.Collections.news.fetch();

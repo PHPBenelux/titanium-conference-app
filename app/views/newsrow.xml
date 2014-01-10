@@ -1,6 +1,6 @@
 <Alloy>
-	<TableViewRow layout="vertical" onClick="openDetail">
-		<Label id="titleLabel"></Label>
-		<Label id="postDateLabel"></Label>
+	<TableViewRow layout="vertical" model="{id}">
+		<Label id="titleLabel" text="{title}" />
+		<Label id="postDateLabel" text="{date}" />
 	</TableViewRow>
 </Alloy>
