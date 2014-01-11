@@ -36,7 +36,8 @@
 },
 "WebView": {
 	width: Ti.UI.FILL,
-	height: Ti.UI.SIZE
+	height: Ti.UI.SIZE,
+	disableBounce: true
 },
 "ScrollView": {
 	width: Ti.UI.FILL,

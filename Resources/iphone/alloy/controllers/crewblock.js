@@ -36,6 +36,7 @@ function Controller() {
     $.__views.contentLabel = Ti.UI.createWebView({
         width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
+        disableBounce: true,
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
         font: {
             fontSize: 12
