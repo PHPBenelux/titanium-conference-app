@@ -1,4 +1,5 @@
 var args = arguments[0] || {};
-$.pictureImage.image = args.picture;
+imagecache = require('imagecache');
+imagecache.cachedImageView('crewimages', args.picture, $.pictureImage);
 $.nameLabel.text = args.name;
 $.contentLabel.html = Alloy.CFG.htmlPrepend + args.content + Alloy.CFG.htmlSuffix;

@@ -19,7 +19,8 @@ function Controller() {
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = arguments[0] || {};
-    $.logoImage.image = args.logo;
+    imagecache = require("imagecache");
+    imagecache.cachedImageView("sponsorimages", args.logo, $.logoImage);
     _.extend($, exports);
 }
 

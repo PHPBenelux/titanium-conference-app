@@ -1,2 +1,3 @@
 var args = arguments[0] || {};
-$.logoImage.image = args.logo;
+imagecache = require('imagecache');
+imagecache.cachedImageView('sponsorimages', args.logo, $.logoImage);
