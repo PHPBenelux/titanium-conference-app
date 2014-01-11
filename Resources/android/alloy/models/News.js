@@ -26,7 +26,11 @@ exports.definition = {
         return Model;
     },
     extendCollection: function(Collection) {
-        _.extend(Collection.prototype, {});
+        _.extend(Collection.prototype, {
+            comparator: function(item) {
+                return -parseInt(moment(item.get("date")).format("X"));
+            }
+        });
         return Collection;
     }
 };

@@ -8,6 +8,7 @@ function Controller() {
             }).getView();
             $.sponsorsView.add(sponsorBlock);
         }
+        setLoaderOverlay();
     }
     function loadCrew(collection) {
         var crew = collection.toJSON();
@@ -19,6 +20,11 @@ function Controller() {
             }).getView();
             $.crewView.add(crewBlock);
         }
+        setLoaderOverlay();
+    }
+    function setLoaderOverlay() {
+        blocksLoaded++;
+        2 == blocksLoaded && loader.hide();
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "about";
@@ -189,11 +195,17 @@ function Controller() {
     exports.destroy = function() {};
     _.extend($, $.__views);
     arguments[0] || {};
+    var overlay = require("overlayHUD");
+    var blocksLoaded = 0;
+    var loader = overlay.load();
+    loader.show();
     Alloy.Collections.sponsor.fetch({
-        success: loadSponsors
+        success: loadSponsors,
+        error: setLoaderOverlay
     });
     Alloy.Collections.crew.fetch({
-        success: loadCrew
+        success: loadCrew,
+        error: setLoaderOverlay
     });
     _.extend($, exports);
 }

@@ -36,6 +36,7 @@ function Controller() {
     $.__views.contentLabel = Ti.UI.createWebView({
         width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
+        disableBounce: true,
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
         font: {
             fontSize: 12
@@ -46,7 +47,8 @@ function Controller() {
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = arguments[0] || {};
-    $.pictureImage.image = args.picture;
+    imagecache = require("imagecache");
+    imagecache.cachedImageView("crewimages", args.picture, $.pictureImage);
     $.nameLabel.text = args.name;
     $.contentLabel.html = Alloy.CFG.htmlPrepend + args.content + Alloy.CFG.htmlSuffix;
     _.extend($, exports);

@@ -53,6 +53,8 @@ function Controller() {
     arguments[0] || {};
     var moment = require("alloy/moment");
     var decoder = require("entitydecoder");
+    var overlay = require("overlayHUD");
+    var loader = overlay.load();
     $.table.addEventListener("click", function(e) {
         var modelData = Alloy.Collections.news.get(e.rowData.model).toJSON();
         var newsDetailWin = Alloy.createController("newsdetail", modelData).getView();
@@ -62,7 +64,11 @@ function Controller() {
             animated: true
         });
     });
-    Alloy.Collections.news.fetch();
+    loader.show();
+    Alloy.Collections.news.fetch({
+        success: loader.hide,
+        error: loader.hide
+    });
     _.extend($, exports);
 }
 
