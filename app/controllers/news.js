@@ -1,6 +1,8 @@
 var args = arguments[0] || {};
 var moment = require('alloy/moment');
 var decoder = require('entitydecoder');
+var overlay = require("overlayHUD");
+var loader = overlay.load();
 
 function closeWindow(e) {
     $.newsWindow.closeWindow();
@@ -24,4 +26,8 @@ $.table.addEventListener('click', function(e) {
 	}
 });
 
-Alloy.Collections.news.fetch();
+loader.show();
+Alloy.Collections.news.fetch({
+    success: loader.hide,
+    error: loader.hide
+});

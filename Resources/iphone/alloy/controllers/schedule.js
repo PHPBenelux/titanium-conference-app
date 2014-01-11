@@ -41,6 +41,7 @@ function Controller() {
             sections.push(sectionHeader);
         }
         $.table.setData(sections);
+        loader.hide();
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "schedule";
@@ -67,8 +68,12 @@ function Controller() {
     arguments[0] || {};
     var moment = require("alloy/moment");
     var decoder = require("entitydecoder");
+    var overlay = require("overlayHUD");
+    var loader = overlay.load();
+    loader.show();
     Alloy.Collections.schedule.fetch({
-        success: loadSchedule
+        success: loadSchedule,
+        error: loader.hide
     });
     _.extend($, exports);
 }

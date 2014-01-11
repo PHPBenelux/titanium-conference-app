@@ -1,10 +1,7 @@
 var args = arguments[0] || {};
-var httpClientDefaults = {
-		onerror: function(e) {
-			Ti.API.debug(e.error);
-			alert('Unable to retrieve the data');
-			}
-	};
+var overlay = require("overlayHUD");
+var blocksLoaded = 0;
+var loader = overlay.load();
 
 function closeWindow(e) {
     $.aboutWindow.closeWindow();
@@ -19,6 +16,7 @@ function loadSponsors(collection, response, options) {
 		}).getView();
         $.sponsorsView.add(sponsorBlock);
 	}
+	setLoaderOverlay();
 };
 
 
@@ -32,6 +30,15 @@ function loadCrew(collection, response, options) {
 		}).getView();
         $.crewView.add(crewBlock);
 	}
+    setLoaderOverlay();
 }
-Alloy.Collections.sponsor.fetch({ success: loadSponsors });
-Alloy.Collections.crew.fetch({ success: loadCrew });
+
+function setLoaderOverlay() {
+    blocksLoaded++;
+    if (blocksLoaded == 2) {
+        loader.hide();
+    }
+}
+loader.show();
+Alloy.Collections.sponsor.fetch({ success: loadSponsors, error: setLoaderOverlay });
+Alloy.Collections.crew.fetch({ success: loadCrew, error: setLoaderOverlay });

@@ -1,6 +1,8 @@
 var args = arguments[0] || {};
 var moment = require('alloy/moment');
 var decoder = require('entitydecoder');
+var overlay = require("overlayHUD");
+var loader = overlay.load();
 
 function closeWindow(e) {
     $.scheduleWindow.closeWindow();
@@ -68,7 +70,8 @@ function loadSchedule(collection, response, options) {
     }
     
     $.table.setData(sections);
+    loader.hide();
 };
 
-
-Alloy.Collections.schedule.fetch({ success: loadSchedule });
+loader.show();
+Alloy.Collections.schedule.fetch({ success: loadSchedule, error: loader.hide });
