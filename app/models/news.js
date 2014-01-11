@@ -31,7 +31,10 @@ exports.definition = {
 	},
 	extendCollection: function(Collection) {
 		_.extend(Collection.prototype, {
-			
+              comparator: function(item) {
+                // order by 'date' descending
+                return -parseInt(moment(item.get('date')).format('X'));
+              }
 		});
 
 		return Collection;
