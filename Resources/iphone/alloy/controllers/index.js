@@ -83,6 +83,9 @@ function Controller() {
         $.navWindow.open();
         Alloy.Globals.navWindow = $.navWindow;
     } else $.indexWindow.open();
+    Ti.App.addEventListener("openLink", function(e) {
+        Ti.Platform.openURL(e.link);
+    });
     __defers["$.__views.news!click!openNews"] && $.__views.news.addEventListener("click", openNews);
     __defers["$.__views.schedule!click!openSchedule"] && $.__views.schedule.addEventListener("click", openSchedule);
     __defers["$.__views.about!click!openAbout"] && $.__views.about.addEventListener("click", openAbout);

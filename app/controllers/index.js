@@ -25,3 +25,7 @@ if ($.navWindow) {
 } else {
 	$.indexWindow.open();
 }
+
+Ti.App.addEventListener('openLink', function(e) {
+    Ti.Platform.openURL(e.link);
+});
