@@ -1,0 +1,10 @@
+android/ATTR_MINIFY=true
+android/ATTR_PROJECT_NAME=PHPBeneluxConference
+android/abi=armeabi
+android/distribute_path=/Users/martin/Desktop/phpbnl app/android
+android/keystore_alias=martindekeijzer
+android/keystore_password=s0rc3r3r
+android/keystore_path=/Users/martin/Desktop/phpbnl app/android/keystore
+android/recent_output=/Users/martin/Desktop/phpbnl app/android
+android/sdk_version=2.3.3
+eclipse.preferences.version=1
