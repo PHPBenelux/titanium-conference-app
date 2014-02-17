@@ -9,7 +9,7 @@ function Controller() {
     $.__views.index = Ti.UI.createWindow({
         backgroundColor: "white",
         orientationModes: [ Ti.UI.PORTRAIT, Ti.UI.LANDSCAPE_LEFT, Ti.UI.LANDSCAPE_RIGHT, Ti.UI.UPSIDE_PORTRAIT ],
-        navBarHidden: true,
+        navBarHidden: "false",
         exitOnClose: true,
         layout: "vertical",
         fullscreen: "true",
@@ -55,16 +55,21 @@ function Controller() {
     _.extend($, $.__views);
     var controls = require("controls");
     var menuView = controls.getMenuView();
+    $.index.addEventListener("open", function() {
+        if ("android" === Ti.Platform.osname) if ($.index.activity) {
+            actionBar = $.index.activity.actionBar;
+            actionBar && (actionBar.onHomeIconItemSelected = $.drawermenu.showhidemenu);
+        } else Ti.API.error("Can't access action bar on a lightweight window.");
+    });
     menuView.menuTable.addEventListener("click", function(e) {
         $.drawermenu.showhidemenu();
         var drawerView = Alloy.createController(e.rowData.id).getView();
-        mainView.contentView.add(drawerView);
+        Alloy.Globals.mainView.contentView.add(drawerView);
     });
-    var mainView = controls.getMainView();
-    Alloy.Globals.mainView = mainView;
+    Alloy.Globals.mainView = controls.getMainView();
     $.drawermenu.drawermenuview.add(menuView.getView());
-    $.menuBtn.addEventListener("click", $.drawermenu.showhidemenu);
-    $.drawermenu.drawermainview.add(mainView.getView());
+    $.menuBtn && $.menuBtn.addEventListener("click", $.drawermenu.showhidemenu);
+    $.drawermenu.drawermainview.add(Alloy.Globals.mainView.getView());
     $.index.open();
     Ti.App.addEventListener("openLink", function(e) {
         Ti.Platform.openURL(e.link);

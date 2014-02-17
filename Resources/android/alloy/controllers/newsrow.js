@@ -14,13 +14,12 @@ function Controller() {
     });
     $.__views.newsrow && $.addTopLevelView($.__views.newsrow);
     $.__views.titleLabel = Ti.UI.createLabel({
-        width: Ti.UI.FILL,
-        height: Ti.UI.SIZE,
-        color: "#469AE7",
         top: 5,
         bottom: 5,
+        width: Ti.UI.FILL,
         left: "30px",
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        color: "#469AE7",
         font: {
             fontSize: 14,
             fontStyle: "normal",
@@ -31,11 +30,9 @@ function Controller() {
     });
     $.__views.newsrow.add($.__views.titleLabel);
     $.__views.postDateLabel = Ti.UI.createLabel({
-        width: Ti.UI.FILL,
-        height: Ti.UI.SIZE,
-        color: "#000",
         top: 5,
         bottom: 5,
+        width: Ti.UI.FILL,
         left: "30px",
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
         font: {
