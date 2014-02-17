@@ -16,6 +16,7 @@ exports.definition = {
 		URL: 'http://conference.phpbenelux.eu/2014/api/phpbenelux/schedule',
 		debug: 0,
 		useStrictValidation: 0,
+		deleteAllOnFetch: true,
 		parentNode: function(data) {
 		    var entries = [];
 		    
