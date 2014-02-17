@@ -1,12 +1,15 @@
 <Alloy>
-	<Window id="indexWindow" title="PHPBenelux Conference 2014" class="container">
-		<View id="indexView">
-			<ImageView id="logoImage" image="/images/phpbenelux_conference_logo-2014.png"></ImageView>
-			<View class="buttonbar">
-				<Button id="news" onClick="openNews">News</Button>
-				<Button id="schedule" onClick="openSchedule">Schedule</Button>
-				<Button id="about" onClick="openAbout">About</Button>
-			</View>
+	<Window class="container" layout="vertical" fullscreen="true">
+		<Toolbar platform="ios" top="0">
+	        <Items>
+	            <FlexSpace/>
+	            <Label text="Home" />
+	            <FlexSpace/>
+	            <Button id="menuBtn" title="Menu" />
+	        </Items>
+	    </Toolbar>
+	    <View layout="composite">
+			<Require type="widget" src="com.drawermenu.widget" id="drawermenu"/>
 		</View>
 	</Window>
 </Alloy>

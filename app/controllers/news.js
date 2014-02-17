@@ -4,10 +4,6 @@ var decoder = require('entitydecoder');
 var overlay = require("overlayHUD");
 var loader = overlay.load();
 
-function closeWindow(e) {
-    $.newsWindow.closeWindow();
-}
-
 function cleanData(model) {
 	var transform = model.toJSON();
 	transform.title = decoder.decode(transform.title);
@@ -18,12 +14,7 @@ function cleanData(model) {
 $.table.addEventListener('click', function(e) {
 	var modelData = Alloy.Collections.news.get(e.rowData.model).toJSON(); 
     var newsDetailWin = Alloy.createController('newsdetail', modelData).getView();
-    
-	if (Alloy.Globals.navWindow) {
-		Alloy.Globals.navWindow.openWindow(newsDetailWin, {animated:true});
-	} else {
-		newsDetailWin.open({animated: true});	
-	}
+    Alloy.Globals.mainView.contentView.add(newsDetailWin);
 });
 
 loader.show();

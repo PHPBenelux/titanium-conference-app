@@ -1,8 +1,8 @@
 <Alloy>
 	<Collection src="news" />
-	<Window id="newsWindow" title="News">
+	<View id="newsWindow" title="News" class="container">
 		<TableView id="table" dataCollection="news" dataTransform="cleanData">
 			<Require src="newsrow"/>
 		</TableView>
-	</Window>	
+	</View>	
 </Alloy>

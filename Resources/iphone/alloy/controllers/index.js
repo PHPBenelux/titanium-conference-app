@@ -1,21 +1,4 @@
 function Controller() {
-    function openNewWindow(viewName) {
-        var newWin = Alloy.createController(viewName).getView();
-        $.navWindow ? $.navWindow.openWindow(newWin, {
-            animated: true
-        }) : newWin.open({
-            animated: true
-        });
-    }
-    function openNews() {
-        openNewWindow("news");
-    }
-    function openSchedule() {
-        openNewWindow("schedule");
-    }
-    function openAbout() {
-        openNewWindow("about");
-    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "index";
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
@@ -23,72 +6,69 @@ function Controller() {
     arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
-    var __defers = {};
-    $.__views.__alloyId37 = Ti.UI.createWindow({
-        fullscreen: true,
+    $.__views.index = Ti.UI.createWindow({
         backgroundColor: "white",
+        orientationModes: [ Ti.UI.PORTRAIT, Ti.UI.LANDSCAPE_LEFT, Ti.UI.LANDSCAPE_RIGHT, Ti.UI.UPSIDE_PORTRAIT ],
+        navBarHidden: true,
+        exitOnClose: true,
         layout: "vertical",
-        title: "PHPBenelux Conference 2014",
+        fullscreen: "true",
+        id: "index"
+    });
+    $.__views.index && $.addTopLevelView($.__views.index);
+    var __alloyId39 = [];
+    $.__views.__alloyId40 = Ti.UI.createButton({
+        systemButton: Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE
+    });
+    __alloyId39.push($.__views.__alloyId40);
+    $.__views.__alloyId41 = Ti.UI.createLabel({
+        text: "Home",
+        id: "__alloyId41"
+    });
+    __alloyId39.push($.__views.__alloyId41);
+    $.__views.__alloyId42 = Ti.UI.createButton({
+        systemButton: Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE
+    });
+    __alloyId39.push($.__views.__alloyId42);
+    $.__views.menuBtn = Ti.UI.createButton({
+        id: "menuBtn",
+        title: "Menu"
+    });
+    __alloyId39.push($.__views.menuBtn);
+    $.__views.__alloyId37 = Ti.UI.iOS.createToolbar({
+        items: __alloyId39,
+        top: "0",
         id: "__alloyId37"
     });
-    $.__views.indexView = Ti.UI.createView({
-        layout: "vertical",
-        top: 40,
-        id: "indexView"
-    });
-    $.__views.__alloyId37.add($.__views.indexView);
-    $.__views.logoImage = Ti.UI.createImageView({
-        top: 10,
-        id: "logoImage",
-        image: "/images/phpbenelux_conference_logo-2014.png"
-    });
-    $.__views.indexView.add($.__views.logoImage);
-    $.__views.__alloyId38 = Ti.UI.createView({
-        top: 40,
+    $.__views.index.add($.__views.__alloyId37);
+    $.__views.__alloyId43 = Ti.UI.createView({
         layout: "composite",
-        height: Ti.UI.SIZE,
-        width: Ti.UI.FILL,
-        id: "__alloyId38"
+        id: "__alloyId43"
     });
-    $.__views.indexView.add($.__views.__alloyId38);
-    $.__views.news = Ti.UI.createButton({
-        left: 30,
-        title: "News",
-        id: "news"
+    $.__views.index.add($.__views.__alloyId43);
+    $.__views.drawermenu = Alloy.createWidget("com.drawermenu.widget", "widget", {
+        id: "drawermenu",
+        __parentSymbol: $.__views.__alloyId43
     });
-    $.__views.__alloyId38.add($.__views.news);
-    openNews ? $.__views.news.addEventListener("click", openNews) : __defers["$.__views.news!click!openNews"] = true;
-    $.__views.schedule = Ti.UI.createButton({
-        title: "Schedule",
-        id: "schedule"
-    });
-    $.__views.__alloyId38.add($.__views.schedule);
-    openSchedule ? $.__views.schedule.addEventListener("click", openSchedule) : __defers["$.__views.schedule!click!openSchedule"] = true;
-    $.__views.about = Ti.UI.createButton({
-        right: 30,
-        title: "About",
-        id: "about"
-    });
-    $.__views.__alloyId38.add($.__views.about);
-    openAbout ? $.__views.about.addEventListener("click", openAbout) : __defers["$.__views.about!click!openAbout"] = true;
-    $.__views.navWindow = Ti.UI.iOS.createNavigationWindow({
-        orientationModes: [ Ti.UI.PORTRAIT, Ti.UI.UPSIDE_PORTRAIT ],
-        window: $.__views.__alloyId37,
-        id: "navWindow"
-    });
-    $.__views.navWindow && $.addTopLevelView($.__views.navWindow);
+    $.__views.drawermenu.setParent($.__views.__alloyId43);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    if ($.navWindow) {
-        $.navWindow.open();
-        Alloy.Globals.navWindow = $.navWindow;
-    } else $.indexWindow.open();
+    var controls = require("controls");
+    var menuView = controls.getMenuView();
+    menuView.menuTable.addEventListener("click", function(e) {
+        $.drawermenu.showhidemenu();
+        var drawerView = Alloy.createController(e.rowData.id).getView();
+        mainView.contentView.add(drawerView);
+    });
+    var mainView = controls.getMainView();
+    Alloy.Globals.mainView = mainView;
+    $.drawermenu.drawermenuview.add(menuView.getView());
+    $.menuBtn.addEventListener("click", $.drawermenu.showhidemenu);
+    $.drawermenu.drawermainview.add(mainView.getView());
+    $.index.open();
     Ti.App.addEventListener("openLink", function(e) {
         Ti.Platform.openURL(e.link);
     });
-    __defers["$.__views.news!click!openNews"] && $.__views.news.addEventListener("click", openNews);
-    __defers["$.__views.schedule!click!openSchedule"] && $.__views.schedule.addEventListener("click", openSchedule);
-    __defers["$.__views.about!click!openAbout"] && $.__views.about.addEventListener("click", openAbout);
     _.extend($, exports);
 }
 

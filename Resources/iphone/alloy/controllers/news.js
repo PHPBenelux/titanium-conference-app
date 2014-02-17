@@ -1,18 +1,18 @@
 function Controller() {
-    function __alloyId47(e) {
+    function __alloyId54(e) {
         if (e && e.fromAdapter) return;
-        __alloyId47.opts || {};
-        var models = __alloyId46.models;
+        __alloyId54.opts || {};
+        var models = __alloyId53.models;
         var len = models.length;
         var rows = [];
         for (var i = 0; len > i; i++) {
-            var __alloyId43 = models[i];
-            __alloyId43.__transform = cleanData(__alloyId43);
-            var __alloyId45 = Alloy.createController("newsrow", {
-                $model: __alloyId43,
+            var __alloyId50 = models[i];
+            __alloyId50.__transform = cleanData(__alloyId50);
+            var __alloyId52 = Alloy.createController("newsrow", {
+                $model: __alloyId50,
                 __parentSymbol: __parentSymbol
             });
-            rows.push(__alloyId45.getViewEx({
+            rows.push(__alloyId52.getViewEx({
                 recurse: true
             }));
         }
@@ -32,10 +32,8 @@ function Controller() {
     var $ = this;
     var exports = {};
     Alloy.Collections.instance("news");
-    $.__views.newsWindow = Ti.UI.createWindow({
-        fullscreen: true,
+    $.__views.newsWindow = Ti.UI.createView({
         backgroundColor: "white",
-        layout: "vertical",
         id: "newsWindow",
         title: "News"
     });
@@ -44,10 +42,10 @@ function Controller() {
         id: "table"
     });
     $.__views.newsWindow.add($.__views.table);
-    var __alloyId46 = Alloy.Collections["news"] || news;
-    __alloyId46.on("fetch destroy change add remove reset", __alloyId47);
+    var __alloyId53 = Alloy.Collections["news"] || news;
+    __alloyId53.on("fetch destroy change add remove reset", __alloyId54);
     exports.destroy = function() {
-        __alloyId46.off("fetch destroy change add remove reset", __alloyId47);
+        __alloyId53.off("fetch destroy change add remove reset", __alloyId54);
     };
     _.extend($, $.__views);
     arguments[0] || {};
@@ -58,11 +56,7 @@ function Controller() {
     $.table.addEventListener("click", function(e) {
         var modelData = Alloy.Collections.news.get(e.rowData.model).toJSON();
         var newsDetailWin = Alloy.createController("newsdetail", modelData).getView();
-        Alloy.Globals.navWindow ? Alloy.Globals.navWindow.openWindow(newsDetailWin, {
-            animated: true
-        }) : newsDetailWin.open({
-            animated: true
-        });
+        Alloy.Globals.mainView.contentView.add(newsDetailWin);
     });
     loader.show();
     Alloy.Collections.news.fetch({

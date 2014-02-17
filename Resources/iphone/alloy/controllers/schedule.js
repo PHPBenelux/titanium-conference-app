@@ -51,10 +51,8 @@ function Controller() {
     var $ = this;
     var exports = {};
     Alloy.Collections.instance("schedule");
-    $.__views.scheduleWindow = Ti.UI.createWindow({
-        fullscreen: true,
+    $.__views.scheduleWindow = Ti.UI.createView({
         backgroundColor: "white",
-        layout: "vertical",
         id: "scheduleWindow",
         title: "Schedule"
     });
