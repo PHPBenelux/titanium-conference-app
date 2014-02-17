@@ -10,6 +10,7 @@ exports.definition = {
 		},
 		URL: 'http://conference.phpbenelux.eu/2014/api/get_recent_posts',
 		debug: 0,
+		deleteAllOnFetch: true,
 		useStrictValidation: 0,
 		parentNode: "posts",
 		adapter: {

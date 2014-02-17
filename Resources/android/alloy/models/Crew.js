@@ -8,6 +8,7 @@ exports.definition = {
         },
         URL: "http://conference.phpbenelux.eu/2014/api/phpbenelux/crew",
         debug: 0,
+        deleteAllOnFetch: true,
         useStrictValidation: 0,
         parentNode: "posts",
         adapter: {
