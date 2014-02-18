@@ -18,10 +18,10 @@ function Controller() {
     var $ = this;
     var exports = {};
     Alloy.Collections.instance("sponsor");
-    $.__views.aboutWindow = Ti.UI.createWindow({
-        fullscreen: true,
+    $.__views.aboutWindow = Ti.UI.createView({
         backgroundColor: "white",
         layout: "vertical",
+        height: Ti.UI.SIZE,
         id: "aboutWindow",
         title: "About"
     });
@@ -149,8 +149,8 @@ function Controller() {
     $.__views.aboutScroll.add($.__views.crewView);
     $.__views.__alloyId8 = Ti.UI.createView({
         backgroundColor: "white",
-        height: Ti.UI.SIZE,
         layout: "vertical",
+        height: Ti.UI.SIZE,
         id: "__alloyId8"
     });
     $.__views.crewView.add($.__views.__alloyId8);
@@ -190,8 +190,8 @@ function Controller() {
     $.__views.__alloyId8.add($.__views.__alloyId11);
     $.__views.__alloyId12 = Ti.UI.createView({
         backgroundColor: "white",
-        height: Ti.UI.SIZE,
         layout: "vertical",
+        height: Ti.UI.SIZE,
         id: "__alloyId12"
     });
     $.__views.crewView.add($.__views.__alloyId12);
@@ -225,8 +225,8 @@ function Controller() {
     $.__views.__alloyId12.add($.__views.__alloyId14);
     $.__views.__alloyId15 = Ti.UI.createView({
         backgroundColor: "white",
-        height: Ti.UI.SIZE,
         layout: "vertical",
+        height: Ti.UI.SIZE,
         id: "__alloyId15"
     });
     $.__views.crewView.add($.__views.__alloyId15);
@@ -266,8 +266,8 @@ function Controller() {
     $.__views.__alloyId15.add($.__views.__alloyId18);
     $.__views.__alloyId19 = Ti.UI.createView({
         backgroundColor: "white",
-        height: Ti.UI.SIZE,
         layout: "vertical",
+        height: Ti.UI.SIZE,
         id: "__alloyId19"
     });
     $.__views.crewView.add($.__views.__alloyId19);
@@ -307,8 +307,8 @@ function Controller() {
     $.__views.__alloyId19.add($.__views.__alloyId22);
     $.__views.__alloyId23 = Ti.UI.createView({
         backgroundColor: "white",
-        height: Ti.UI.SIZE,
         layout: "vertical",
+        height: Ti.UI.SIZE,
         id: "__alloyId23"
     });
     $.__views.crewView.add($.__views.__alloyId23);
@@ -348,8 +348,8 @@ function Controller() {
     $.__views.__alloyId23.add($.__views.__alloyId26);
     $.__views.__alloyId27 = Ti.UI.createView({
         backgroundColor: "white",
-        height: Ti.UI.SIZE,
         layout: "vertical",
+        height: Ti.UI.SIZE,
         id: "__alloyId27"
     });
     $.__views.crewView.add($.__views.__alloyId27);
@@ -389,8 +389,8 @@ function Controller() {
     $.__views.__alloyId27.add($.__views.__alloyId30);
     $.__views.__alloyId31 = Ti.UI.createView({
         backgroundColor: "white",
-        height: Ti.UI.SIZE,
         layout: "vertical",
+        height: Ti.UI.SIZE,
         id: "__alloyId31"
     });
     $.__views.crewView.add($.__views.__alloyId31);
@@ -462,6 +462,9 @@ function Controller() {
     var overlay = require("overlayHUD");
     var loader = overlay.load();
     loader.show();
+    Ti.App.fireEvent("setMainTitle", {
+        title: "About"
+    });
     Alloy.Collections.sponsor.fetch({
         success: loadSponsors,
         error: loader.hide

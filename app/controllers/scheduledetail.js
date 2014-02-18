@@ -6,7 +6,8 @@ function closeWindow(e) {
     $.scheduleDetailWindow.closeWindow();
 }
 imagecache.cachedImageView('speakerimages', args.picture, $.pictureView);
-$.scheduleDetailWindow.setTitle(args.title);
+// TODO set title
+//$.scheduleDetailWindow.setTitle(args.title);
 $.titleLabel.text = args.title;
 $.descriptionLabel.text = args.content;
 $.nameLabel.text = args.speaker;
@@ -15,3 +16,7 @@ $.dateLabel.text = moment(args.startDate).format('DD MMM HH:mm') + " - " + momen
 $.roomLabel.text = args.room;
 $.levelLabel.text = args.level;
 $.typeLabel.text = args.type;
+
+Ti.App.fireEvent('setMainTitle', {
+	title: args.title
+});

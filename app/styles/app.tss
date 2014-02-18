@@ -1,5 +1,6 @@
 ".container": {
-	backgroundColor:"white"
+	backgroundColor:"white",
+	layout: 'vertical'
 },
 ".header": {
 	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
@@ -29,11 +30,11 @@
 	width: Ti.UI.FILL,
 	height: Ti.UI.SIZE
 },
-"Window": {
-	fullscreen: true,
-	backgroundColor: "white",
-	layout: "vertical"
-},
+// "Window": {
+	// fullscreen: true,
+	// backgroundColor: "white",
+	// layout: "vertical"
+// },
 "WebView": {
 	width: Ti.UI.FILL,
 	height: Ti.UI.SIZE,

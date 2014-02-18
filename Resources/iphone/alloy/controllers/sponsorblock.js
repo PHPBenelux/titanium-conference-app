@@ -8,6 +8,7 @@ function Controller() {
     var exports = {};
     $.__views.sponsorblock = Ti.UI.createView({
         backgroundColor: "white",
+        layout: "vertical",
         height: Ti.UI.SIZE,
         id: "sponsorblock"
     });

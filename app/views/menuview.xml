@@ -1,0 +1,21 @@
+<Alloy>
+	<View id="menuView">
+		<TableView class="menuTable" id="menuTable">
+			<TableViewRow class="tableRow" id="schedule">
+				<View id="rowContainer">
+					<View id="rowGear" class="rowIcon"/><Label id="rowLabel" class="rowLabel">Schedule</Label>
+				</View>
+			</TableViewRow>
+			<TableViewRow class="tableRow" id="news">
+				<View id="rowContainer">
+					<View id="rowSkull" class="rowIcon"/><Label id="rowLabel" class="rowLabel">News</Label>
+				</View>
+			</TableViewRow>
+			<TableViewRow class="tableRow" id="about">
+				<View id="rowContainer">
+					<View id="rowPicFrame" class="rowIcon"/><Label id="rowLabel" class="rowLabel">About</Label>
+				</View>
+			</TableViewRow>
+		</TableView>
+	</View>
+</Alloy>

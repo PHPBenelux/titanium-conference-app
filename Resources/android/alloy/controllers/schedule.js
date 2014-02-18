@@ -51,8 +51,7 @@ function Controller() {
     var $ = this;
     var exports = {};
     Alloy.Collections.instance("schedule");
-    $.__views.scheduleWindow = Ti.UI.createWindow({
-        fullscreen: true,
+    $.__views.scheduleWindow = Ti.UI.createView({
         backgroundColor: "white",
         layout: "vertical",
         id: "scheduleWindow",
@@ -71,6 +70,9 @@ function Controller() {
     var overlay = require("overlayHUD");
     var loader = overlay.load();
     loader.show();
+    Ti.App.fireEvent("setMainTitle", {
+        title: "Schedule"
+    });
     Alloy.Collections.schedule.fetch({
         success: loadSchedule,
         error: loader.hide

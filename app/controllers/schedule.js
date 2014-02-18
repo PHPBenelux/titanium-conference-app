@@ -1,12 +1,8 @@
 var args = arguments[0] || {};
 var moment = require('alloy/moment');
 var decoder = require('entitydecoder');
-var overlay = require("overlayHUD");
+var overlay = require('overlayHUD');
 var loader = overlay.load();
-
-function closeWindow(e) {
-    $.scheduleWindow.closeWindow();
-}
 
 function sortObj(arr){
 	// Setup Arrays
@@ -74,4 +70,9 @@ function loadSchedule(collection, response, options) {
 };
 
 loader.show();
+
+Ti.App.fireEvent('setMainTitle', {
+	title: 'Schedule'
+});
+
 Alloy.Collections.schedule.fetch({ success: loadSchedule, error: loader.hide });

@@ -1,20 +1,19 @@
 function Controller() {
-    function openNewWindow(viewName) {
-        var newWin = Alloy.createController(viewName).getView();
-        $.navWindow ? $.navWindow.openWindow(newWin, {
-            animated: true
-        }) : newWin.open({
-            animated: true
-        });
-    }
-    function openNews() {
-        openNewWindow("news");
-    }
-    function openSchedule() {
-        openNewWindow("schedule");
-    }
-    function openAbout() {
-        openNewWindow("about");
+    function __alloyId43() {
+        $.__views.index.removeEventListener("open", __alloyId43);
+        if ($.__views.index.activity) $.__views.index.activity.onCreateOptionsMenu = function(e) {
+            var __alloyId42 = {
+                id: "menuBtn",
+                title: "Menu",
+                showAsAction: Ti.Android.SHOW_AS_ACTION_ALWAYS
+            };
+            $.__views.menuBtn = e.menu.add(_.pick(__alloyId42, Alloy.Android.menuItemCreateArgs));
+            $.__views.menuBtn.applyProperties(_.omit(__alloyId42, Alloy.Android.menuItemCreateArgs));
+        }; else {
+            Ti.API.warn("You attempted to attach an Android Menu to a lightweight Window");
+            Ti.API.warn("or other UI component which does not have an Android activity.");
+            Ti.API.warn("Android Menus can only be opened on TabGroups and heavyweight Windows.");
+        }
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "index";
@@ -23,67 +22,49 @@ function Controller() {
     arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
-    var __defers = {};
-    $.__views.indexWindow = Ti.UI.createWindow({
-        fullscreen: true,
+    $.__views.index = Ti.UI.createWindow({
         backgroundColor: "white",
         layout: "vertical",
-        id: "indexWindow",
-        title: "PHPBenelux Conference 2014"
+        orientationModes: [ Ti.UI.PORTRAIT, Ti.UI.LANDSCAPE_LEFT, Ti.UI.LANDSCAPE_RIGHT, Ti.UI.UPSIDE_PORTRAIT ],
+        navBarHidden: "false",
+        exitOnClose: true,
+        fullscreen: "true",
+        id: "index"
     });
-    $.__views.indexWindow && $.addTopLevelView($.__views.indexWindow);
-    $.__views.indexView = Ti.UI.createView({
-        layout: "vertical",
-        top: 40,
-        id: "indexView"
-    });
-    $.__views.indexWindow.add($.__views.indexView);
-    $.__views.logoImage = Ti.UI.createImageView({
-        top: 10,
-        id: "logoImage",
-        image: "/images/phpbenelux_conference_logo-2014.png"
-    });
-    $.__views.indexView.add($.__views.logoImage);
-    $.__views.__alloyId37 = Ti.UI.createView({
-        top: 40,
+    $.__views.index && $.addTopLevelView($.__views.index);
+    $.__views.index.addEventListener("open", __alloyId43);
+    $.__views.__alloyId44 = Ti.UI.createView({
         layout: "composite",
-        height: Ti.UI.SIZE,
-        width: Ti.UI.FILL,
-        id: "__alloyId37"
+        id: "__alloyId44"
     });
-    $.__views.indexView.add($.__views.__alloyId37);
-    $.__views.news = Ti.UI.createButton({
-        left: 30,
-        title: "News",
-        id: "news"
+    $.__views.index.add($.__views.__alloyId44);
+    $.__views.drawermenu = Alloy.createWidget("com.drawermenu.widget", "widget", {
+        id: "drawermenu",
+        __parentSymbol: $.__views.__alloyId44
     });
-    $.__views.__alloyId37.add($.__views.news);
-    openNews ? $.__views.news.addEventListener("click", openNews) : __defers["$.__views.news!click!openNews"] = true;
-    $.__views.schedule = Ti.UI.createButton({
-        title: "Schedule",
-        id: "schedule"
-    });
-    $.__views.__alloyId37.add($.__views.schedule);
-    openSchedule ? $.__views.schedule.addEventListener("click", openSchedule) : __defers["$.__views.schedule!click!openSchedule"] = true;
-    $.__views.about = Ti.UI.createButton({
-        right: 30,
-        title: "About",
-        id: "about"
-    });
-    $.__views.__alloyId37.add($.__views.about);
-    openAbout ? $.__views.about.addEventListener("click", openAbout) : __defers["$.__views.about!click!openAbout"] = true;
+    $.__views.drawermenu.setParent($.__views.__alloyId44);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    if ($.navWindow) {
-        $.navWindow.open();
-        Alloy.Globals.navWindow = $.navWindow;
-    } else $.indexWindow.open();
+    var controls = require("controls"), menuView = controls.getMenuView();
+    Ti.App.addEventListener("setMainTitle", function(e) {
+        $.index.activity.actionBar && ($.index.activity.actionBar.title = e.title);
+    });
+    $.index.addEventListener("open", function() {
+        $.index.activity ? $.index.activity.actionBar && ($.index.activity.actionBar.onHomeIconItemSelected = $.drawermenu.showhidemenu) : Ti.API.error("Can't access action bar on a lightweight window.");
+    });
+    menuView.menuTable.addEventListener("click", function(e) {
+        $.drawermenu.showhidemenu();
+        var drawerView = Alloy.createController(e.rowData.id).getView();
+        Alloy.Globals.mainView.contentView.add(drawerView);
+    });
+    Alloy.Globals.mainView = controls.getMainView();
+    $.drawermenu.drawermenuview.add(menuView.getView());
+    $.menuBtn && $.menuBtn.addEventListener("click", $.drawermenu.showhidemenu);
+    $.drawermenu.drawermainview.add(Alloy.Globals.mainView.getView());
+    $.index.open();
     Ti.App.addEventListener("openLink", function(e) {
         Ti.Platform.openURL(e.link);
     });
-    __defers["$.__views.news!click!openNews"] && $.__views.news.addEventListener("click", openNews);
-    __defers["$.__views.schedule!click!openSchedule"] && $.__views.schedule.addEventListener("click", openSchedule);
-    __defers["$.__views.about!click!openAbout"] && $.__views.about.addEventListener("click", openAbout);
     _.extend($, exports);
 }
 
