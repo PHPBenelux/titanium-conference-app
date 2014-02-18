@@ -8,8 +8,8 @@ function Controller() {
     var exports = {};
     $.__views.crewblock = Ti.UI.createView({
         backgroundColor: "white",
-        height: Ti.UI.SIZE,
         layout: "vertical",
+        height: Ti.UI.SIZE,
         id: "crewblock"
     });
     $.__views.crewblock && $.addTopLevelView($.__views.crewblock);

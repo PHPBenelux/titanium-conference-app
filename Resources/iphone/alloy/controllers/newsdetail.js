@@ -6,8 +6,7 @@ function Controller() {
     arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
-    $.__views.newsDetailWindow = Ti.UI.createWindow({
-        fullscreen: true,
+    $.__views.newsDetailWindow = Ti.UI.createView({
         backgroundColor: "white",
         layout: "vertical",
         id: "newsDetailWindow",
@@ -74,6 +73,9 @@ function Controller() {
     $.titleLabel.text = decoder.decode(args.title);
     $.contentLabel.html = Alloy.CFG.htmlPrepend + args.content + Alloy.CFG.htmlSuffix;
     $.postDateLabel.text = "Posted on " + moment(args.date).format("DD MMM YYYY, HH:mm");
+    Ti.App.fireEvent("setMainTitle", {
+        title: $.titleLabel.text
+    });
     _.extend($, exports);
 }
 

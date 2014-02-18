@@ -1,11 +1,7 @@
 function Controller() {
     function openDetail() {
         var scheduleDetailWin = Alloy.createController("scheduledetail", args).getView();
-        Alloy.Globals.navWindow ? Alloy.Globals.navWindow.openWindow(scheduleDetailWin, {
-            animated: true
-        }) : scheduleDetailWin.open({
-            animated: true
-        });
+        Alloy.Globals.mainView.contentView.add(scheduleDetailWin);
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "schedulerow";
@@ -23,13 +19,13 @@ function Controller() {
     });
     $.__views.scheduleRow && $.addTopLevelView($.__views.scheduleRow);
     openDetail ? $.__views.scheduleRow.addEventListener("click", openDetail) : __defers["$.__views.scheduleRow!click!openDetail"] = true;
-    $.__views.__alloyId59 = Ti.UI.createView({
+    $.__views.__alloyId68 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         width: 100,
         layout: "composite",
-        id: "__alloyId59"
+        id: "__alloyId68"
     });
-    $.__views.scheduleRow.add($.__views.__alloyId59);
+    $.__views.scheduleRow.add($.__views.__alloyId68);
     $.__views.roomLabel = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
@@ -42,14 +38,14 @@ function Controller() {
         },
         id: "roomLabel"
     });
-    $.__views.__alloyId59.add($.__views.roomLabel);
-    $.__views.__alloyId60 = Ti.UI.createView({
+    $.__views.__alloyId68.add($.__views.roomLabel);
+    $.__views.__alloyId69 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         width: 160,
         layout: "vertical",
-        id: "__alloyId60"
+        id: "__alloyId69"
     });
-    $.__views.scheduleRow.add($.__views.__alloyId60);
+    $.__views.scheduleRow.add($.__views.__alloyId69);
     $.__views.titleLabel = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
@@ -63,7 +59,7 @@ function Controller() {
         },
         id: "titleLabel"
     });
-    $.__views.__alloyId60.add($.__views.titleLabel);
+    $.__views.__alloyId69.add($.__views.titleLabel);
     $.__views.speakerLabel = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
@@ -77,10 +73,11 @@ function Controller() {
         },
         id: "speakerLabel"
     });
-    $.__views.__alloyId60.add($.__views.speakerLabel);
+    $.__views.__alloyId69.add($.__views.speakerLabel);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = arguments[0] || {};
+    require("controls");
     $.roomLabel.text = args.room;
     $.titleLabel.text = args.title;
     $.speakerLabel.text = args.speaker;

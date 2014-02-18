@@ -1,6 +1,6 @@
 <Alloy>
 	<Collection src="schedule" />
-	<Window id="scheduleWindow" title="Schedule">
+	<View id="scheduleWindow" title="Schedule" class="container">
 		<TableView id="table"></TableView>
-	</Window>
+	</View>
 </Alloy>

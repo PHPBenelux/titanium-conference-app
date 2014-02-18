@@ -11,5 +11,7 @@
 	"os:blackberry": {},
 	"os:ios": {},
 	"os:mobileweb": {},
-	"dependencies": {}
+	"dependencies": {
+		"com.drawermenu.widget" : "1.0"
+	}
 }

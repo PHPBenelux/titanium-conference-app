@@ -1,30 +1,53 @@
-function openNewWindow(viewName) {
-	var newWin = Alloy.createController(viewName).getView();
-	if ($.navWindow) {
-		$.navWindow.openWindow(newWin, { animated:true });
-	} else {
-		newWin.open({animated: true});	
-	}
+var controls=require('controls'),
+	menuView=controls.getMenuView();
+
+if (Ti.Platform.osname === 'android') {
+	Ti.App.addEventListener('setMainTitle', function(e) {
+		if ($.index.activity.actionBar) {
+	    	$.index.activity.actionBar.title = e.title;
+	   	}
+	});
+} else {	
+	Ti.App.addEventListener('setMainTitle', function(e) {
+		if ($.titleLabel) {
+	    	$.titleLabel.text = e.title;
+	    }
+	});
 }
 
-function openNews(e) {
-	openNewWindow('news');
+$.index.addEventListener("open", function() {
+    if (Ti.Platform.osname === "android") {
+        if (! $.index.activity) {
+            Ti.API.error("Can't access action bar on a lightweight window.");
+        } else {
+            if ($.index.activity.actionBar) {
+                $.index.activity.actionBar.onHomeIconItemSelected = $.drawermenu.showhidemenu;
+            }
+        }
+    }
+});
+
+// add event listener in this context
+menuView.menuTable.addEventListener('click',function(e){
+	$.drawermenu.showhidemenu();
+	// on Android the event is received by the label, so watch out!
+	var drawerView = Alloy.createController(e.rowData.id).getView();
+	Alloy.Globals.mainView.contentView.add(drawerView);
+});
+
+Alloy.Globals.mainView = controls.getMainView();
+
+// add menu view to container exposed by widget
+$.drawermenu.drawermenuview.add(menuView.getView()); // get view is an Alloy Method
+
+if ($.menuBtn) {
+	$.menuBtn.addEventListener('click', $.drawermenu.showhidemenu);
 }
 
-function openSchedule(e) {
-	openNewWindow('schedule');
-}
+// add view to container exposed by widget
+$.drawermenu.drawermainview.add(Alloy.Globals.mainView.getView());
 
-function openAbout(e) {
-	openNewWindow('about');
-}
-
-if ($.navWindow) {
-	$.navWindow.open();
-	Alloy.Globals.navWindow = $.navWindow;
-} else {
-	$.indexWindow.open();
-}
+$.index.open();
 
 Ti.App.addEventListener('openLink', function(e) {
     Ti.Platform.openURL(e.link);

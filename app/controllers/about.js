@@ -20,4 +20,8 @@ function loadSponsors(collection, response, options) {
 };
 
 loader.show();
+
+Ti.App.fireEvent('setMainTitle', {
+	title: 'About'
+});
 Alloy.Collections.sponsor.fetch({ success: loadSponsors, error: loader.hide });

@@ -1,13 +1,10 @@
 var args = arguments[0] || {};
+var controls=require('controls');
 
 function openDetail(e) {
     var scheduleDetailWin = Alloy.createController('scheduledetail', args).getView();
     
-	if (Alloy.Globals.navWindow) {
-		Alloy.Globals.navWindow.openWindow(scheduleDetailWin, {animated:true});
-	} else {
-		scheduleDetailWin.open({animated: true});	
-	}
+    Alloy.Globals.mainView.contentView.add(scheduleDetailWin);
 }
 
 $.roomLabel.text = args.room;
