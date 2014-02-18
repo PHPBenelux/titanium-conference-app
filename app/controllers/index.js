@@ -1,14 +1,27 @@
-var controls=require('controls');
-var menuView=controls.getMenuView();
+var controls=require('controls'),
+	menuView=controls.getMenuView();
+
+if (Ti.Platform.osname === 'android') {
+	Ti.App.addEventListener('setMainTitle', function(e) {
+		if ($.index.activity.actionBar) {
+	    	$.index.activity.actionBar.title = e.title;
+	   	}
+	});
+} else {	
+	Ti.App.addEventListener('setMainTitle', function(e) {
+		if ($.titleLabel) {
+	    	$.titleLabel.text = e.title;
+	    }
+	});
+}
 
 $.index.addEventListener("open", function() {
     if (Ti.Platform.osname === "android") {
         if (! $.index.activity) {
             Ti.API.error("Can't access action bar on a lightweight window.");
         } else {
-            actionBar = $.index.activity.actionBar;
-            if (actionBar) {
-                actionBar.onHomeIconItemSelected = $.drawermenu.showhidemenu;
+            if ($.index.activity.actionBar) {
+                $.index.activity.actionBar.onHomeIconItemSelected = $.drawermenu.showhidemenu;
             }
         }
     }

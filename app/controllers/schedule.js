@@ -70,4 +70,9 @@ function loadSchedule(collection, response, options) {
 };
 
 loader.show();
+
+Ti.App.fireEvent('setMainTitle', {
+	title: 'Schedule'
+});
+
 Alloy.Collections.schedule.fetch({ success: loadSchedule, error: loader.hide });

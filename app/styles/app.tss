@@ -1,52 +1,53 @@
 ".container": {
-	backgroundColor:"white"
-}//,
-// ".header": {
-	// textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
-	// color: '#469AE7',
-	// font: {
-		// fontSize: 14,
-		// fontStyle: 'normal',
-		// fontWeight: 'bold'
-	// },
-	// width: Ti.UI.FILL,
-	// height: Ti.UI.SIZE
-// 	
-// },
-// ".content": {
-	// textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
-	// font: {
-		// fontSize: 12
-	// },
-	// width: Ti.UI.FILL,
-	// height: Ti.UI.SIZE
-// },
-// ".metalabel": {
-	// textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
-	// font: {
-		// fontSize: 10
-	// },
-	// width: Ti.UI.FILL,
-	// height: Ti.UI.SIZE
-// },
+	backgroundColor:"white",
+	layout: 'vertical'
+},
+".header": {
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	color: '#469AE7',
+	font: {
+		fontSize: 14,
+		fontStyle: 'normal',
+		fontWeight: 'bold'
+	},
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE
+	
+},
+".content": {
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	font: {
+		fontSize: 12
+	},
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE
+},
+".metalabel": {
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	font: {
+		fontSize: 10
+	},
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE
+},
 // "Window": {
 	// fullscreen: true,
 	// backgroundColor: "white",
 	// layout: "vertical"
 // },
-// "WebView": {
-	// width: Ti.UI.FILL,
-	// height: Ti.UI.SIZE,
-	// disableBounce: true
-// },
-// "ScrollView": {
-	// width: Ti.UI.FILL,
-	// layout: "vertical",
-	// showVerticalScrollIndicator: true,
-	// scrollType: "vertical"
-// },
-// "Label": {
-	// width: Ti.UI.SIZE,
-	// height: Ti.UI.SIZE,
-	// color: "#000"
-// }
+"WebView": {
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE,
+	disableBounce: true
+},
+"ScrollView": {
+	width: Ti.UI.FILL,
+	layout: "vertical",
+	showVerticalScrollIndicator: true,
+	scrollType: "vertical"
+},
+"Label": {
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
+	color: "#000"
+}

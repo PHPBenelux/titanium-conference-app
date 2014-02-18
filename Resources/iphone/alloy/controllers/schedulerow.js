@@ -19,14 +19,16 @@ function Controller() {
     });
     $.__views.scheduleRow && $.addTopLevelView($.__views.scheduleRow);
     openDetail ? $.__views.scheduleRow.addEventListener("click", openDetail) : __defers["$.__views.scheduleRow!click!openDetail"] = true;
-    $.__views.__alloyId67 = Ti.UI.createView({
+    $.__views.__alloyId66 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         width: 100,
         layout: "composite",
-        id: "__alloyId67"
+        id: "__alloyId66"
     });
-    $.__views.scheduleRow.add($.__views.__alloyId67);
+    $.__views.scheduleRow.add($.__views.__alloyId66);
     $.__views.roomLabel = Ti.UI.createLabel({
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
         color: "#333333",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
         font: {
@@ -36,15 +38,17 @@ function Controller() {
         },
         id: "roomLabel"
     });
-    $.__views.__alloyId67.add($.__views.roomLabel);
-    $.__views.__alloyId68 = Ti.UI.createView({
+    $.__views.__alloyId66.add($.__views.roomLabel);
+    $.__views.__alloyId67 = Ti.UI.createView({
         height: Ti.UI.SIZE,
         width: 160,
         layout: "vertical",
-        id: "__alloyId68"
+        id: "__alloyId67"
     });
-    $.__views.scheduleRow.add($.__views.__alloyId68);
+    $.__views.scheduleRow.add($.__views.__alloyId67);
     $.__views.titleLabel = Ti.UI.createLabel({
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
         color: "#469AE7",
         left: 10,
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
@@ -55,8 +59,11 @@ function Controller() {
         },
         id: "titleLabel"
     });
-    $.__views.__alloyId68.add($.__views.titleLabel);
+    $.__views.__alloyId67.add($.__views.titleLabel);
     $.__views.speakerLabel = Ti.UI.createLabel({
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        color: "#000",
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
         left: 10,
         font: {
@@ -66,7 +73,7 @@ function Controller() {
         },
         id: "speakerLabel"
     });
-    $.__views.__alloyId68.add($.__views.speakerLabel);
+    $.__views.__alloyId67.add($.__views.speakerLabel);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = arguments[0] || {};

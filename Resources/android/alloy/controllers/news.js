@@ -1,18 +1,18 @@
 function Controller() {
-    function __alloyId54(e) {
+    function __alloyId55(e) {
         if (e && e.fromAdapter) return;
-        __alloyId54.opts || {};
-        var models = __alloyId53.models;
+        __alloyId55.opts || {};
+        var models = __alloyId54.models;
         var len = models.length;
         var rows = [];
         for (var i = 0; len > i; i++) {
-            var __alloyId50 = models[i];
-            __alloyId50.__transform = cleanData(__alloyId50);
-            var __alloyId52 = Alloy.createController("newsrow", {
-                $model: __alloyId50,
+            var __alloyId51 = models[i];
+            __alloyId51.__transform = cleanData(__alloyId51);
+            var __alloyId53 = Alloy.createController("newsrow", {
+                $model: __alloyId51,
                 __parentSymbol: __parentSymbol
             });
-            rows.push(__alloyId52.getViewEx({
+            rows.push(__alloyId53.getViewEx({
                 recurse: true
             }));
         }
@@ -34,6 +34,7 @@ function Controller() {
     Alloy.Collections.instance("news");
     $.__views.newsWindow = Ti.UI.createView({
         backgroundColor: "white",
+        layout: "vertical",
         id: "newsWindow",
         title: "News"
     });
@@ -42,10 +43,10 @@ function Controller() {
         id: "table"
     });
     $.__views.newsWindow.add($.__views.table);
-    var __alloyId53 = Alloy.Collections["news"] || news;
-    __alloyId53.on("fetch destroy change add remove reset", __alloyId54);
+    var __alloyId54 = Alloy.Collections["news"] || news;
+    __alloyId54.on("fetch destroy change add remove reset", __alloyId55);
     exports.destroy = function() {
-        __alloyId53.off("fetch destroy change add remove reset", __alloyId54);
+        __alloyId54.off("fetch destroy change add remove reset", __alloyId55);
     };
     _.extend($, $.__views);
     arguments[0] || {};
@@ -62,6 +63,9 @@ function Controller() {
     Alloy.Collections.news.fetch({
         success: loader.hide,
         error: loader.hide
+    });
+    Ti.App.fireEvent("setMainTitle", {
+        title: "News"
     });
     _.extend($, exports);
 }

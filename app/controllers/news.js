@@ -22,3 +22,6 @@ Alloy.Collections.news.fetch({
     success: loader.hide,
     error: loader.hide
 });
+Ti.App.fireEvent('setMainTitle', {
+	title: 'News'
+});

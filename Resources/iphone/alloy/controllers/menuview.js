@@ -12,12 +12,12 @@ function Controller() {
         id: "menuView"
     });
     $.__views.menuView && $.addTopLevelView($.__views.menuView);
-    var __alloyId45 = [];
+    var __alloyId44 = [];
     $.__views.schedule = Ti.UI.createTableViewRow({
         height: "50dp",
         id: "schedule"
     });
-    __alloyId45.push($.__views.schedule);
+    __alloyId44.push($.__views.schedule);
     $.__views.rowContainer = Ti.UI.createView({
         height: "30dp",
         layout: "horizontal",
@@ -34,13 +34,14 @@ function Controller() {
     });
     $.__views.rowContainer.add($.__views.rowGear);
     $.__views.rowLabel = Ti.UI.createLabel({
+        width: Ti.UI.SIZE,
+        height: "20dp",
+        color: "#000",
         top: 7,
         left: 10,
-        height: "20dp",
         font: {
             fontSize: "15dp"
         },
-        color: "#000",
         text: "Schedule",
         id: "rowLabel"
     });
@@ -49,7 +50,7 @@ function Controller() {
         height: "50dp",
         id: "news"
     });
-    __alloyId45.push($.__views.news);
+    __alloyId44.push($.__views.news);
     $.__views.rowContainer = Ti.UI.createView({
         height: "30dp",
         layout: "horizontal",
@@ -66,13 +67,14 @@ function Controller() {
     });
     $.__views.rowContainer.add($.__views.rowSkull);
     $.__views.rowLabel = Ti.UI.createLabel({
+        width: Ti.UI.SIZE,
+        height: "20dp",
+        color: "#000",
         top: 7,
         left: 10,
-        height: "20dp",
         font: {
             fontSize: "15dp"
         },
-        color: "#000",
         text: "News",
         id: "rowLabel"
     });
@@ -81,7 +83,7 @@ function Controller() {
         height: "50dp",
         id: "about"
     });
-    __alloyId45.push($.__views.about);
+    __alloyId44.push($.__views.about);
     $.__views.rowContainer = Ti.UI.createView({
         height: "30dp",
         layout: "horizontal",
@@ -98,13 +100,14 @@ function Controller() {
     });
     $.__views.rowContainer.add($.__views.rowPicFrame);
     $.__views.rowLabel = Ti.UI.createLabel({
+        width: Ti.UI.SIZE,
+        height: "20dp",
+        color: "#000",
         top: 7,
         left: 10,
-        height: "20dp",
         font: {
             fontSize: "15dp"
         },
-        color: "#000",
         text: "About",
         id: "rowLabel"
     });
@@ -113,7 +116,7 @@ function Controller() {
         separatorStyle: "NONE",
         separatorColor: "transparent",
         backgroundColor: "#F2F2F2",
-        data: __alloyId45,
+        data: __alloyId44,
         id: "menuTable"
     });
     $.__views.menuView.add($.__views.menuTable);

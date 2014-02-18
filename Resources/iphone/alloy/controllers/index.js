@@ -8,58 +8,62 @@ function Controller() {
     var exports = {};
     $.__views.index = Ti.UI.createWindow({
         backgroundColor: "white",
+        layout: "vertical",
         orientationModes: [ Ti.UI.PORTRAIT, Ti.UI.LANDSCAPE_LEFT, Ti.UI.LANDSCAPE_RIGHT, Ti.UI.UPSIDE_PORTRAIT ],
         navBarHidden: "false",
         exitOnClose: true,
-        layout: "vertical",
         fullscreen: "true",
         id: "index"
     });
     $.__views.index && $.addTopLevelView($.__views.index);
     var __alloyId39 = [];
-    $.__views.__alloyId40 = Ti.UI.createButton({
-        systemButton: Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE
-    });
-    __alloyId39.push($.__views.__alloyId40);
-    $.__views.__alloyId41 = Ti.UI.createLabel({
-        text: "Home",
-        id: "__alloyId41"
-    });
-    __alloyId39.push($.__views.__alloyId41);
-    $.__views.__alloyId42 = Ti.UI.createButton({
-        systemButton: Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE
-    });
-    __alloyId39.push($.__views.__alloyId42);
     $.__views.menuBtn = Ti.UI.createButton({
         id: "menuBtn",
         title: "Menu"
     });
     __alloyId39.push($.__views.menuBtn);
+    $.__views.__alloyId40 = Ti.UI.createButton({
+        systemButton: Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE
+    });
+    __alloyId39.push($.__views.__alloyId40);
+    $.__views.titleLabel = Ti.UI.createLabel({
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        color: "#000",
+        id: "titleLabel",
+        text: "Home"
+    });
+    __alloyId39.push($.__views.titleLabel);
+    $.__views.__alloyId41 = Ti.UI.createButton({
+        systemButton: Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE
+    });
+    __alloyId39.push($.__views.__alloyId41);
     $.__views.__alloyId37 = Ti.UI.iOS.createToolbar({
         items: __alloyId39,
         top: "0",
         id: "__alloyId37"
     });
     $.__views.index.add($.__views.__alloyId37);
-    $.__views.__alloyId43 = Ti.UI.createView({
+    $.__views.__alloyId42 = Ti.UI.createView({
         layout: "composite",
-        id: "__alloyId43"
+        id: "__alloyId42"
     });
-    $.__views.index.add($.__views.__alloyId43);
+    $.__views.index.add($.__views.__alloyId42);
     $.__views.drawermenu = Alloy.createWidget("com.drawermenu.widget", "widget", {
         id: "drawermenu",
-        __parentSymbol: $.__views.__alloyId43
+        __parentSymbol: $.__views.__alloyId42
     });
-    $.__views.drawermenu.setParent($.__views.__alloyId43);
+    $.__views.drawermenu.setParent($.__views.__alloyId42);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var controls = require("controls");
-    var menuView = controls.getMenuView();
+    var controls = require("controls"), menuView = controls.getMenuView();
+    "android" === Ti.Platform.osname ? Ti.App.addEventListener("setMainTitle", function(e) {
+        $.index.activity.actionBar && ($.index.activity.actionBar.title = e.title);
+    }) : Ti.App.addEventListener("setMainTitle", function(e) {
+        $.titleLabel && ($.titleLabel.text = e.title);
+    });
     $.index.addEventListener("open", function() {
-        if ("android" === Ti.Platform.osname) if ($.index.activity) {
-            actionBar = $.index.activity.actionBar;
-            actionBar && (actionBar.onHomeIconItemSelected = $.drawermenu.showhidemenu);
-        } else Ti.API.error("Can't access action bar on a lightweight window.");
+        "android" === Ti.Platform.osname && ($.index.activity ? $.index.activity.actionBar && ($.index.activity.actionBar.onHomeIconItemSelected = $.drawermenu.showhidemenu) : Ti.API.error("Can't access action bar on a lightweight window."));
     });
     menuView.menuTable.addEventListener("click", function(e) {
         $.drawermenu.showhidemenu();
