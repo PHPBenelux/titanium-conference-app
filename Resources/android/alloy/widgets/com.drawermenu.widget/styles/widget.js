@@ -81,7 +81,24 @@ module.exports = [ {
     }
 }, {
     isId: true,
-    priority: 100000.0002,
+    priority: 100000.0008,
+    key: "activityIndicator",
+    style: {
+        color: "#E31837",
+        font: {
+            fontFamily: "Helvetica Neue",
+            fontSize: 16,
+            fontWeight: "bold"
+        },
+        message: "Loading...",
+        top: 10,
+        left: 10,
+        height: Ti.UI.SIZE,
+        width: Ti.UI.FILL
+    }
+}, {
+    isId: true,
+    priority: 100000.001,
     key: "menuview",
     style: {
         backgroundColor: "#cacaca",
@@ -90,7 +107,7 @@ module.exports = [ {
     }
 }, {
     isId: true,
-    priority: 100000.0003,
+    priority: 100000.0011,
     key: "mainview",
     style: {
         backgroundColor: "red",
@@ -99,7 +116,7 @@ module.exports = [ {
     }
 }, {
     isId: true,
-    priority: 100000.0004,
+    priority: 100000.0012,
     key: "mainviewheader",
     style: {
         top: "0",
@@ -109,7 +126,7 @@ module.exports = [ {
     }
 }, {
     isId: true,
-    priority: 100000.0005,
+    priority: 100000.0013,
     key: "menubutton",
     style: {
         left: "0",

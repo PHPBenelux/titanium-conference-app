@@ -41,7 +41,7 @@ function Controller() {
             sections.push(sectionHeader);
         }
         $.table.setData(sections);
-        loader.hide();
+        hideActivity();
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "schedule";
@@ -58,6 +58,21 @@ function Controller() {
         title: "Schedule"
     });
     $.__views.scheduleWindow && $.addTopLevelView($.__views.scheduleWindow);
+    $.__views.activityIndicator = Ti.UI.createActivityIndicator({
+        color: "#E31837",
+        font: {
+            fontFamily: "Helvetica Neue",
+            fontSize: 16,
+            fontWeight: "bold"
+        },
+        message: "Loading...",
+        top: 10,
+        left: 10,
+        height: Ti.UI.SIZE,
+        width: Ti.UI.FILL,
+        id: "activityIndicator"
+    });
+    $.__views.scheduleWindow.add($.__views.activityIndicator);
     $.__views.table = Ti.UI.createTableView({
         id: "table"
     });
@@ -67,15 +82,19 @@ function Controller() {
     arguments[0] || {};
     var moment = require("alloy/moment");
     var decoder = require("entitydecoder");
-    var overlay = require("overlayHUD");
-    var loader = overlay.load();
-    loader.show();
+    var hideActivity = function() {
+        $.scheduleWindow.remove($.activityIndicator);
+    };
+    var style;
+    style = Ti.UI.ActivityIndicatorStyle.DARK;
+    $.activityIndicator.setStyle(style);
+    $.activityIndicator.show();
     Ti.App.fireEvent("setMainTitle", {
         title: "Schedule"
     });
     Alloy.Collections.schedule.fetch({
         success: loadSchedule,
-        error: loader.hide
+        error: hideActivity
     });
     _.extend($, exports);
 }

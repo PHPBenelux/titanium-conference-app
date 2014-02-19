@@ -119,4 +119,21 @@ module.exports = [ {
         height: "40dp",
         visible: true
     }
+}, {
+    isId: true,
+    priority: 100000.0008,
+    key: "activityIndicator",
+    style: {
+        color: "#E31837",
+        font: {
+            fontFamily: "Helvetica Neue",
+            fontSize: 16,
+            fontWeight: "bold"
+        },
+        message: "Loading...",
+        top: 10,
+        left: 10,
+        height: Ti.UI.SIZE,
+        width: Ti.UI.FILL
+    }
 } ];

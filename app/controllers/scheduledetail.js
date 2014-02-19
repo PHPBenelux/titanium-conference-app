@@ -6,8 +6,7 @@ function closeWindow(e) {
     $.scheduleDetailWindow.closeWindow();
 }
 imagecache.cachedImageView('speakerimages', args.picture, $.pictureView);
-// TODO set title
-//$.scheduleDetailWindow.setTitle(args.title);
+
 $.titleLabel.text = args.title;
 $.descriptionLabel.text = args.content;
 $.nameLabel.text = args.speaker;
@@ -18,5 +17,5 @@ $.levelLabel.text = args.level;
 $.typeLabel.text = args.type;
 
 Ti.App.fireEvent('setMainTitle', {
-	title: args.title
+	title: "Schedule"
 });

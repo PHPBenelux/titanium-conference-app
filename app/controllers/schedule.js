@@ -1,8 +1,10 @@
 var args = arguments[0] || {};
 var moment = require('alloy/moment');
 var decoder = require('entitydecoder');
-var overlay = require('overlayHUD');
-var loader = overlay.load();
+
+var hideActivity = function () {
+	$.scheduleWindow.remove($.activityIndicator);
+};
 
 function sortObj(arr){
 	// Setup Arrays
@@ -66,13 +68,21 @@ function loadSchedule(collection, response, options) {
     }
     
     $.table.setData(sections);
-    loader.hide();
+    hideActivity();
 };
 
-loader.show();
+var style;
+if (Ti.Platform.name === 'iPhone OS'){
+  style = Ti.UI.iPhone.ActivityIndicatorStyle.DARK;
+} else {
+  style = Ti.UI.ActivityIndicatorStyle.DARK;
+}
+
+$.activityIndicator.setStyle(style);
+$.activityIndicator.show();
 
 Ti.App.fireEvent('setMainTitle', {
 	title: 'Schedule'
 });
 
-Alloy.Collections.schedule.fetch({ success: loadSchedule, error: loader.hide });
+Alloy.Collections.schedule.fetch({ success: loadSchedule, error: hideActivity });

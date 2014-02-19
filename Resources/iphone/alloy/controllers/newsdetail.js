@@ -74,7 +74,7 @@ function Controller() {
     $.contentLabel.html = Alloy.CFG.htmlPrepend + args.content + Alloy.CFG.htmlSuffix;
     $.postDateLabel.text = "Posted on " + moment(args.date).format("DD MMM YYYY, HH:mm");
     Ti.App.fireEvent("setMainTitle", {
-        title: $.titleLabel.text
+        title: "News"
     });
     _.extend($, exports);
 }

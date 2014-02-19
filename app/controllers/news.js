@@ -1,8 +1,6 @@
 var args = arguments[0] || {};
 var moment = require('alloy/moment');
 var decoder = require('entitydecoder');
-var overlay = require("overlayHUD");
-var loader = overlay.load();
 
 function cleanData(model) {
 	var transform = model.toJSON();
@@ -11,17 +9,27 @@ function cleanData(model) {
 	return transform;
 }
 
+var hideActivity = function () {
+	$.newsWindow.remove($.activityIndicator);
+};
+
 $.table.addEventListener('click', function(e) {
 	var modelData = Alloy.Collections.news.get(e.rowData.model).toJSON(); 
     var newsDetailWin = Alloy.createController('newsdetail', modelData).getView();
     Alloy.Globals.mainView.contentView.add(newsDetailWin);
 });
 
-loader.show();
+var style;
+if (Ti.Platform.name === 'iPhone OS'){
+  style = Ti.UI.iPhone.ActivityIndicatorStyle.DARK;
+} else {
+  style = Ti.UI.ActivityIndicatorStyle.DARK;
+}
+
+$.activityIndicator.setStyle(style);
+$.activityIndicator.show();
 Alloy.Collections.news.fetch({
-    success: loader.hide,
-    error: loader.hide
+    success: hideActivity,
+    error: hideActivity
 });
-Ti.App.fireEvent('setMainTitle', {
-	title: 'News'
-});
+Ti.App.fireEvent('setMainTitle', { title: 'News' });

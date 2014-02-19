@@ -1,6 +1,7 @@
 <Alloy>
 	<Collection src="schedule" />
 	<View id="scheduleWindow" title="Schedule" class="container">
+		<ActivityIndicator id="activityIndicator" message="Loading..."/>
 		<TableView id="table"></TableView>
 	</View>
 </Alloy>
