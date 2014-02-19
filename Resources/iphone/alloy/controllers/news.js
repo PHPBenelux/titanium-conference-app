@@ -39,6 +39,21 @@ function Controller() {
         title: "News"
     });
     $.__views.newsWindow && $.addTopLevelView($.__views.newsWindow);
+    $.__views.activityIndicator = Ti.UI.createActivityIndicator({
+        color: "#E31837",
+        font: {
+            fontFamily: "Helvetica Neue",
+            fontSize: 16,
+            fontWeight: "bold"
+        },
+        message: "Loading...",
+        top: 10,
+        left: 10,
+        height: Ti.UI.SIZE,
+        width: Ti.UI.FILL,
+        id: "activityIndicator"
+    });
+    $.__views.newsWindow.add($.__views.activityIndicator);
     $.__views.table = Ti.UI.createTableView({
         id: "table"
     });
@@ -52,17 +67,21 @@ function Controller() {
     arguments[0] || {};
     var moment = require("alloy/moment");
     var decoder = require("entitydecoder");
-    var overlay = require("overlayHUD");
-    var loader = overlay.load();
+    var hideActivity = function() {
+        $.newsWindow.remove($.activityIndicator);
+    };
     $.table.addEventListener("click", function(e) {
         var modelData = Alloy.Collections.news.get(e.rowData.model).toJSON();
         var newsDetailWin = Alloy.createController("newsdetail", modelData).getView();
         Alloy.Globals.mainView.contentView.add(newsDetailWin);
     });
-    loader.show();
+    var style;
+    style = Ti.UI.iPhone.ActivityIndicatorStyle.DARK;
+    $.activityIndicator.setStyle(style);
+    $.activityIndicator.show();
     Alloy.Collections.news.fetch({
-        success: loader.hide,
-        error: loader.hide
+        success: hideActivity,
+        error: hideActivity
     });
     Ti.App.fireEvent("setMainTitle", {
         title: "News"

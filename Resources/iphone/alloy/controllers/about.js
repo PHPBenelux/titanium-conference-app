@@ -459,8 +459,6 @@ function Controller() {
     exports.destroy = function() {};
     _.extend($, $.__views);
     arguments[0] || {};
-    var overlay = require("overlayHUD");
-    var loader = overlay.load();
     loader.show();
     Ti.App.fireEvent("setMainTitle", {
         title: "About"

@@ -256,7 +256,7 @@ function Controller() {
     $.levelLabel.text = args.level;
     $.typeLabel.text = args.type;
     Ti.App.fireEvent("setMainTitle", {
-        title: args.title
+        title: "Schedule"
     });
     _.extend($, exports);
 }

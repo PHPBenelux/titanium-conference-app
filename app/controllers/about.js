@@ -1,7 +1,5 @@
 var args = arguments[0] || {};
-var overlay = require("overlayHUD");
 var blocksLoaded = 0;
-var loader = overlay.load();
 
 function closeWindow(e) {
     $.aboutWindow.closeWindow();
