@@ -1,5 +1,4 @@
 var args = arguments[0] || {};
-var blocksLoaded = 0;
 
 function closeWindow(e) {
     $.aboutWindow.closeWindow();

@@ -1,15 +1,17 @@
+var Alloy = require("alloy"), _ = require("alloy/underscore")._, model, collection;
+
 var moment = require("alloy/moment");
 
 exports.definition = {
     config: {
         columns: {
             id: "INTEGER PRIMARY KEY",
-            title: "string",
-            content: "string",
-            date: "datetime",
-            modified: "datetime"
+            title: "TEXT",
+            content: "TEXT",
+            date: "TEXT",
+            modified: "TEXT"
         },
-        URL: "http://conference.phpbenelux.eu/2014/api/get_recent_posts",
+        URL: "http://conference.phpbenelux.eu/2015/api/get_recent_posts",
         debug: 0,
         deleteAllOnFetch: true,
         useStrictValidation: 0,
@@ -35,8 +37,6 @@ exports.definition = {
         return Collection;
     }
 };
-
-var Alloy = require("alloy"), _ = require("alloy/underscore")._, model, collection;
 
 model = Alloy.M("news", exports.definition, []);
 

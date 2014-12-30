@@ -2,12 +2,6 @@
 	layout: 'vertical',
 	backgroundColor: 'blue'
 },
-"#menuTopBar":{
-	width: Ti.UI.FILL,
-	height: "60dp",
-	backgroundColor: '#3D3D3D',
-	layout: 'horizontal'
-},
 ".tableRow":{
 	height: '50dp'
 },

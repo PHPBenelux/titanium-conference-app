@@ -290,7 +290,7 @@
         if (input === undefined) config._d = new Date(); else if (matched) config._d = new Date(+matched[1]); else if ("string" == typeof input) makeDateFromString(config); else if (isArray(input)) {
             config._a = input.slice(0);
             dateFromArray(config);
-        } else config._d = input instanceof Date ? new Date(+input) : new Date(input);
+        } else config._d = new Date(input instanceof Date ? +input : input);
     }
     function substituteTimeAgo(string, number, withoutSuffix, isFuture, lang) {
         return lang.relativeTime(number || 1, !!withoutSuffix, string, isFuture);

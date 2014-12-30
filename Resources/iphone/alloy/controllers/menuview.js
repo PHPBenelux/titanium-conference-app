@@ -1,9 +1,26 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "menuview";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        {
+            __processArg(arguments[0], "__parentSymbol");
+        }
+        {
+            __processArg(arguments[0], "$model");
+        }
+        {
+            __processArg(arguments[0], "__itemTemplate");
+        }
+    }
     var $ = this;
     var exports = {};
     $.__views.menuView = Ti.UI.createView({
@@ -109,6 +126,72 @@ function Controller() {
             fontSize: "15dp"
         },
         text: "About",
+        id: "rowLabel"
+    });
+    $.__views.rowContainer.add($.__views.rowLabel);
+    $.__views.crew = Ti.UI.createTableViewRow({
+        height: "50dp",
+        id: "crew"
+    });
+    __alloyId44.push($.__views.crew);
+    $.__views.rowContainer = Ti.UI.createView({
+        height: "30dp",
+        layout: "horizontal",
+        id: "rowContainer"
+    });
+    $.__views.crew.add($.__views.rowContainer);
+    $.__views.rowPicFrame = Ti.UI.createView({
+        left: 5,
+        top: 7,
+        width: "20dp",
+        height: "20dp",
+        backgroundImage: "/41-picture-frame.png",
+        id: "rowPicFrame"
+    });
+    $.__views.rowContainer.add($.__views.rowPicFrame);
+    $.__views.rowLabel = Ti.UI.createLabel({
+        width: Ti.UI.SIZE,
+        height: "20dp",
+        color: "#000",
+        top: 7,
+        left: 10,
+        font: {
+            fontSize: "15dp"
+        },
+        text: "Crew",
+        id: "rowLabel"
+    });
+    $.__views.rowContainer.add($.__views.rowLabel);
+    $.__views.sponsors = Ti.UI.createTableViewRow({
+        height: "50dp",
+        id: "sponsors"
+    });
+    __alloyId44.push($.__views.sponsors);
+    $.__views.rowContainer = Ti.UI.createView({
+        height: "30dp",
+        layout: "horizontal",
+        id: "rowContainer"
+    });
+    $.__views.sponsors.add($.__views.rowContainer);
+    $.__views.rowPicFrame = Ti.UI.createView({
+        left: 5,
+        top: 7,
+        width: "20dp",
+        height: "20dp",
+        backgroundImage: "/41-picture-frame.png",
+        id: "rowPicFrame"
+    });
+    $.__views.rowContainer.add($.__views.rowPicFrame);
+    $.__views.rowLabel = Ti.UI.createLabel({
+        width: Ti.UI.SIZE,
+        height: "20dp",
+        color: "#000",
+        top: 7,
+        left: 10,
+        font: {
+            fontSize: "15dp"
+        },
+        text: "Sponsors",
         id: "rowLabel"
     });
     $.__views.rowContainer.add($.__views.rowLabel);

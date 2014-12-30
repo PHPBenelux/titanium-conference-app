@@ -20,16 +20,6 @@
 					<Label id="roomLabel" class="metalabel">Room</Label>
 				</View>
 				
-				<View class="labelLine">
-					<Label class="metaBoldLabel">Level:</Label>
-					<Label id="levelLabel" class="metalabel">Level</Label>
-				</View>
-				
-				<View class="labelLine">
-					<Label class="metaBoldLabel">Session Type:</Label>
-					<Label id="typeLabel" class="metalabel">Session type</Label>
-				</View>
-				
 			</View>
 		</ScrollView>
 	</View>

@@ -1,3 +1,12 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     function sortObj(arr) {
         var sortedKeys = new Array();
@@ -10,26 +19,28 @@ function Controller() {
     function loadSchedule(collection) {
         var schedule = collection.toJSON();
         if (0 == schedule.length) {
-            $.table.headerTitle = "No data";
+            $.table.headerTitle = "No schedule data";
             return true;
         }
         var sectionSchedule = [];
         var sections = [];
         for (var i = 0, iLen = schedule.length; iLen > i; i++) {
-            var timestampKey = moment(schedule[i].startDate).format("X");
-            sectionSchedule[timestampKey] || (sectionSchedule[timestampKey] = []);
-            sectionSchedule[timestampKey].push(Alloy.createController("schedulerow", {
-                title: decoder.decode(schedule[i].title),
-                content: schedule[i].content,
-                speaker: schedule[i].speaker,
-                bio: schedule[i].bio,
-                picture: schedule[i].picture,
-                startDate: schedule[i].startDate,
-                endDate: schedule[i].endDate,
-                room: schedule[i].room,
-                level: schedule[i].level,
-                type: schedule[i].type
-            }).getView());
+            Ti.API.info(JSON.stringify(schedule[i]));
+            for (var j = 0, iLen = schedule[i].sessions.length; jLen > j; j++) {
+                session = schedule[i].sessions[j];
+                var timestampKey = moment(session.start_time_epoch).format("X");
+                sectionSchedule[timestampKey] || (sectionSchedule[timestampKey] = []);
+                sectionSchedule[timestampKey].push(Alloy.createController("schedulerow", {
+                    title: decoder.decode(session.title),
+                    content: session.content,
+                    speaker: session.speaker,
+                    bio: session.bio,
+                    picture: session.picture,
+                    startDate: session.startDate,
+                    endDate: session.endDate,
+                    room: session.room
+                }).getView());
+            }
         }
         sectionSchedule = sortObj(sectionSchedule);
         for (var jIndex in sectionSchedule) {
@@ -45,9 +56,17 @@ function Controller() {
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "schedule";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        {
+            __processArg(arguments[0], "__parentSymbol");
+        }
+        {
+            __processArg(arguments[0], "$model");
+        }
+        {
+            __processArg(arguments[0], "__itemTemplate");
+        }
+    }
     var $ = this;
     var exports = {};
     Alloy.Collections.instance("schedule");

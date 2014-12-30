@@ -179,10 +179,10 @@ function Sync(method, model, opts) {
         var names = [], values = [], q = [];
         for (var k in columns) {
             names.push(k);
-            _.isObject(attrObj[k]) ? values.push(JSON.stringify(attrObj[k])) : values.push(attrObj[k]);
+            values.push(_.isObject(attrObj[k]) ? JSON.stringify(attrObj[k]) : attrObj[k]);
             q.push("?");
         }
-        lastModifiedColumn && _.isUndefined(params.disableLastModified) && (values[_.indexOf(names, lastModifiedColumn)] = lastModifiedDateFormat ? moment().format(lastModifiedDateFormat) : moment().format("YYYY-MM-DD HH:mm:ss"));
+        lastModifiedColumn && _.isUndefined(params.disableLastModified) && (values[_.indexOf(names, lastModifiedColumn)] = moment().format(lastModifiedDateFormat ? lastModifiedDateFormat : "YYYY-MM-DD HH:mm:ss"));
         var sqlInsert = "INSERT INTO " + table + " (" + names.join(",") + ") VALUES (" + q.join(",") + ");";
         db = Ti.Database.open(dbName);
         db.execute("BEGIN;");
@@ -258,7 +258,7 @@ function Sync(method, model, opts) {
         var names = [], values = [], q = [];
         for (var k in columns) if (!_.isUndefined(attrObj[k])) {
             names.push(k + "=?");
-            _.isObject(attrObj[k]) ? values.push(JSON.stringify(attrObj[k])) : values.push(attrObj[k]);
+            values.push(_.isObject(attrObj[k]) ? JSON.stringify(attrObj[k]) : attrObj[k]);
             q.push("?");
         }
         var sql = "UPDATE " + table + " SET " + names.join(",") + " WHERE " + model.idAttribute + "=?";
@@ -496,7 +496,9 @@ function Sync(method, model, opts) {
         }
         apiCall(params, function(_response) {
             if (_response.success) {
-                parseJSON(_response, parentNode);
+                {
+                    parseJSON(_response, parentNode);
+                }
                 resp = deleteSQL();
                 _.isFunction(params.success) && params.success(resp);
             } else {
@@ -629,15 +631,15 @@ function Migrate(Model) {
     db = Ti.Database.open(config.adapter.db_name);
     migrator.db = db;
     db.execute("BEGIN;");
-    if (migrations.length) for (var i = 0; migrations.length > i; i++) {
+    if (migrations.length) for (var i = 0; i < migrations.length; i++) {
         var migration = migrations[i];
         var context = {};
         migration(context);
         if (direction) {
             if (context.id > targetNumber) break;
-            if (currentNumber >= context.id) continue;
+            if (context.id <= currentNumber) continue;
         } else {
-            if (targetNumber >= context.id) break;
+            if (context.id <= targetNumber) break;
             if (context.id > currentNumber) continue;
         }
         var funcName = direction ? "up" : "down";
@@ -671,7 +673,7 @@ function installDatabase(config) {
     config.columns = columns;
     rs.close();
     if (config.adapter.idAttribute) {
-        if (!_.contains(_.keys(config.columns), config.adapter.idAttribute)) throw 'config.adapter.idAttribute "' + config.adapter.idAttribute + '" not found in list of columns for table "' + table + '"\n' + "columns: [" + _.keys(config.columns).join(",") + "]";
+        if (!_.contains(_.keys(config.columns), config.adapter.idAttribute)) throw 'config.adapter.idAttribute "' + config.adapter.idAttribute + '" not found in list of columns for table "' + table + '"\ncolumns: [' + _.keys(config.columns).join(",") + "]";
     } else {
         Ti.API.info('No config.adapter.idAttribute specified for table "' + table + '"');
         Ti.API.info('Adding "' + ALLOY_ID_DEFAULT + '" to uniquely identify rows');
@@ -683,7 +685,7 @@ function installDatabase(config) {
 }
 
 function S4() {
-    return (0 | 65536 * (1 + Math.random())).toString(16).substring(1);
+    return (65536 * (1 + Math.random()) | 0).toString(16).substring(1);
 }
 
 function guid() {

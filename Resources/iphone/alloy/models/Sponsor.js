@@ -1,12 +1,14 @@
+var Alloy = require("alloy"), _ = require("alloy/underscore")._, model, collection;
+
 exports.definition = {
     config: {
         columns: {
-            ID: "integer",
-            post_title: "string",
-            post_content: "string",
-            logo: "string"
+            ID: "INTEGER",
+            post_title: "TEXT",
+            post_content: "TEXT",
+            logo: "TEXT"
         },
-        URL: "http://conference.phpbenelux.eu/2014/api/phpbenelux/sponsors",
+        URL: "http://conference.phpbenelux.eu/2015/api/phpbenelux/sponsors",
         debug: 0,
         deleteAllOnFetch: true,
         useStrictValidation: 0,
@@ -26,8 +28,6 @@ exports.definition = {
         return Collection;
     }
 };
-
-var Alloy = require("alloy"), _ = require("alloy/underscore")._, model, collection;
 
 model = Alloy.M("sponsor", exports.definition, []);
 

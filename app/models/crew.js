@@ -1,12 +1,12 @@
 exports.definition = {
 	config: {
 		columns: {
-		    "ID": "integer",
-		    "post_title": "string",
-		    "post_content": "string",
-		    "picture": "string"
+		    "ID": "INTEGER",
+		    "title": "TEXT",
+		    "content": "TEXT",
+		    "thumbnail": "TEXT"
 		},
-		URL: 'http://conference.phpbenelux.eu/2014/api/phpbenelux/crew',
+		URL: 'http://conference.phpbenelux.eu/2015/api/get_recent_posts/?post_type=ait-team&order_by=title',
 		debug: 0,
 		deleteAllOnFetch: true,
 		useStrictValidation: 0,

@@ -1,9 +1,26 @@
+function __processArg(obj, key) {
+    var arg = null;
+    if (obj) {
+        arg = obj[key] || null;
+        delete obj[key];
+    }
+    return arg;
+}
+
 function Controller() {
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "scheduledetail";
-    arguments[0] ? arguments[0]["__parentSymbol"] : null;
-    arguments[0] ? arguments[0]["$model"] : null;
-    arguments[0] ? arguments[0]["__itemTemplate"] : null;
+    if (arguments[0]) {
+        {
+            __processArg(arguments[0], "__parentSymbol");
+        }
+        {
+            __processArg(arguments[0], "$model");
+        }
+        {
+            __processArg(arguments[0], "__itemTemplate");
+        }
+    }
     var $ = this;
     var exports = {};
     $.__views.scheduleDetailWindow = Ti.UI.createView({
@@ -169,78 +186,6 @@ function Controller() {
         id: "roomLabel"
     });
     $.__views.__alloyId60.add($.__views.roomLabel);
-    $.__views.__alloyId62 = Ti.UI.createView({
-        layout: "horizontal",
-        height: Ti.UI.SIZE,
-        left: 10,
-        top: 5,
-        bottom: 5,
-        id: "__alloyId62"
-    });
-    $.__views.__alloyId57.add($.__views.__alloyId62);
-    $.__views.__alloyId63 = Ti.UI.createLabel({
-        width: 100,
-        height: Ti.UI.SIZE,
-        color: "#000",
-        font: {
-            fontSize: 10,
-            fontStyle: "normal",
-            fontWeight: "bold"
-        },
-        text: "Level:",
-        id: "__alloyId63"
-    });
-    $.__views.__alloyId62.add($.__views.__alloyId63);
-    $.__views.levelLabel = Ti.UI.createLabel({
-        width: 150,
-        height: Ti.UI.SIZE,
-        color: "#000",
-        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
-        font: {
-            fontSize: 10,
-            fontStyle: "normal",
-            fontWeight: "normal"
-        },
-        text: "Level",
-        id: "levelLabel"
-    });
-    $.__views.__alloyId62.add($.__views.levelLabel);
-    $.__views.__alloyId64 = Ti.UI.createView({
-        layout: "horizontal",
-        height: Ti.UI.SIZE,
-        left: 10,
-        top: 5,
-        bottom: 5,
-        id: "__alloyId64"
-    });
-    $.__views.__alloyId57.add($.__views.__alloyId64);
-    $.__views.__alloyId65 = Ti.UI.createLabel({
-        width: 100,
-        height: Ti.UI.SIZE,
-        color: "#000",
-        font: {
-            fontSize: 10,
-            fontStyle: "normal",
-            fontWeight: "bold"
-        },
-        text: "Session Type:",
-        id: "__alloyId65"
-    });
-    $.__views.__alloyId64.add($.__views.__alloyId65);
-    $.__views.typeLabel = Ti.UI.createLabel({
-        width: 150,
-        height: Ti.UI.SIZE,
-        color: "#000",
-        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
-        font: {
-            fontSize: 10,
-            fontStyle: "normal",
-            fontWeight: "normal"
-        },
-        text: "Session type",
-        id: "typeLabel"
-    });
-    $.__views.__alloyId64.add($.__views.typeLabel);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = arguments[0] || {};

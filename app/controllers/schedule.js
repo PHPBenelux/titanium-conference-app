@@ -27,32 +27,34 @@ function sortObj(arr){
 function loadSchedule(collection, response, options) {      
     var schedule = collection.toJSON();
     if (schedule.length == 0) {
-        $.table.headerTitle = "No data";
+        $.table.headerTitle = "No schedule data";
         return true;
     }
     
     var sectionSchedule = [];
     var sections = [];
     for (var i = 0, iLen = schedule.length; i < iLen; i++) {
-        
-    	// divide data into sections
-    	var timestampKey = moment(schedule[i].startDate).format('X');
-    	if (!sectionSchedule[timestampKey]) {
-    		sectionSchedule[timestampKey] = [];
-    	}
-    	
-    	sectionSchedule[timestampKey].push(Alloy.createController('schedulerow', {
-            title: decoder.decode(schedule[i].title),
-            content: schedule[i].content,
-            speaker: schedule[i].speaker,
-            bio: schedule[i].bio,
-            picture: schedule[i].picture,
-            startDate: schedule[i].startDate,
-            endDate: schedule[i].endDate,
-            room: schedule[i].room,
-            level: schedule[i].level,
-            type: schedule[i].type,
-        }).getView());
+    	Ti.API.info(JSON.stringify(schedule[i]));
+        for (var j = 0, iLen = schedule[i].sessions.length; j < jLen; j++) {
+	    	// divide data into sections
+	    	session = schedule[i].sessions[j];
+	    	
+	    	var timestampKey = moment(session.start_time_epoch).format('X');
+	    	if (!sectionSchedule[timestampKey]) {
+	    		sectionSchedule[timestampKey] = [];
+	    	}
+	    	
+	    	sectionSchedule[timestampKey].push(Alloy.createController('schedulerow', {
+	            title: decoder.decode(session.title),
+	            content: session.content,
+	            speaker: session.speaker,
+	            bio: session.bio,
+	            picture: session.picture,
+	            startDate: session.startDate,
+	            endDate: session.endDate,
+	            room: session.room
+	        }).getView());
+        }
     }
     
     sectionSchedule = sortObj(sectionSchedule);
