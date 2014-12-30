@@ -1,78 +1,76 @@
-var args = arguments[0] || {};
-var moment = require('alloy/moment');
-var decoder = require('entitydecoder');
+var args = arguments[0] || {},
+    moment = require('alloy/moment'),
+    controls = require('controls');
 
 var hideActivity = function () {
 	$.scheduleWindow.remove($.activityIndicator);
 };
 
-function sortObj(arr){
-	// Setup Arrays
-	var sortedKeys = new Array();
-	var sortedObj = {};
-
-	// Separate keys and sort them
-	for (var i in arr){
-		sortedKeys.push(i);
-	}
-	sortedKeys.sort();
-
-	// Reconstruct sorted obj based on keys
-	for (var i in sortedKeys){
-		sortedObj[sortedKeys[i]] = arr[sortedKeys[i]];
-	}
-	return sortedObj;
+function prepareItem(data) {
+    var item = {
+        properties: {
+            itemId: data.id
+        },
+        template: 'scheduleRow',
+        title: {
+            text: 'undefined' !== typeof data.get('title') ? data.get('title') : ''
+        },
+        room: {
+            text: 'undefined' !== typeof data.get('room') ? data.get('room') : ''
+        },
+        speaker: {
+            text: 'undefined' !== typeof data.get('speaker') ? data.get('speaker') : ''
+        }
+        //thumbnail: {
+        //    image: 'undefined' !== typeof model.__transform.thumbnail ? model.__transform.thumbnail : model.get('thumbnail')
+        //}
+    };
+    return item;
 }
 
-function loadSchedule(collection, response, options) {      
-    var schedule = collection.toJSON();
-    Ti.API.info(JSON.stringify(schedule));
-    if (schedule.length == 0) {
-        $.table.headerTitle = "No schedule data";
+function openDetail(e) {
+    var scheduleDetailWin = Alloy.createController('scheduledetail', Alloy.Collections.schedule.get(e.itemId)).getView();
+
+    Alloy.Globals.mainView.contentView.add(scheduleDetailWin);
+}
+
+
+function loadSchedule(collection, response, options) {
+    // always re-sort using the backbone comparator
+    collection.sort();
+
+    if (collection.models.length == 0) {
+        $.listing.headerTitle = "No schedule data";
         return true;
     }
-    
-    var sectionSchedule = [];
-    var sections = [];
-    for (var i = 0, iLen = schedule.length; i < iLen; i++) {
+
+    var slots = {},
+        sections = [];
+    _.each(collection.models, function(session, index) {
     	// divide data into sections
-    	session = schedule[i];
-    	
-    	var timestampKey = session.startDate;
-    	if (!sectionSchedule[timestampKey]) {
-    		sectionSchedule[timestampKey] = [];
+        var timestampKey = session.get('startDate').toString();
+
+        if (!slots[timestampKey]) {
+            slots[timestampKey] = {
+                "talks": []
+            };
     	}
-    	
-    	sectionSchedule[timestampKey].push(Alloy.createController('schedulerow', {
-            title: decoder.decode(session.title),
-            content: session.content,
-            speaker: session.speaker,
-            bio: session.bio,
-            picture: session.picture,
-            startDate: session.startDate,
-            endDate: session.endDate,
-            room: session.room
-        }).getView());
-    }
-    
-    sectionSchedule = sortObj(sectionSchedule);
-    
-    for (var jIndex in sectionSchedule) {
-    	var currentSection = sectionSchedule[jIndex];
-    	var sectionHeader = Ti.UI.createTableViewSection({ headerTitle: moment(jIndex.toString(), 'X').format('DD MMM HH:mm')});
-    	
-    	for (var k = 0, kLen = currentSection.length; k < kLen; k++) {
-    		sectionHeader.add(currentSection[k]);
-    	}
-    	sections.push(sectionHeader);
-    }
-    
-    $.table.setData(sections);
+
+        slots[timestampKey].talks.push(prepareItem(session));
+    });
+
+    _.each(slots, function(elm, index) {
+        var section = Ti.UI.createListSection({headerTitle: moment(index, 'X').format('DD MMM HH:mm')});
+        section.setItems(elm.talks);
+        sections.push(section);
+    });
+
+    $.listing.setSections(sections);
     hideActivity();
 };
 
 var style;
-if (Ti.Platform.name === 'iPhone OS'){
+if (OS_IOS){
   style = Ti.UI.iPhone.ActivityIndicatorStyle.DARK;
 } else {
   style = Ti.UI.ActivityIndicatorStyle.DARK;
