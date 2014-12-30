@@ -20,9 +20,9 @@ exports.definition = {
 				entry,
 				i,j;
 				
-			for (i = 0; i < data.length; i++) {
-				for (j = 0; j < data[i].sessions.length; j++) {
-					session = data[i].sessions[j];
+			for (i = 0; i < data.sessions.length; i++) {
+				for (j = 0; j < data.sessions[i].sessions.length; j++) {
+					session = data.sessions[i].sessions[j];
 					
 					entry = {
 						title : session.title,

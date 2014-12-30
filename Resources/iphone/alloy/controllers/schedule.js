@@ -18,6 +18,7 @@ function Controller() {
     }
     function loadSchedule(collection) {
         var schedule = collection.toJSON();
+        Ti.API.info(JSON.stringify(schedule));
         if (0 == schedule.length) {
             $.table.headerTitle = "No schedule data";
             return true;
@@ -25,22 +26,19 @@ function Controller() {
         var sectionSchedule = [];
         var sections = [];
         for (var i = 0, iLen = schedule.length; iLen > i; i++) {
-            Ti.API.info(JSON.stringify(schedule[i]));
-            for (var j = 0, iLen = schedule[i].sessions.length; jLen > j; j++) {
-                session = schedule[i].sessions[j];
-                var timestampKey = moment(session.start_time_epoch).format("X");
-                sectionSchedule[timestampKey] || (sectionSchedule[timestampKey] = []);
-                sectionSchedule[timestampKey].push(Alloy.createController("schedulerow", {
-                    title: decoder.decode(session.title),
-                    content: session.content,
-                    speaker: session.speaker,
-                    bio: session.bio,
-                    picture: session.picture,
-                    startDate: session.startDate,
-                    endDate: session.endDate,
-                    room: session.room
-                }).getView());
-            }
+            session = schedule[i];
+            var timestampKey = session.startDate;
+            sectionSchedule[timestampKey] || (sectionSchedule[timestampKey] = []);
+            sectionSchedule[timestampKey].push(Alloy.createController("schedulerow", {
+                title: decoder.decode(session.title),
+                content: session.content,
+                speaker: session.speaker,
+                bio: session.bio,
+                picture: session.picture,
+                startDate: session.startDate,
+                endDate: session.endDate,
+                room: session.room
+            }).getView());
         }
         sectionSchedule = sortObj(sectionSchedule);
         for (var jIndex in sectionSchedule) {

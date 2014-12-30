@@ -26,6 +26,7 @@ function sortObj(arr){
 
 function loadSchedule(collection, response, options) {      
     var schedule = collection.toJSON();
+    Ti.API.info(JSON.stringify(schedule));
     if (schedule.length == 0) {
         $.table.headerTitle = "No schedule data";
         return true;
@@ -34,27 +35,24 @@ function loadSchedule(collection, response, options) {
     var sectionSchedule = [];
     var sections = [];
     for (var i = 0, iLen = schedule.length; i < iLen; i++) {
-    	Ti.API.info(JSON.stringify(schedule[i]));
-        for (var j = 0, iLen = schedule[i].sessions.length; j < jLen; j++) {
-	    	// divide data into sections
-	    	session = schedule[i].sessions[j];
-	    	
-	    	var timestampKey = moment(session.start_time_epoch).format('X');
-	    	if (!sectionSchedule[timestampKey]) {
-	    		sectionSchedule[timestampKey] = [];
-	    	}
-	    	
-	    	sectionSchedule[timestampKey].push(Alloy.createController('schedulerow', {
-	            title: decoder.decode(session.title),
-	            content: session.content,
-	            speaker: session.speaker,
-	            bio: session.bio,
-	            picture: session.picture,
-	            startDate: session.startDate,
-	            endDate: session.endDate,
-	            room: session.room
-	        }).getView());
-        }
+    	// divide data into sections
+    	session = schedule[i];
+    	
+    	var timestampKey = session.startDate;
+    	if (!sectionSchedule[timestampKey]) {
+    		sectionSchedule[timestampKey] = [];
+    	}
+    	
+    	sectionSchedule[timestampKey].push(Alloy.createController('schedulerow', {
+            title: decoder.decode(session.title),
+            content: session.content,
+            speaker: session.speaker,
+            bio: session.bio,
+            picture: session.picture,
+            startDate: session.startDate,
+            endDate: session.endDate,
+            room: session.room
+        }).getView());
     }
     
     sectionSchedule = sortObj(sectionSchedule);
