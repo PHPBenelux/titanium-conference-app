@@ -33,11 +33,11 @@ function Controller() {
         id: "contentView"
     });
     $.__views.mainView.add($.__views.contentView);
-    $.__views.__alloyId43 = Alloy.createController("schedule", {
-        id: "__alloyId43",
+    $.__views.__alloyId40 = Alloy.createController("schedule", {
+        id: "__alloyId40",
         __parentSymbol: $.__views.contentView
     });
-    $.__views.__alloyId43.setParent($.__views.contentView);
+    $.__views.__alloyId40.setParent($.__views.contentView);
     exports.destroy = function() {};
     _.extend($, $.__views);
     _.extend($, exports);

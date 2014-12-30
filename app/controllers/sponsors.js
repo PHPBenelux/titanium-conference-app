@@ -5,5 +5,5 @@ function closeWindow(e) {
 }
 
 Ti.App.fireEvent('setMainTitle', {
-	title: 'About'
+	title: 'Sponsors'
 });

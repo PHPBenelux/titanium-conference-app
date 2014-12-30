@@ -1,0 +1,11 @@
+<Alloy>
+	<Collection src="sponsor" />
+	<View id="aboutWindow" title="Sponsors" class="container">
+        <ScrollView id="aboutScroll">
+			<Label class="header">Sponsors</Label>
+			<Label class="content">
+				Sponsor content here...
+			</Label>
+		</ScrollView>
+	</View>
+</Alloy>

@@ -29,12 +29,12 @@ function Controller() {
         id: "menuView"
     });
     $.__views.menuView && $.addTopLevelView($.__views.menuView);
-    var __alloyId44 = [];
+    var __alloyId41 = [];
     $.__views.schedule = Ti.UI.createTableViewRow({
         height: "50dp",
         id: "schedule"
     });
-    __alloyId44.push($.__views.schedule);
+    __alloyId41.push($.__views.schedule);
     $.__views.rowContainer = Ti.UI.createView({
         height: "30dp",
         layout: "horizontal",
@@ -67,7 +67,7 @@ function Controller() {
         height: "50dp",
         id: "news"
     });
-    __alloyId44.push($.__views.news);
+    __alloyId41.push($.__views.news);
     $.__views.rowContainer = Ti.UI.createView({
         height: "30dp",
         layout: "horizontal",
@@ -100,7 +100,7 @@ function Controller() {
         height: "50dp",
         id: "about"
     });
-    __alloyId44.push($.__views.about);
+    __alloyId41.push($.__views.about);
     $.__views.rowContainer = Ti.UI.createView({
         height: "30dp",
         layout: "horizontal",
@@ -133,7 +133,7 @@ function Controller() {
         height: "50dp",
         id: "crew"
     });
-    __alloyId44.push($.__views.crew);
+    __alloyId41.push($.__views.crew);
     $.__views.rowContainer = Ti.UI.createView({
         height: "30dp",
         layout: "horizontal",
@@ -166,7 +166,7 @@ function Controller() {
         height: "50dp",
         id: "sponsors"
     });
-    __alloyId44.push($.__views.sponsors);
+    __alloyId41.push($.__views.sponsors);
     $.__views.rowContainer = Ti.UI.createView({
         height: "30dp",
         layout: "horizontal",
@@ -199,7 +199,7 @@ function Controller() {
         separatorStyle: "NONE",
         separatorColor: "transparent",
         backgroundColor: "#F2F2F2",
-        data: __alloyId44,
+        data: __alloyId41,
         id: "menuTable"
     });
     $.__views.menuView.add($.__views.menuTable);

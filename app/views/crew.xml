@@ -1,0 +1,56 @@
+<Alloy>
+	<View id="aboutWindow" title="Crew" class="container">
+        <ScrollView id="aboutScroll">
+			<View id="crewView">
+				<View class="container" layout="vertical">
+					<Label class="header">Jeroen van Dijk</Label>
+					<ImageView class="pictureImage" image="/images/jeroen.jpg"></ImageView>
+					<Label class="content">
+						Jeroen van Dijk is a technical consultant and evangelist at Enrise, Open Source enthusiast and as board member also devotes his time to PHPBenelux. He has extensive knowledge of scaling applications using Zend Server, Solr and Varnish. Occasionally you can read a blogpost or two at http://jrdk.nl
+						</Label>
+				</View>
+				<View class="container" layout="vertical">
+					<Label class="header">Leon Luijkx</Label>
+					<Label class="content">
+						Leon Luijkx is a consultant specialised in improving business processes. Most of the time he deals with automation of processes and manual work at telecom companies. He likes to set up financial administrations for small businesses and assocations. Leon is also staff member of PHPBenelux.
+					</Label>
+				</View>
+				<View class="container" layout="vertical">
+					<Label class="header">Martin de Keijzer</Label>
+					<ImageView class="pictureImage" image="/images/martin.jpg"></ImageView>
+					<Label class="content">
+						Martin is familiar with both the front-end and server side techniques. About 10 years ago he started out with this funny little language called PHP, which became his gateway into the world of programming and for many solutions he still uses a lot of PHP and has a lot of love for the language. Also by being an active crew member for PHPBenelux and by speaking at conferences around the world. Next to PHP Martin also has big interest for the mobile web and Javascript on both the server- and client-side. He maintains a blog at www.martindekeijzer.nl
+						</Label>
+				</View>
+				<View class="container" layout="vertical">
+					<Label class="header">Michelangelo van Dam</Label>
+					<ImageView class="pictureImage" image="/images/michelangelo.jpg"></ImageView>
+					<Label class="content">
+						Michelangelo van Dam is a professional PHP consultant and Zend Framework expert working mainly for governments and larger enterprises providing consulting services and offer training courses. Michelangelo is also staff member of PHPBenelux, a PHP user group operating in Belgium, Netherlands and Luxembourg, a respected member of the international PHP community and speaks at several PHP conferences around the world.
+					</Label>
+				</View>
+				<View class="container" layout="vertical">
+					<Label class="header">Paul Borgermans</Label>
+					<ImageView class="pictureImage" image="/images/paul.jpg"></ImageView>
+					<Label class="content">
+						Paul is a professional consultant on Apache Solr, Semantic technologies, PHP (Symfony) and the eZ Publish CMS. Besides being a regular staff member, he is also the overall coordinator for the PHPBenelux conferences.
+					</Label>
+				</View>
+				<View class="container" layout="vertical">
+					<Label class="header">Richard Tuin</Label>
+					<ImageView class="pictureImage" image="/images/richard.jpg"></ImageView>
+					<Label class="content">
+						Richard Tuin is a software developer working at Enrise, specialising in web technologies. He has a passion for PHP, quality assurance, the PHP community and music production. He is a PHPBenelux crew member since 2013, and also otherwise involved in the PHP community, and blogs at www.rtuin.nl.
+					</Label>
+				</View>
+				<View class="container" layout="vertical">
+					<Label class="header">Thijs Feryn</Label>
+					<ImageView class="pictureImage" image="/images/thijs.jpg"></ImageView>
+					<Label class="content">
+						Thijs is a tech evangelist at Combell, the #1 Belgian web hosting company. As an evangelist he supports communities and has a particular love for the PHP community. Thijs loves public speaking and is a regular speaker at conferences worldwide. Check out his talks page at http://talks.feryn.eu. You can also find him on Twitter at @ThijsFeryn. Within the PHPBenelux user group Thijs is responsible for sponsoring and organizing ludicrous parties. Thijs also organizes most Belgian PHPBenelux meetups.
+					</Label>
+				</View>
+			</View>
+		</ScrollView>
+	</View>
+</Alloy>

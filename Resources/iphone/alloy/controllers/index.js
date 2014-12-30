@@ -33,16 +33,16 @@ function Controller() {
         id: "index"
     });
     $.__views.index && $.addTopLevelView($.__views.index);
-    var __alloyId39 = [];
+    var __alloyId36 = [];
     $.__views.menuBtn = Ti.UI.createButton({
         id: "menuBtn",
         title: "Menu"
     });
-    __alloyId39.push($.__views.menuBtn);
-    $.__views.__alloyId40 = Ti.UI.createButton({
+    __alloyId36.push($.__views.menuBtn);
+    $.__views.__alloyId37 = Ti.UI.createButton({
         systemButton: Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE
     });
-    __alloyId39.push($.__views.__alloyId40);
+    __alloyId36.push($.__views.__alloyId37);
     $.__views.titleLabel = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
@@ -50,27 +50,27 @@ function Controller() {
         id: "titleLabel",
         text: "Home"
     });
-    __alloyId39.push($.__views.titleLabel);
-    $.__views.__alloyId41 = Ti.UI.createButton({
+    __alloyId36.push($.__views.titleLabel);
+    $.__views.__alloyId38 = Ti.UI.createButton({
         systemButton: Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE
     });
-    __alloyId39.push($.__views.__alloyId41);
-    $.__views.__alloyId37 = Ti.UI.iOS.createToolbar({
-        items: __alloyId39,
+    __alloyId36.push($.__views.__alloyId38);
+    $.__views.__alloyId34 = Ti.UI.iOS.createToolbar({
+        items: __alloyId36,
         top: "0",
-        id: "__alloyId37"
+        id: "__alloyId34"
     });
-    $.__views.index.add($.__views.__alloyId37);
-    $.__views.__alloyId42 = Ti.UI.createView({
+    $.__views.index.add($.__views.__alloyId34);
+    $.__views.__alloyId39 = Ti.UI.createView({
         layout: "composite",
-        id: "__alloyId42"
+        id: "__alloyId39"
     });
-    $.__views.index.add($.__views.__alloyId42);
+    $.__views.index.add($.__views.__alloyId39);
     $.__views.drawermenu = Alloy.createWidget("com.drawermenu.widget", "widget", {
         id: "drawermenu",
-        __parentSymbol: $.__views.__alloyId42
+        __parentSymbol: $.__views.__alloyId39
     });
-    $.__views.drawermenu.setParent($.__views.__alloyId42);
+    $.__views.drawermenu.setParent($.__views.__alloyId39);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var controls = require("controls"), menuView = controls.getMenuView();
