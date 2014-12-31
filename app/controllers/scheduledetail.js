@@ -1,12 +1,12 @@
-var args = arguments[0] || {};
-var moment = require('alloy/moment');
-imagecache = require('imagecache');
+var args = arguments[0] || {},
+	moment = require('alloy/moment'),
+	imagecache = require('imagecache');
 
 function closeWindow(e) {
     $.scheduleDetailWindow.closeWindow();
 }
 imagecache.cachedImageView('speakerimages', args.picture, $.pictureView);
-Ti.API.info(JSON.stringify(args));
+Ti.API.info(JSON.stringify(args.room));
 $.titleLabel.text = args.title;
 $.descriptionLabel.text = args.content;
 $.nameLabel.text = args.speaker;

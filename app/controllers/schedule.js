@@ -6,6 +6,21 @@ var hideActivity = function () {
 	$.scheduleWindow.remove($.activityIndicator);
 };
 
+function renderSpeakers(speakerData) {
+	var speakers = JSON.parse(speakerData),
+		speakertext = '',
+		i;
+		
+	for(i = 0; i < speakers.length; i++) {
+		if (i !== 0) {
+			speakertext += ' & ';
+		}
+		speakertext += speakers[i].name;
+	}
+	
+	return speakertext;
+}
+
 function prepareItem(data) {
     var item = {
         properties: {
@@ -19,7 +34,7 @@ function prepareItem(data) {
             text: 'undefined' !== typeof data.get('room') ? data.get('room') : ''
         },
         speaker: {
-            text: 'undefined' !== typeof data.get('speaker') ? data.get('speaker') : ''
+            text: 'undefined' !== typeof data.get('speaker') ? renderSpeakers(data.get('speaker')) : ''
         }
         //thumbnail: {
         //    image: 'undefined' !== typeof model.__transform.thumbnail ? model.__transform.thumbnail : model.get('thumbnail')
