@@ -2,7 +2,6 @@
 	<Collection src="schedule" />
 	<View id="scheduleWindow" title="Schedule" class="container">
 		<ActivityIndicator id="activityIndicator" message="Loading..."/>
-		<!--<TableView id="table"></TableView>-->
 		<ListView id="listing" defaultItemTemplate="scheduleRow" onItemclick="openDetail">
 			<Templates>
 				<ItemTemplate name="scheduleRow" class="scheduleRow">
