@@ -6,13 +6,13 @@ function closeWindow(e) {
     $.scheduleDetailWindow.closeWindow();
 }
 imagecache.cachedImageView('speakerimages', args.picture, $.pictureView);
-Ti.API.info(JSON.stringify(args.room));
-$.titleLabel.text = args.title;
-$.descriptionLabel.text = args.content;
+
+$.titleLabel.text = args.get('title');
+$.descriptionLabel.text = args.get('content');
 $.nameLabel.text = args.speaker;
 $.bioLabel.text = args.bio;
-$.dateLabel.text = moment(args.startDate).format('DD MMM HH:mm') + " - " + moment(args.startDate).format('HH:mm');
-$.roomLabel.text = args.room;
+$.dateLabel.text = moment(args.get('startDate')).format('DD MMM HH:mm') + " - " + moment(args.get('startDate')).format('HH:mm');
+$.roomLabel.text = args.get('room');
 
 Ti.App.fireEvent('setMainTitle', {
 	title: "Schedule"
