@@ -2,6 +2,18 @@
 	<Collection src="schedule" />
 	<View id="scheduleWindow" title="Schedule" class="container">
 		<ActivityIndicator id="activityIndicator" message="Loading..."/>
-		<TableView id="table"></TableView>
+		<ListView id="listing" defaultItemTemplate="scheduleRow" onItemclick="openDetail">
+			<Templates>
+				<ItemTemplate name="scheduleRow" class="scheduleRow">
+					<View class="roomBlock">
+						<Label bindId="room" class="roomLabel" />
+					</View>
+					<View class="infoBlock">
+						<Label bindId="title" class="titleLabel" />
+						<Label bindId="speaker" class="speakerLabel" />
+					</View>
+				</ItemTemplate>
+			</Templates>
+		</ListView>
 	</View>
 </Alloy>

@@ -1,7 +1,7 @@
 exports.definition = {
 	config: {
 		columns: {
-		    "id": "INTEGER",
+		    "id": "TEXT",
 		    "title": "TEXT",
 		    "content": "TEXT",
 		    "speaker": "TEXT",
@@ -15,27 +15,29 @@ exports.definition = {
 		debug: 0,
 		useStrictValidation: 0,
 		deleteAllOnFetch: true,
+		initFetchWithLocalData: true,
 		parentNode: function(data) {
 			var entries = [],
 				entry,
 				i,j;
-				
+
 			for (i = 0; i < data.sessions.length; i++) {
 				for (j = 0; j < data.sessions[i].sessions.length; j++) {
 					session = data.sessions[i].sessions[j];
-					
+
 					entry = {
+						id: session.id,
 						title : session.title,
 						content: session.abstract,
 						startDate: session.start_time_epoch,
 						endDate: session.end_time_epoch,
 						room: session.space
 					};
-					
+
 					entries.push(entry);
 				}
 			}
-			
+
 			return entries;
 		},
 		adapter: {
@@ -54,6 +56,9 @@ exports.definition = {
 	extendCollection: function(Collection) {
 		_.extend(Collection.prototype, {
 			// extended functions and properties go here
+			comparator: function(item) {
+				return item.get('startDate');
+			}
 		});
 
 		return Collection;
