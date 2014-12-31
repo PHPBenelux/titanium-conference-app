@@ -40,8 +40,11 @@ function loadSchedule(collection, response, options) {
     collection.sort();
 
     if (collection.models.length == 0) {
-        $.listing.headerTitle = "No schedule data";
+        $.listing.footerTitle = "No schedule data";
+        hideActivity();
         return true;
+    } else {
+        $.listing.footerTitle = '';
     }
 
     var slots = {},
