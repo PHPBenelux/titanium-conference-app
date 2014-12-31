@@ -57,7 +57,7 @@ exports.definition = {
 		_.extend(Collection.prototype, {
 			// extended functions and properties go here
 			comparator: function(item) {
-				return item.get('startdate');
+				return item.get('startDate');
 			}
 		});
 
