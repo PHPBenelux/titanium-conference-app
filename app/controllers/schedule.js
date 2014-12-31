@@ -29,7 +29,8 @@ function prepareItem(data) {
 }
 
 function openDetail(e) {
-    var scheduleDetailWin = Alloy.createController('scheduledetail', Alloy.Collections.schedule.get(e.itemId)).getView();
+    var item = Alloy.Collections.schedule.get(e.itemId),
+    	scheduleDetailWin = Alloy.createController('scheduledetail', Alloy.Collections.schedule.get(e.itemId)).getView();
 
     Alloy.Globals.mainView.contentView.add(scheduleDetailWin);
 }

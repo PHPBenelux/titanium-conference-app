@@ -5,8 +5,6 @@ exports.definition = {
 		    "title": "TEXT",
 		    "content": "TEXT",
 		    "speaker": "TEXT",
-		    "bio": "TEXT",
-		    "picture": "TEXT",
 		    "startDate": "TEXT",
 		    "endDate": "TEXT",
 		    "room": "TEXT"
@@ -29,6 +27,7 @@ exports.definition = {
 						id: session.id,
 						title : session.title,
 						content: session.abstract,
+						speaker: JSON.stringify(session.speakers),
 						startDate: session.start_time_epoch,
 						endDate: session.end_time_epoch,
 						room: session.space
