@@ -2,10 +2,21 @@
 	<Collection src="sponsor" />
 	<View id="aboutWindow" title="Sponsors" class="container">
         <ScrollView id="aboutScroll">
-			<Label class="header">Sponsors</Label>
-			<Label class="content">
-				Sponsor content here...
-			</Label>
+			<ImageView id="logoImage" image="/images/sponsors/sparkcentral.png"></ImageView>
+			<ImageView id="logoImage" image="/images/sponsors/enrise.png"></ImageView>
+			<ImageView id="logoImage" image="/images/sponsors/cube.png"></ImageView>
+			<ImageView id="logoImage" image="/images/sponsors/in2it.png"></ImageView>
+			<ImageView id="logoImage" image="/images/sponsors/continuousphp.png"></ImageView>
+			<ImageView id="logoImage" image="/images/sponsors/digitalocean.png"></ImageView>
+			<ImageView id="logoImage" image="/images/sponsors/nucleus.png"></ImageView>
+			<ImageView id="logoImage" image="/images/sponsors/engineyard.png"></ImageView>
+			<ImageView id="logoImage" image="/images/sponsors/coolblue.png"></ImageView>
+			<ImageView id="logoImage" image="/images/sponsors/drukwerkdeal.png"></ImageView>
+			<ImageView id="logoImage" image="/images/sponsors/jetbrains.png"></ImageView>
+			<ImageView id="logoImage" image="/images/sponsors/combell.png"></ImageView>
+			<ImageView id="logoImage" image="/images/sponsors/ibuildings.png"></ImageView>
+			<ImageView id="logoImage" image="/images/sponsors/shopware.png"></ImageView>
+			<ImageView id="logoImage" image="/images/sponsors/openminds.png"></ImageView>
 		</ScrollView>
 	</View>
 </Alloy>
