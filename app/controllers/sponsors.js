@@ -1,9 +1,10 @@
-var args = arguments[0] || {};
+var args = arguments[0] || {},
+    dispatcher = require('dispatcher');
 
 function closeWindow(e) {
     $.aboutWindow.closeWindow();
 }
 
-Ti.App.fireEvent('setMainTitle', {
+dispatcher.trigger('setMainTitle', {
 	title: 'Sponsors'
 });

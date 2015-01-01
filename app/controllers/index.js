@@ -1,14 +1,15 @@
 var controls=require('controls'),
+	dispatcher=require('dispatcher'),
 	menuView=controls.getMenuView();
 
-if (Ti.Platform.osname === 'android') {
-	Ti.App.addEventListener('setMainTitle', function(e) {
+if (OS_ANDROID) {
+	dispatcher.on('setMainTitle', function(e) {
 		if ($.index.activity.actionBar) {
 	    	$.index.activity.actionBar.title = e.title;
 	   	}
 	});
-} else {	
-	Ti.App.addEventListener('setMainTitle', function(e) {
+} else {
+	dispatcher.on('setMainTitle', function(e) {
 		if ($.titleLabel) {
 	    	$.titleLabel.text = e.title;
 	    }

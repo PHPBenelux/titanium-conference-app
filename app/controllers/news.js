@@ -1,6 +1,7 @@
-var args = arguments[0] || {};
-var moment = require('alloy/moment');
-var decoder = require('entitydecoder');
+var args = arguments[0] || {},
+    moment = require('alloy/moment'),
+    decoder = require('entitydecoder'),
+    dispatcher = require('dispatcher');
 
 function cleanData(model) {
 	var transform = model.toJSON();
@@ -14,7 +15,7 @@ var hideActivity = function () {
 };
 
 $.table.addEventListener('click', function(e) {
-	var modelData = Alloy.Collections.news.get(e.rowData.model).toJSON(); 
+	var modelData = Alloy.Collections.news.get(e.rowData.model).toJSON();
     var newsDetailWin = Alloy.createController('newsdetail', modelData).getView();
     Alloy.Globals.mainView.contentView.add(newsDetailWin);
 });
@@ -32,4 +33,5 @@ Alloy.Collections.news.fetch({
     success: hideActivity,
     error: hideActivity
 });
-Ti.App.fireEvent('setMainTitle', { title: 'News' });
+
+dispatcher.trigger('setMainTitle', { title: 'News' });
