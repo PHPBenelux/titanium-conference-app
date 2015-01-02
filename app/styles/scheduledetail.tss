@@ -21,14 +21,10 @@
 	height: Ti.UI.SIZE
 },
 ".metadata": {
-	top: 5,
 	height: Ti.UI.SIZE,
-	width: 200,
+	width: Ti.UI.FILL,
 	layout: 'vertical',
-	backgroundColor: "#ADC2FF",
-	borderColor: "#232733",
-	borderWidth: 2,
-	borderRadius: 3
+	backgroundColor: "#668aab"
 },
 ".labelLine": {
 	layout: 'horizontal',
@@ -40,8 +36,9 @@
 ".metaBoldLabel": {
 	width: 100,
 	height: Ti.UI.SIZE,
+	color: '#FFF',
 	font: {
-		fontSize: 10,
+		fontSize: 12,
 		fontStyle: 'normal',
 		fontWeight: 'bold'
 	}
@@ -49,8 +46,9 @@
 ".metalabel": {
 	width: 150,
 	height: Ti.UI.SIZE,
+	color: '#FFF',
 	font: {
-		fontSize: 10,
+		fontSize: 12,
 		fontStyle: 'normal',
 		fontWeight: 'normal'
 	}
