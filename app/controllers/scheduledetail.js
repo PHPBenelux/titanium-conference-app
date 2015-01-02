@@ -1,6 +1,7 @@
 var args = arguments[0] || {},
 	moment = require('alloy/moment'),
-	imagecache = require('imagecache');
+	imagecache = require('imagecache'),
+	dispatcher = require('dispatcher');
 
 function closeWindow(e) {
     $.scheduleDetailWindow.closeWindow();
@@ -14,6 +15,6 @@ $.bioLabel.text = args.bio;
 $.dateLabel.text = moment(args.get('startDate')).format('DD MMM HH:mm') + " - " + moment(args.get('startDate')).format('HH:mm');
 $.roomLabel.text = args.get('room');
 
-Ti.App.fireEvent('setMainTitle', {
+dispatcher.trigger('setMainTitle', {
 	title: "Schedule"
 });

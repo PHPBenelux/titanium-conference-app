@@ -1,6 +1,7 @@
 var args = arguments[0] || {},
     moment = require('alloy/moment'),
-    controls = require('controls');
+    controls = require('controls'),
+    dispatcher = require('dispatcher');
 
 var hideActivity = function () {
 	$.scheduleWindow.remove($.activityIndicator);
@@ -10,14 +11,14 @@ function renderSpeakers(speakerData) {
 	var speakers = JSON.parse(speakerData),
 		speakertext = '',
 		i;
-		
+
 	for(i = 0; i < speakers.length; i++) {
 		if (i !== 0) {
 			speakertext += ' & ';
 		}
 		speakertext += speakers[i].name;
 	}
-	
+
 	return speakertext;
 }
 
@@ -98,7 +99,7 @@ if (OS_IOS){
 $.activityIndicator.setStyle(style);
 $.activityIndicator.show();
 
-Ti.App.fireEvent('setMainTitle', {
+dispatcher.trigger('setMainTitle', {
 	title: 'Schedule'
 });
 
