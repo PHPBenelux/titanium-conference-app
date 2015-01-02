@@ -30,11 +30,6 @@
 	width: Ti.UI.FILL,
 	height: Ti.UI.SIZE
 },
-// "Window": {
-	// fullscreen: true,
-	// backgroundColor: "white",
-	// layout: "vertical"
-// },
 "WebView": {
 	width: Ti.UI.FILL,
 	height: Ti.UI.SIZE,
@@ -52,7 +47,7 @@
 	color: "#000"
 },
 "#activityIndicator": {
-  color: '#E31837',
+  color: '#5c92fa',
   font: {fontFamily:'Helvetica Neue', fontSize:16, fontWeight:'bold'},
   message: 'Loading...',
   top:10,
