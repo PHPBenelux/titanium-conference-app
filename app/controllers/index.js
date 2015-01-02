@@ -28,6 +28,17 @@ $.index.addEventListener("open", function() {
     }
 });
 
+$.index.addEventListener('androidback', function(e){
+	var dialogs = require('alloy/dialogs');
+	dialogs.confirm({
+		title: "Exit",
+		message: "Do you really want to quit?",
+		callback: function() {
+			$.mainWindow.close();
+		}
+	});
+});
+
 // add event listener in this context
 menuView.menuTable.addEventListener('click',function(e){
 	$.drawermenu.showhidemenu();
