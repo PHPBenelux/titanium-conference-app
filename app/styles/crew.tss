@@ -15,16 +15,13 @@
 	width: Ti.UI.FILL,
 	height: Ti.UI.SIZE
 },
-"#sponsorsView": {
-	height: Ti.UI.SIZE,
-	layout: 'horizontal'
-},
 "#crewView": {
 	height: Ti.UI.SIZE,
 	layout: 'vertical'
 },
 "ImageView": {
-	borderRadius: 5
+	borderRadius: 5,
+	height: 65
 },
 ".header": {
 	top: 5,
