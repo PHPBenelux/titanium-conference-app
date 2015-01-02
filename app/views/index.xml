@@ -8,9 +8,6 @@
 	            <FlexSpace/>
 	        </Items>
 	    </Toolbar>
-	    <Menu id="menu" platform="android">
-            <MenuItem id="menuBtn" title="Menu" showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS" />
-        </Menu>
 	    <View layout="composite">
 			<Require type="widget" src="com.drawermenu.widget" id="drawermenu"/>
 		</View>
