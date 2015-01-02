@@ -5,15 +5,14 @@ var showhidemenu=function(){
 		moveTo="0";
 		menuOpen=false;
 	}else{
-		moveTo="250dp";
+		moveTo="150dp";
 		menuOpen=true;
 	}
 
 	$.drawermainview.width=Ti.Platform.displayCaps.platformWidth;
 	$.drawermainview.animate({
 		left:moveTo,
-		curve : Ti.UI.ANIMATION_CURVE_EASE_OUT,
-		duration:400
+		curve : Ti.UI.ANIMATION_CURVE_EASE_OUT
 	});
 };
 
