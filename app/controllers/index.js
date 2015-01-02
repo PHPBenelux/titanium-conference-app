@@ -1,7 +1,7 @@
 var controls=require('controls'),
 	dispatcher=require('dispatcher'),
 	menuView=controls.getMenuView();
-
+	
 if (OS_ANDROID) {
 	dispatcher.on('setMainTitle', function(e) {
 		if ($.index.activity.actionBar) {
@@ -29,14 +29,19 @@ $.index.addEventListener("open", function() {
 });
 
 $.index.addEventListener('androidback', function(e){
-	var dialogs = require('alloy/dialogs');
-	dialogs.confirm({
-		title: "Exit",
-		message: "Do you really want to quit?",
-		callback: function() {
-			$.mainWindow.close();
-		}
-	});
+	var _viewCount = Alloy.Globals.mainView.contentView.children.length;
+	if (_viewCount > 1) {
+		Alloy.Globals.mainView.contentView.remove(Alloy.Globals.mainView.contentView.children[(_viewCount - 1)]);
+	} else {
+		var dialogs = require('alloy/dialogs');
+		dialogs.confirm({
+			title: "Exit",
+			message: "Do you really want to quit?",
+			callback: function() {
+				$.mainWindow.close();
+			}
+		});
+	}
 });
 
 // add event listener in this context
