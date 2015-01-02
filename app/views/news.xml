@@ -2,8 +2,16 @@
 	<Collection src="news" />
 	<View id="newsWindow" title="News" class="container">
 		<ActivityIndicator id="activityIndicator" message="Loading..."/>
-		<TableView id="table" dataCollection="news" dataTransform="cleanData">
-			<Require src="newsrow"/>
-		</TableView>
+		
+		<ListView id="table" defaultItemTemplate="newsRow" onItemclick="openDetail">
+			<Templates>
+				<ItemTemplate name="newsRow">
+					<View class="newsRow">
+						<Label class="titleLabel" bindId="title" />
+						<Label class="postDateLabel" bindId="date" />
+					</View>
+				</ItemTemplate>
+			</Templates>
+		</ListView>
 	</View>	
 </Alloy>
