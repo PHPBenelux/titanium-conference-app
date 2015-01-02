@@ -20,6 +20,5 @@ Once you're ready to start making changes please follow the steps below:
 
 The API-calls below are used for the boilerplate application, you can adjust these to fit your needs by implementing your own. Please note that changing the API calls will require you to change the models and controller code.
 
-* [Schedule: http://conference.phpbenelux.eu/2014/api/phpbenelux/schedule/](http://conference.phpbenelux.eu/2014/api/phpbenelux/schedule/)
-* [Sponsors: http://conference.phpbenelux.eu/2014/api/phpbenelux/sponsors/](http://conference.phpbenelux.eu/2014/api/phpbenelux/sponsors/)
-* [News: http://conference.phpbenelux.eu/2014/api/get\_recent\_posts/](http://conference.phpbenelux.eu/2014/api/get_recent_posts/)
+* [Schedule: http://conference.phpbenelux.eu/2014/api/phpbenelux/schedule/](http://lanyrd.com/2015/phpbnl15/schedule/0e8fa288ad3fb52d.v1.json)
+* [News: http://conference.phpbenelux.eu/2015/api/get\_recent\_posts/](http://conference.phpbenelux.eu/2014/api/get_recent_posts/)
