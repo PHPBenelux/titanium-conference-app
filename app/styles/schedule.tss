@@ -1,13 +1,11 @@
 ".roomBlock": {
 	height: Ti.UI.SIZE,
-	left: 10,
 	width: 100,
-	layout: 'composite'
+	left: 0,
+	top: 0
 },
 ".infoBlock": {
 	height: Ti.UI.SIZE,
-	left: 110,
-	width: 160,
 	layout: 'vertical'
 },
 ".scheduleRow": {

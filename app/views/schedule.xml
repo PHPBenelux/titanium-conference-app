@@ -4,13 +4,15 @@
 		<ActivityIndicator id="activityIndicator" message="Loading..."/>
 		<ListView id="listing" defaultItemTemplate="scheduleRow" onItemclick="openDetail">
 			<Templates>
-				<ItemTemplate name="scheduleRow" class="scheduleRow">
-					<View class="roomBlock">
-						<Label bindId="room" class="roomLabel" />
-					</View>
-					<View class="infoBlock">
-						<Label bindId="title" class="titleLabel" />
-						<Label bindId="speaker" class="speakerLabel" />
+				<ItemTemplate name="scheduleRow">
+					<View class="scheduleRow">
+						<View class="roomBlock">
+							<Label bindId="room" class="roomLabel" />
+						</View>
+						<View class="infoBlock">
+							<Label bindId="title" class="titleLabel" />
+							<Label bindId="speaker" class="speakerLabel" />
+						</View>
 					</View>
 				</ItemTemplate>
 			</Templates>
