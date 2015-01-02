@@ -28,6 +28,7 @@
 	top: 7,
 	left: 10,
 	height: "20dp",
+	width: Ti.UI.FILL,
 	font:{
 		fontSize: "15dp"
 	},
