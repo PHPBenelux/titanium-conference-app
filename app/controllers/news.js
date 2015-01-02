@@ -4,11 +4,20 @@ var args = arguments[0] || {},
     decoder = require('entitydecoder'),
     dispatcher = require('dispatcher');
 
-function cleanData(model) {
-	var transform = model.toJSON();
-	transform.title = decoder.decode(transform.title);
-	transform.date = moment(transform.date).format('DD MMM YYYY, HH:mm');
-	return transform;
+function cleanData(data) {
+    var item = {
+        properties: {
+            itemId: data.id
+        },
+        template: 'newsRow',
+        title: {
+            text: 'undefined' !== typeof data.get('title') ? decoder.decode(data.get('title')) : ''
+        },
+        date: {
+            text: 'undefined' !== typeof data.get('date') ? moment(data.get('date')).format('DD MMM YYYY, HH:mm') : ''
+        }
+    };
+    return item;
 }
 
 var hideActivity = function () {
@@ -16,11 +25,26 @@ var hideActivity = function () {
 };
 
 function openDetail(e) {
-	var modelData = Alloy.Collections.news.get(e.rowData.model).toJSON();
+	var item = Alloy.Collections.news.get(e.itemId);
 
     _.defer(function() {
-        controls.setMaincontentView(Alloy.createController('newsdetail', modelData));
+        controls.setMaincontentView(Alloy.createController('newsdetail', item));
     });
+};
+
+function loadNews(collection, response, options) {
+	hideActivity();
+	var section = Ti.UI.createListSection({}),
+		newsItems = [],
+        sections = [];
+
+	_.each(collection.models, function(item, index) {
+		newsItems.push(cleanData(item));
+	});
+
+	section.setItems(newsItems);
+	sections.push(section);
+	$.table.setSections(sections);
 };
 
 var style;
@@ -33,21 +57,18 @@ if (Ti.Platform.name === 'iPhone OS'){
 $.activityIndicator.setStyle(style);
 $.activityIndicator.show();
 Alloy.Collections.news.fetch({
-    success: hideActivity,
+    success: loadNews,
     error: hideActivity
 });
 
 dispatcher.trigger('setMainTitle', { title: 'News' });
 
 $.init = function() {
-    $.table.addEventListener('singletap', openDetail);
 };
 
 $.news.addEventListener('open', $.init);
 
 $.cleanup = function() {
-
-    $.table.removeEventListener('singletap', openDetail);
 
     // let Alloy clean up listeners to global collections for data-binding
     // always call it since it'll just be empty if there are none

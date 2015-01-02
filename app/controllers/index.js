@@ -22,6 +22,22 @@ function openWindow(e) {
 	controls.setMaincontentView(Alloy.createController(e.rowData.id));
 }
 
+function handleAndroidBack(e) {
+	var _viewCount = Alloy.Globals.mainView.contentView.children.length;
+	if (_viewCount > 1) {
+		Alloy.Globals.mainView.contentView.remove(Alloy.Globals.mainView.contentView.children[(_viewCount - 1)]);
+	} else {
+		var dialogs = require('alloy/dialogs');
+		dialogs.confirm({
+			title: "Exit",
+			message: "Do you really want to quit?",
+			callback: function () {
+				$.mainWindow.close();
+			}
+		});
+	}
+};
+
 Alloy.Globals.mainView = controls.getMainView();
 controls.setMaincontentView(Alloy.createController('schedule'));
 
@@ -37,7 +53,9 @@ $.init = function() {
 	}
 	menuView.menuTable.addEventListener('singletap', openWindow);
 
-	if (Ti.Platform.osname === "android") {
+	if (OS_ANDROID) {
+		$.index.addEventListener('androidback', handleAndroidBack);
+
 		if (! $.index.activity) {
 			Ti.API.error("Can't access action bar on a lightweight window.");
 		} else {
@@ -55,6 +73,10 @@ $.cleanup = function() {
 		$.menuBtn.removeEventListener('singletap', $.drawermenu.showhidemenu);
 	}
 	menuView.menuTable.removeEventListener('singletap', openWindow);
+
+	if (OS_ANDROID) {
+		$.index.removeEventListener('androidback', handleAndroidBack);
+	}
 
 	dispatcher.off(null, null, $);
 };

@@ -1,5 +1,4 @@
 <Alloy>
-	<Collection src="sponsor" />
 	<View id="sponsors" title="Sponsors" class="container">
         <ScrollView id="aboutScroll">
 			<ImageView id="logoImage" image="/images/sponsors/sparkcentral.png"></ImageView>

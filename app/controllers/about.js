@@ -22,7 +22,6 @@ $.cleanup = function() {
 
 $.about.addEventListener('close', $.cleanup);
 
-
 dispatcher.trigger('setMainTitle', {
 	title: 'About'
 });

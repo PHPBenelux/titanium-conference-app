@@ -1,6 +1,0 @@
-<Alloy>
-	<TableViewRow layout="vertical" model="{id}">
-		<Label id="titleLabel" text="{title}" />
-		<Label id="postDateLabel" text="{date}" />
-	</TableViewRow>
-</Alloy>

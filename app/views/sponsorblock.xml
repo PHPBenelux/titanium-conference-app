@@ -1,5 +1,0 @@
-<Alloy>
-	<View class="container">
-		<ImageView id="logoImage"></ImageView>
-	</View>
-</Alloy>
