@@ -1,4 +1,5 @@
 var args = arguments[0] || {},
+    controls = require('controls'),
     moment = require('alloy/moment'),
     decoder = require('entitydecoder'),
     dispatcher = require('dispatcher');
@@ -20,14 +21,15 @@ function cleanData(data) {
 }
 
 var hideActivity = function () {
-	$.newsWindow.remove($.activityIndicator);
+	$.news.remove($.activityIndicator);
 };
 
 function openDetail(e) {
-    var item = Alloy.Collections.news.get(e.itemId),
-    	newsDetailWin = Alloy.createController('newsdetail', Alloy.Collections.news.get(e.itemId)).getView();
+	var item = Alloy.Collections.news.get(e.itemId);
 
-    Alloy.Globals.mainView.contentView.add(newsDetailWin);
+    _.defer(function() {
+        controls.setMaincontentView(Alloy.createController('newsdetail', item));
+    });
 };
 
 function loadNews(collection, response, options) {
@@ -37,11 +39,11 @@ function loadNews(collection, response, options) {
         sections = [];
 
 	_.each(collection.models, function(item, index) {
-		newsItems.push(cleanData(item));	
+		newsItems.push(cleanData(item));
 	});
-        
+
 	section.setItems(newsItems);
-	sections.push(section);	
+	sections.push(section);
 	$.table.setSections(sections);
 };
 
@@ -60,3 +62,23 @@ Alloy.Collections.news.fetch({
 });
 
 dispatcher.trigger('setMainTitle', { title: 'News' });
+
+$.init = function() {
+};
+
+$.news.addEventListener('open', $.init);
+
+$.cleanup = function() {
+
+    // let Alloy clean up listeners to global collections for data-binding
+    // always call it since it'll just be empty if there are none
+    $.destroy();
+
+    // remove all event listeners on the controller
+    $.off();
+
+    // and custom global dispatchers (all at once, via context)
+    dispatcher.off(null, null, $);
+};
+
+$.news.addEventListener('close', $.cleanup);

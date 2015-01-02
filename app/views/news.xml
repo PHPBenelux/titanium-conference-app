@@ -1,8 +1,7 @@
 <Alloy>
 	<Collection src="news" />
-	<View id="newsWindow" title="News" class="container">
+	<View id="news" title="News" class="container">
 		<ActivityIndicator id="activityIndicator" message="Loading..."/>
-		
 		<ListView id="table" defaultItemTemplate="newsRow" onItemclick="openDetail">
 			<Templates>
 				<ItemTemplate name="newsRow">
@@ -13,5 +12,5 @@
 				</ItemTemplate>
 			</Templates>
 		</ListView>
-	</View>	
+	</View>
 </Alloy>

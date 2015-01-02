@@ -4,7 +4,7 @@ var args = arguments[0] || {},
     dispatcher = require('dispatcher');
 
 var hideActivity = function () {
-	$.scheduleWindow.remove($.activityIndicator);
+	$.schedule.remove($.activityIndicator);
 };
 
 function renderSpeakers(speakerData) {
@@ -45,10 +45,11 @@ function prepareItem(data) {
 }
 
 function openDetail(e) {
-    var item = Alloy.Collections.schedule.get(e.itemId),
-    	scheduleDetailWin = Alloy.createController('scheduledetail', Alloy.Collections.schedule.get(e.itemId)).getView();
+    var item = Alloy.Collections.schedule.get(e.itemId);
 
-    Alloy.Globals.mainView.contentView.add(scheduleDetailWin);
+    _.defer(function() {
+        controls.setMaincontentView(Alloy.createController('scheduledetail', item));
+    });
 }
 
 
@@ -98,6 +99,28 @@ if (OS_IOS){
 
 $.activityIndicator.setStyle(style);
 $.activityIndicator.show();
+
+$.init = function() {
+
+};
+
+$.schedule.addEventListener('open', $.init);
+
+$.cleanup = function() {
+
+    // let Alloy clean up listeners to global collections for data-binding
+    // always call it since it'll just be empty if there are none
+    $.destroy();
+
+    // remove all event listeners on the controller
+    $.off();
+
+    // and custom global dispatchers (all at once, via context)
+    dispatcher.off(null, null, $);
+};
+
+$.schedule.addEventListener('close', $.cleanup);
+
 
 dispatcher.trigger('setMainTitle', {
 	title: 'Schedule'
