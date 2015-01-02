@@ -2,8 +2,8 @@
 	layout: 'vertical',
 },
 ".tableRow":{
-	height: '50dp'
-	selectedBackgroundColor: '#fff';
+	height: '50dp',
+	selectedBackgroundColor: '#fff'
 },
 "#rowContainer":{
 	height: '30dp',
