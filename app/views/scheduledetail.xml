@@ -15,9 +15,9 @@
 			<Label id="titleLabel" class="header">Title</Label>
 			<Label id="descriptionLabel" class="content"></Label>
 			
-			<Label id="nameLabel" class="header">Speaker</Label>
-			<ImageView id="pictureView"></ImageView>
-			<Label id="bioLabel" class="content"></Label>
+			<View id="speakerContainer">
+				
+			</View>
 		</ScrollView>
 	</View>
 </Alloy>

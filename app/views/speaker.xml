@@ -1,0 +1,7 @@
+<Alloy>
+	<View class="speakerView">
+		<Label id="nameLabel" class="header">Speaker</Label>
+		<ImageView id="pictureView"></ImageView>
+		<Label id="bioLabel" class="content"></Label>
+	</View>
+</Alloy>

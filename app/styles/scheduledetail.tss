@@ -16,17 +16,9 @@
 		fontWeight: 'bold'
 	}
 },
-"#nameLabel": {
-	top: 5,
-	bottom: 5,
-	font: {
-		fontSize: 18,
-		fontStyle: 'normal',
-		fontWeight: 'bold'
-	}
-},
-"ImageView": {
-	borderRadius: 5
+"#speakerContainer": {
+	layout: 'vertical',
+	height: Ti.UI.SIZE
 },
 ".metadata": {
 	top: 5,

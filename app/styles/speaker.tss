@@ -1,0 +1,17 @@
+"#nameLabel": {
+	top: 5,
+	bottom: 5,
+	font: {
+		fontSize: 18,
+		fontStyle: 'normal',
+		fontWeight: 'bold'
+	}
+},
+".speakerView": {
+	layout: 'vertical',
+	height: Ti.UI.SIZE,
+},
+"ImageView": {
+	borderRadius: 5,
+	height: 100
+},
