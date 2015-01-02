@@ -18,7 +18,7 @@
 	// left: 30
 // },
 // "#schedule": {
-// 	
+//
 // }
 // ,
 // "#about": {
@@ -26,7 +26,31 @@
 // }
 ".container": {
 	backgroundColor:"white",
-	orientationModes: [Ti.UI.PORTRAIT,Ti.UI.LANDSCAPE_LEFT,Ti.UI.LANDSCAPE_RIGHT,Ti.UI.UPSIDE_PORTRAIT],
-	navBarHidden: true,
-	exitOnClose: true
+	orientationModes: [Ti.UI.PORTRAIT,Ti.UI.UPSIDE_PORTRAIT],
+	layout: 'vertical'
+}
+
+".container[platform=ios]": {
+    statusBarStyle: Ti.UI.iPhone.StatusBar.LIGHT_CONTENT
+}
+
+".container[platform=android]": {
+    exitOnClose: true,
+    fullscreen: true
+}
+
+"#toolbar[platform=ios]": {
+    top: Alloy.Globals.windowTop,
+    extendBackground: true,
+    barColor: "#005176",
+    tintColor: "#ffffff",
+
+}
+
+"#titleLabel[platform=ios]": {
+    color: "#ffffff",
+    font: {
+        fontSize: '18dp',
+        fontWeight:'bold'
+    }
 }

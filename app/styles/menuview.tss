@@ -1,9 +1,9 @@
 "#menuView":{
 	layout: 'vertical',
-	backgroundColor: 'blue'
 },
 ".tableRow":{
 	height: '50dp'
+	selectedBackgroundColor: '#fff';
 },
 "#rowContainer":{
 	height: '30dp',
@@ -31,11 +31,11 @@
 	font:{
 		fontSize: "15dp"
 	},
-	color: "#000"
-	
+	color: "#fff"
+
 },
 ".menuTable":{
 	separatorStyle:'NONE',
 	separatorColor: 'transparent',
-	backgroundColor:'#F2F2F2'
+	backgroundColor:'#19a0db'
 }

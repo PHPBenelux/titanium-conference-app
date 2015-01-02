@@ -1,6 +1,6 @@
 <Alloy>
-	<Window class="container" layout="vertical" fullscreen="true" navBarHidden="false">
-		<Toolbar platform="ios" top="0">
+	<Window class="container">
+		<Toolbar id="toolbar" platform="ios">
 	        <Items>
 	            <Button id="menuBtn" title="Menu" />
 	            <FlexSpace/>
