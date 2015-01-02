@@ -1,5 +1,5 @@
 <Alloy>
-	<View id="aboutWindow" title="Sponsors" class="container">
+	<View id="sponsors" title="Sponsors" class="container">
         <ScrollView id="aboutScroll">
 			<ImageView id="logoImage" image="/images/sponsors/sparkcentral.png"></ImageView>
 			<ImageView id="logoImage" image="/images/sponsors/enrise.png"></ImageView>

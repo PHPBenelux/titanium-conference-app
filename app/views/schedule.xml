@@ -1,6 +1,6 @@
 <Alloy>
 	<Collection src="schedule" />
-	<View id="scheduleWindow" title="Schedule" class="container">
+	<View id="schedule" title="Schedule" class="container">
 		<ActivityIndicator id="activityIndicator" message="Loading..."/>
 		<ListView id="listing" defaultItemTemplate="scheduleRow" onItemclick="openDetail">
 			<Templates>
