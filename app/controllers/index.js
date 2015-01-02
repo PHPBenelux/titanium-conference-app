@@ -16,37 +16,50 @@ if (OS_ANDROID) {
 	});
 }
 
-$.index.addEventListener("open", function() {
-    if (Ti.Platform.osname === "android") {
-        if (! $.index.activity) {
-            Ti.API.error("Can't access action bar on a lightweight window.");
-        } else {
-            if ($.index.activity.actionBar) {
-                $.index.activity.actionBar.onHomeIconItemSelected = $.drawermenu.showhidemenu;
-            }
-        }
-    }
-});
-
-// add event listener in this context
-menuView.menuTable.addEventListener('click',function(e){
+function openWindow(e) {
 	$.drawermenu.showhidemenu();
 	// on Android the event is received by the label, so watch out!
-	var drawerView = Alloy.createController(e.rowData.id).getView();
-	Alloy.Globals.mainView.contentView.add(drawerView);
-});
+	controls.setMaincontentView(Alloy.createController(e.rowData.id));
+}
 
 Alloy.Globals.mainView = controls.getMainView();
+controls.setMaincontentView(Alloy.createController('schedule'));
 
 // add menu view to container exposed by widget
 $.drawermenu.drawermenuview.add(menuView.getView()); // get view is an Alloy Method
 
-if ($.menuBtn) {
-	$.menuBtn.addEventListener('click', $.drawermenu.showhidemenu);
-}
-
 // add view to container exposed by widget
 $.drawermenu.drawermainview.add(Alloy.Globals.mainView.getView());
+
+$.init = function() {
+	if ($.menuBtn) {
+		$.menuBtn.addEventListener('click', $.drawermenu.showhidemenu);
+	}
+	menuView.menuTable.addEventListener('singletap', openWindow);
+
+	if (Ti.Platform.osname === "android") {
+		if (! $.index.activity) {
+			Ti.API.error("Can't access action bar on a lightweight window.");
+		} else {
+			if ($.index.activity.actionBar) {
+				$.index.activity.actionBar.onHomeIconItemSelected = $.drawermenu.showhidemenu;
+			}
+		}
+	}
+};
+
+$.index.addEventListener('open', $.init);
+
+$.cleanup = function() {
+	if ($.menuBtn) {
+		$.menuBtn.removeEventListener('singletap', $.drawermenu.showhidemenu);
+	}
+	menuView.menuTable.removeEventListener('singletap', openWindow);
+
+	dispatcher.off(null, null, $);
+};
+
+$.index.addEventListener('close', $.cleanup);
 
 $.index.open();
 

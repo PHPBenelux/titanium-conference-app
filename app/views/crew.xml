@@ -1,5 +1,5 @@
 <Alloy>
-	<View id="aboutWindow" title="Crew" class="container">
+	<View id="crew" title="Crew" class="container">
         <ScrollView id="aboutScroll">
 			<View id="crewView">
 				<View class="container" layout="vertical">

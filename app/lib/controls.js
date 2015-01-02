@@ -1,4 +1,16 @@
-var Alloy=require('alloy');
+var Alloy=require('alloy'),
+	_ctrl = null;
+
+exports.setMaincontentView=function(newCtrl, options) {
+	if (_ctrl) {
+		Alloy.Globals.mainView.contentView.remove(_ctrl.getView());
+		_.isFunction(_ctrl.cleanup) && _ctrl.cleanup();
+	}
+
+	_ctrl = newCtrl;
+	Alloy.Globals.mainView.contentView.add(_ctrl.getView());
+	_.isFunction(_ctrl.init) && _ctrl.init();
+};
 
 exports.getMainView=function(){
 	return Alloy.createController('mainview');
@@ -6,7 +18,7 @@ exports.getMainView=function(){
 
 exports.getMenuView=function(){
 	var v=Alloy.createController('menuview');
-	
+
 	return v;
 };
 

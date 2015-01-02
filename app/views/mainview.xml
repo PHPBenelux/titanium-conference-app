@@ -1,7 +1,6 @@
 <Alloy>
 	<View id="mainView">
 		<View id="contentView">
-			<Require type="view" src="schedule"></Require>
 		</View>
 	</View>
 </Alloy>

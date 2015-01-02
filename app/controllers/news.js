@@ -1,4 +1,5 @@
 var args = arguments[0] || {},
+    controls = require('controls'),
     moment = require('alloy/moment'),
     decoder = require('entitydecoder'),
     dispatcher = require('dispatcher');
@@ -11,14 +12,16 @@ function cleanData(model) {
 }
 
 var hideActivity = function () {
-	$.newsWindow.remove($.activityIndicator);
+	$.news.remove($.activityIndicator);
 };
 
-$.table.addEventListener('click', function(e) {
+function openDetail(e) {
 	var modelData = Alloy.Collections.news.get(e.rowData.model).toJSON();
-    var newsDetailWin = Alloy.createController('newsdetail', modelData).getView();
-    Alloy.Globals.mainView.contentView.add(newsDetailWin);
-});
+
+    _.defer(function() {
+        controls.setMaincontentView(Alloy.createController('newsdetail', modelData));
+    });
+};
 
 var style;
 if (Ti.Platform.name === 'iPhone OS'){
@@ -35,3 +38,26 @@ Alloy.Collections.news.fetch({
 });
 
 dispatcher.trigger('setMainTitle', { title: 'News' });
+
+$.init = function() {
+    $.table.addEventListener('singletap', openDetail);
+};
+
+$.news.addEventListener('open', $.init);
+
+$.cleanup = function() {
+
+    $.table.removeEventListener('singletap', openDetail);
+
+    // let Alloy clean up listeners to global collections for data-binding
+    // always call it since it'll just be empty if there are none
+    $.destroy();
+
+    // remove all event listeners on the controller
+    $.off();
+
+    // and custom global dispatchers (all at once, via context)
+    dispatcher.off(null, null, $);
+};
+
+$.news.addEventListener('close', $.cleanup);

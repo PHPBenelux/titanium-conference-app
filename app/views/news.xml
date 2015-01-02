@@ -1,9 +1,9 @@
 <Alloy>
 	<Collection src="news" />
-	<View id="newsWindow" title="News" class="container">
+	<View id="news" title="News" class="container">
 		<ActivityIndicator id="activityIndicator" message="Loading..."/>
 		<TableView id="table" dataCollection="news" dataTransform="cleanData">
 			<Require src="newsrow"/>
 		</TableView>
-	</View>	
+	</View>
 </Alloy>
