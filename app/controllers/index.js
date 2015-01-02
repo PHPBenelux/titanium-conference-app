@@ -17,9 +17,11 @@ if (OS_ANDROID) {
 }
 
 function openWindow(e) {
-	$.drawermenu.showhidemenu();
-	// on Android the event is received by the label, so watch out!
-	controls.setMaincontentView(Alloy.createController(e.rowData.id));
+	if (typeof e.rowData !== 'undefined') {
+		$.drawermenu.showhidemenu();
+		// on Android the event is received by the label, so watch out!
+		controls.setMaincontentView(Alloy.createController(e.rowData.id));
+	}
 }
 
 function handleAndroidBack(e) {
