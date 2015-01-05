@@ -14,6 +14,7 @@
     <guid>d80cb9c3-16d3-4cdd-92e2-b8d4607fc5f1</guid>
     <property name="ti.ui.defaultunit" type="string">dp</property>
     <ios>
+        <min-ios-ver>7.0</min-ios-ver>
         <plist>
             <dict>
                 <key>UISupportedInterfaceOrientations~iphone</key>
@@ -42,10 +43,7 @@
     <android xmlns:android="http://schemas.android.com/apk/res/android">
         <tool-api-level>14</tool-api-level>
         <manifest>
-            <application android:theme="@style/Theme.AppCompat"/>
-            <supports-screens android:anyDensity="false"/>
-            <uses-sdk android:maxSdkVersion="19"
-                android:minSdkVersion="11" android:targetSdkVersion="17"/>
+            <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="16"/>
         </manifest>
     </android>
     <mobileweb>
