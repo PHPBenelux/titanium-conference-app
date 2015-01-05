@@ -1,6 +1,7 @@
 ".titleLabel": {
 	width: Ti.UI.FILL,
-	left: '30px',
+	left: 20,
+	top: 5,
 	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
 	color: '#469AE7',
 	font: {
@@ -11,7 +12,8 @@
 },
 ".postDateLabel": {
 	width: Ti.UI.FILL,
-	left: '30px',
+	left: 20,
+	bottom: 5,
 	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
 	color: '#333333',
 	font: {
@@ -24,8 +26,4 @@
     layout: 'vertical',
 	height: Ti.UI.SIZE,
 	hasChild: true
-},
-"Label": {
-	top: 5,
-	bottom: 5
 }

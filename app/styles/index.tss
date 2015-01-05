@@ -9,8 +9,7 @@
 },
 
 ".container[platform=android]": {
-    exitOnClose: true,
-    fullscreen: true
+    exitOnClose: true
 },
 
 "#toolbar[platform=ios]": {
