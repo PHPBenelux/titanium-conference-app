@@ -12,11 +12,13 @@ function renderSpeakers(speakerData) {
 		speakertext = '',
 		i;
 
-	for(i = 0; i < speakers.length; i++) {
-		if (i !== 0) {
-			speakertext += ' & ';
+	if (speakers) {
+		for(i = 0; i < speakers.length; i++) {
+			if (i !== 0) {
+				speakertext += ' & ';
+			}
+			speakertext += speakers[i].name;
 		}
-		speakertext += speakers[i].name;
 	}
 
 	return speakertext;
