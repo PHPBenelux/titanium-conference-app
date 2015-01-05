@@ -4,6 +4,7 @@
 			<Label id="titleLabel" class="header"></Label>
 			<Label id="postDateLabel" class="metalabel"></Label>
 			<WebView id="contentLabel" class="content"></WebView>
+			<Button id="backBtn" onClick="closeWindow" title="Back to news" />
 		</ScrollView>
 	</View>
 </Alloy>

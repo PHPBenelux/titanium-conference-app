@@ -2,11 +2,12 @@ var args = arguments[0] || {},
 	moment = require('alloy/moment'),
 	imagecache = require('imagecache'),
 	dispatcher = require('dispatcher'),
+	controls = require('controls'),
 	abstract = args.get('content'),
 	speakerData, speakerView;
 
 function closeWindow(e) {
-    $.scheduleDetailWindow.closeWindow();
+    controls.setMaincontentView(Alloy.createController('schedule'));
 }
 imagecache.cachedImageView('speakerimages', args.picture, $.pictureView);
 abstract = abstract.replace(/(<([^>]+)>)/ig,"");

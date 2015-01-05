@@ -1,10 +1,11 @@
 var args = arguments[0] || {},
     moment = require('alloy/moment'),
     decoder = require('entitydecoder'),
-    dispatcher = require('dispatcher');
+    dispatcher = require('dispatcher'),
+    controls = require('controls');
 
 function closeWindow(e) {
-    $.newsDetailWindow.closeWindow();
+    controls.setMaincontentView(Alloy.createController('news'));
 }
 
 $.titleLabel.text = decoder.decode(args.get('title'));

@@ -19,6 +19,7 @@
 				<View id="speakerContainer">
 					
 				</View>
+				<Button id="backBtn" onClick="closeWindow" title="Back to schedule" />
 			</View>
 		</ScrollView>
 	</View>
