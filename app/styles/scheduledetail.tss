@@ -2,10 +2,9 @@
 	width: Ti.UI.FILL,
 	contentWidth: '100%',
 	layout: 'vertical',
-	top: 5,
+	top: 0,
 	bottom: 5,
-	left: 5,
-	right: 5
+	left: 0
 },
 "#titleLabel": {
 	top: 5,
@@ -15,6 +14,11 @@
 		fontStyle: 'normal',
 		fontWeight: 'bold'
 	}
+},
+".contentContainer": {
+	left: 5,
+	right: 5,
+	layout: 'vertical'
 },
 "#speakerContainer": {
 	layout: 'vertical',

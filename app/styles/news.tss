@@ -13,6 +13,7 @@
 	width: Ti.UI.FILL,
 	left: '30px',
 	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	color: '#333333',
 	font: {
 		fontSize: 10,
 		fontStyle: 'normal',

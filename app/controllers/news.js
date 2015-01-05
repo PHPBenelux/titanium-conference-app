@@ -40,8 +40,6 @@ function loadNews(collection, response, options) {
         $.table.footerTitle = "No news data";
         hideActivity();
         return true;
-    } else {
-        $.table.footerTitle = '';
     }
 
 	var section = Ti.UI.createListSection({}),

@@ -63,8 +63,6 @@ function loadSchedule(collection, response, options) {
         $.listing.footerTitle = "No schedule data";
         hideActivity();
         return true;
-    } else {
-        $.listing.footerTitle = '';
     }
 
     var slots = {},

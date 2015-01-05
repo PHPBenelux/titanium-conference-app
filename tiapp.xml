@@ -43,7 +43,7 @@
     <android xmlns:android="http://schemas.android.com/apk/res/android">
         <tool-api-level>14</tool-api-level>
         <manifest>
-            <application android:theme="@style/Theme.AppCompat"/>
+            <application android:theme="@style/Theme.AppCompat.Light"/>
             <supports-screens android:anyDensity="false"/>
             <uses-sdk android:maxSdkVersion="19"
                 android:minSdkVersion="14" android:targetSdkVersion="16"/>

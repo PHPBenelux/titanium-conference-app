@@ -12,11 +12,13 @@
 					<Label id="roomLabel" class="metalabel">Room</Label>
 				</View>				
 			</View>
-			<Label id="titleLabel" class="header">Title</Label>
-			<Label id="descriptionLabel" class="content"></Label>
-			
-			<View id="speakerContainer">
+			<View class="contentContainer">
+				<Label id="titleLabel" class="header">Title</Label>
+				<Label id="descriptionLabel" class="content"></Label>
 				
+				<View id="speakerContainer">
+					
+				</View>
 			</View>
 		</ScrollView>
 	</View>
