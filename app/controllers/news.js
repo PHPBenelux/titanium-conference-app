@@ -33,7 +33,17 @@ function openDetail(e) {
 };
 
 function loadNews(collection, response, options) {
-	hideActivity();
+    // always re-sort using the backbone comparator
+    collection.sort();
+
+    if (collection.models.length == 0) {
+        $.table.footerTitle = "No news data";
+        hideActivity();
+        return true;
+    } else {
+        $.table.footerTitle = '';
+    }
+
 	var section = Ti.UI.createListSection({}),
 		newsItems = [],
         sections = [];
@@ -45,6 +55,7 @@ function loadNews(collection, response, options) {
 	section.setItems(newsItems);
 	sections.push(section);
 	$.table.setSections(sections);
+    hideActivity();
 };
 
 var style;
