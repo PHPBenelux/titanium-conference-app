@@ -47,7 +47,7 @@
 					<Label class="header">Thijs Feryn</Label>
 					<ImageView class="pictureImage" image="/images/thijs.jpg"></ImageView>
 					<Label class="content">
-						Thijs is a tech evangelist at Combell, the #1 Belgian web hosting company. As an evangelist he supports communities and has a particular love for the PHP community. Thijs loves public speaking and is a regular speaker at conferences worldwide. Check out his talks page at http://talks.feryn.eu. You can also find him on Twitter at @ThijsFeryn. Within the PHPBenelux user group Thijs is responsible for sponsoring and organizing ludicrous parties. Thijs also organizes most Belgian PHPBenelux meetups.
+						Thijs is a tech evangelist at Combell, the #1 Belgian web hosting company. As an evangelist he supports communities and has a particular love for the PHP community. Thijs loves public speaking and is a regular speaker at conferences worldwide. Check out his talks page at http://talks.feryn.eu. You can also find him on Twitter at @ThijsFeryn. Within the PHPBenelux user group Thijs is responsible for sponsoring and organizing ludicrous parties.
 					</Label>
 				</View>
 			</View>
