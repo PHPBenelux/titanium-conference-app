@@ -1,21 +1,13 @@
-".roomBlock": {
-	height: Ti.UI.SIZE,
-	width: 100,
-	left: 0,
-	top: 0
-},
-".infoBlock": {
-	height: Ti.UI.SIZE,
-	layout: 'vertical'
-},
 ".scheduleRow": {
-    layout: 'horizontal',
 	height: Ti.UI.SIZE,
+	width: Ti.UI.FILL,
 	hasChild: true
 },
 ".roomLabel": {
 	color: '#333333',
 	left: 10,
+	top: 10,
+	width: 100,
 	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
 	font: {
 		fontSize: 10,
@@ -23,9 +15,15 @@
 		fontWeight: 'bold'
 	}
 },
+".rowData": {
+	left: 110,
+	top: 0,
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	layout: 'vertical'
+},
 ".titleLabel": {
+	left: 0,
 	color: '#469AE7',
-	left: 10,
 	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
 	font: {
 		fontSize: 12,
@@ -34,8 +32,8 @@
 	}
 },
 ".speakerLabel": {
+	left: 0,
 	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
-	left: 10,
 	font: {
 		fontSize: 10,
 		fontStyle: 'normal',

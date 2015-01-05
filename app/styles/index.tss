@@ -2,16 +2,16 @@
 	backgroundColor:"white",
 	orientationModes: [Ti.UI.PORTRAIT,Ti.UI.UPSIDE_PORTRAIT],
 	layout: 'vertical'
-}
+},
 
 ".container[platform=ios]": {
     statusBarStyle: Ti.UI.iPhone.StatusBar.LIGHT_CONTENT
-}
+},
 
 ".container[platform=android]": {
     exitOnClose: true,
     fullscreen: true
-}
+},
 
 "#toolbar[platform=ios]": {
     top: Alloy.Globals.windowTop,
@@ -19,7 +19,7 @@
     barColor: "#005176",
     tintColor: "#ffffff",
 
-}
+},
 
 "#titleLabel[platform=ios]": {
     color: "#ffffff",
