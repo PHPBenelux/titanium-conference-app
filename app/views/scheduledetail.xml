@@ -1,17 +1,17 @@
 <Alloy>
 	<View id="scheduleDetailWindow" title="Schedule item" class="container">
-        <ScrollView class="detailScroll">
-			<View class="metadata">				
-				<View class="labelLine">
-					<Label class="metaBoldLabel">Date / Time:</Label>
-					<Label id="dateLabel" class="metalabel">Date / Time</Label>
-				</View>
-				
-				<View class="labelLine">
-					<Label class="metaBoldLabel">Room:</Label>
-					<Label id="roomLabel" class="metalabel">Room</Label>
-				</View>				
+		<View class="metadata">				
+			<View class="labelLine">
+				<Label class="metaBoldLabel">Date / Time:</Label>
+				<Label id="dateLabel" class="metalabel">Date / Time</Label>
 			</View>
+			
+			<View class="labelLine">
+				<Label class="metaBoldLabel">Room:</Label>
+				<Label id="roomLabel" class="metalabel">Room</Label>
+			</View>				
+		</View>
+        <ScrollView class="detailScroll">
 			<View class="contentContainer">
 				<Label id="titleLabel" class="header">Title</Label>
 				<Label id="descriptionLabel" class="content"></Label>
