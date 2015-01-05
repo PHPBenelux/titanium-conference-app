@@ -48,7 +48,7 @@ function openDetail(e) {
     var item = Alloy.Collections.schedule.get(e.itemId);
 
     _.defer(function() {
-        controls.setMaincontentView(Alloy.createController('scheduledetail', item));
+        controls.setMaincontentView(Alloy.createController('scheduledetail', item), { isSubView: true });
     });
 }
 

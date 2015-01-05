@@ -28,7 +28,7 @@ function openDetail(e) {
 	var item = Alloy.Collections.news.get(e.itemId);
 
     _.defer(function() {
-        controls.setMaincontentView(Alloy.createController('newsdetail', item));
+        controls.setMaincontentView(Alloy.createController('newsdetail', item), { isSubView: true });
     });
 };
 
