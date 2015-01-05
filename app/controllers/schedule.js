@@ -60,7 +60,6 @@ function loadSchedule(collection, response, options) {
     collection.sort();
 
     if (collection.models.length == 0) {
-        $.listing.footerTitle = "No schedule data";
         hideActivity();
         return true;
     }

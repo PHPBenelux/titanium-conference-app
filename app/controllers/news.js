@@ -37,7 +37,6 @@ function loadNews(collection, response, options) {
     collection.sort();
 
     if (collection.models.length == 0) {
-        $.table.footerTitle = "No news data";
         hideActivity();
         return true;
     }
