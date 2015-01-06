@@ -19,7 +19,6 @@
 				<View id="speakerContainer">
 					
 				</View>
-				<Button id="backBtn" onClick="closeWindow" platform="ios" title="Back to schedule" />
 			</View>
 		</ScrollView>
 	</View>
