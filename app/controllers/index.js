@@ -34,13 +34,16 @@ function handleAndroidBack(e) {
 			title: "Exit",
 			message: "Do you really want to quit?",
 			callback: function () {
-				$.mainWindow.close();
+				$.index.close();
 			}
 		});
 	}
 };
 
 Alloy.Globals.mainView = controls.getMainView();
+if (OS_IOS) {
+	Alloy.Globals.toolbarView = $.toolbar;
+}
 controls.setMaincontentView(Alloy.createController('schedule'));
 
 // add menu view to container exposed by widget
