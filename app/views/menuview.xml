@@ -2,29 +2,19 @@
 	<View id="menuView">
 		<TableView class="menuTable" id="menuTable">
 			<TableViewRow class="tableRow" id="schedule">
-				<View id="rowContainer">
-					<View id="rowGear" class="rowIcon"/><Label id="rowLabel" class="rowLabel">Schedule</Label>
-				</View>
+				<View class="rowIcon"/><Label class="rowLabel">Schedule</Label>
 			</TableViewRow>
 			<TableViewRow class="tableRow" id="news">
-				<View id="rowContainer">
-					<View id="rowSkull" class="rowIcon"/><Label id="rowLabel" class="rowLabel">News</Label>
-				</View>
+				<View class="rowIcon"/><Label class="rowLabel">News</Label>
 			</TableViewRow>
 			<TableViewRow class="tableRow" id="about">
-				<View id="rowContainer">
-					<View id="rowPicFrame" class="rowIcon"/><Label id="rowLabel" class="rowLabel">About</Label>
-				</View>
+				<View class="rowIcon"/><Label class="rowLabel">About</Label>
 			</TableViewRow>
 			<TableViewRow class="tableRow" id="crew">
-				<View id="rowContainer">
-					<View id="rowPicFrame" class="rowIcon"/><Label id="rowLabel" class="rowLabel">Crew</Label>
-				</View>
+				<View class="rowIcon"/><Label class="rowLabel">Crew</Label>
 			</TableViewRow>
 			<TableViewRow class="tableRow" id="sponsors">
-				<View id="rowContainer">
-					<View id="rowPicFrame" class="rowIcon"/><Label id="rowLabel" class="rowLabel">Sponsors</Label>
-				</View>
+				<View class="rowIcon"/><Label class="rowLabel">Sponsors</Label>
 			</TableViewRow>
 		</TableView>
 	</View>

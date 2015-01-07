@@ -2,8 +2,7 @@
 	layout: 'vertical',
 },
 ".tableRow":{
-	height: '50dp',
-	selectedBackgroundColor: '#fff'
+	height: '50dp'
 },
 "#rowContainer":{
 	height: '30dp',
@@ -14,15 +13,6 @@
 	top: 7,
 	width: "20dp",
 	height: "20dp"
-},
-"#rowSkull":{
-	backgroundImage: '/21-skull.png'
-},
-"#rowGear":{
-	backgroundImage: '/19-gear.png'
-},
-"#rowPicFrame":{
-	backgroundImage: '/41-picture-frame.png'
 },
 ".rowLabel":{
 	top: 7,
