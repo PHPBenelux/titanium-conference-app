@@ -10,8 +10,11 @@
 			<ImageView id="logoImage" image="/images/sponsors/nucleus.png"></ImageView>
 			<ImageView id="logoImage" image="/images/sponsors/engineyard.png"></ImageView>
 			<ImageView id="logoImage" image="/images/sponsors/coolblue.png"></ImageView>
+			<ImageView id="logoImage" image="/images/sponsors/hostnet.png"></ImageView>
+			<ImageView id="logoImage" image="/images/sponsors/starcoders.png"></ImageView>
 			<ImageView id="logoImage" image="/images/sponsors/drukwerkdeal.png"></ImageView>
 			<ImageView id="logoImage" image="/images/sponsors/jetbrains.png"></ImageView>
+			<ImageView id="logoImage" image="/images/sponsors/beslist.png"></ImageView>
 			<ImageView id="logoImage" image="/images/sponsors/combell.png"></ImageView>
 			<ImageView id="logoImage" image="/images/sponsors/ibuildings.png"></ImageView>
 			<ImageView id="logoImage" image="/images/sponsors/shopware.png"></ImageView>
