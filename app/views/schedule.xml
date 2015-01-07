@@ -6,11 +6,11 @@
 			<Templates>
 				<ItemTemplate name="scheduleRow">
 					<View class="scheduleRow">
-							<Label bindId="room" class="roomLabel" />
-							<View class="rowData">
-								<Label bindId="title" class="titleLabel" />
-								<Label bindId="speaker" class="speakerLabel" />
-							</View>
+						<Label bindId="room" class="roomLabel" />
+						<View class="rowData">
+							<Label bindId="title" class="titleLabel" />
+							<Label bindId="speaker" class="speakerLabel" />
+						</View>
 					</View>
 				</ItemTemplate>
 			</Templates>

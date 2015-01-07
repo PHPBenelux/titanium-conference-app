@@ -7,14 +7,6 @@
 	left: 5,
 	right: 5
 },
-"#logoImage": {
-	top: 5,
-	left: 5,
-	right: 5,
-	bottom: 5,
-	width: Ti.UI.FILL,
-	height: Ti.UI.SIZE
-},
 "#crewView": {
 	height: Ti.UI.SIZE,
 	layout: 'vertical'
@@ -34,13 +26,4 @@
 },
 ".container": {
 	height: Ti.UI.SIZE
-},
-"#nameLabel": {
-	top: 5,
-	bottom: 5,
-	font: {
-		fontSize: 16,
-		fontStyle: 'normal',
-		fontWeight: 'bold'
-	}
 }

@@ -15,9 +15,6 @@
 	width: Ti.UI.FILL,
 	height: Ti.UI.SIZE
 },
-"ImageView": {
-	borderRadius: 5
-},
 ".header": {
 	top: 5,
 	bottom: 5,
@@ -29,13 +26,4 @@
 },
 ".container": {
 	height: Ti.UI.FILL
-},
-"#nameLabel": {
-	top: 5,
-	bottom: 5,
-	font: {
-		fontSize: 16,
-		fontStyle: 'normal',
-		fontWeight: 'bold'
-	}
 }
