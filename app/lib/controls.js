@@ -5,7 +5,7 @@ var Alloy=require('alloy'),
 	_ctrl = null;
 
 exports.setMaincontentView=function(newCtrl, options) {
-	if (_ctrl && _ctrl.ctrlOptions.isSubView !== false) {
+	if (OS_IOS && _ctrl && _ctrl.ctrlOptions.isSubView !== false) {
 		Alloy.Globals.mainView.contentView.remove(_ctrl.getView());
 		_.isFunction(_ctrl.cleanup) && _ctrl.cleanup();
 	}
