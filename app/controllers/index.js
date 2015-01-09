@@ -17,10 +17,16 @@ if (OS_ANDROID) {
 }
 
 function openWindow(e) {
+	var options = {};
 	if (typeof e.rowData !== 'undefined') {
 		$.drawermenu.showhidemenu();
 		// on Android the event is received by the label, so watch out!
-		controls.setMaincontentView(Alloy.createController(e.rowData.id));
+		if (e.rowData.id === 'news') {
+			options = {
+				isSubView: true
+			};
+		}
+		controls.setMaincontentView(Alloy.createController(e.rowData.id), options);
 	}
 }
 
