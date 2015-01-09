@@ -18,8 +18,11 @@ function closeWindow(e) {
 if (OS_IOS) {
 	var backButton = Ti.UI.createButton({title: 'Back'}),
 		toolbarItems = Alloy.Globals.toolbarView.getItems();
-	backButton.addEventListener('click', closeWindow);
-	toolbarItems.push(backButton);
+		
+	if (toolbarItems.length < 5) {
+		backButton.addEventListener('click', closeWindow);
+		toolbarItems.push(backButton);
+	}
 	
 	Alloy.Globals.toolbarView.setItems(toolbarItems);
 }
