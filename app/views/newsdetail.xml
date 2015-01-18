@@ -4,6 +4,7 @@
 			<Label id="titleLabel" class="header"></Label>
 			<Label id="postDateLabel" class="metalabel"></Label>
 			<WebView id="contentLabel" class="content"></WebView>
+			<ImageView image="/images/footer-upper.png"></ImageView>
 		</ScrollView>
 	</View>
 </Alloy>

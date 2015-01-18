@@ -2,6 +2,9 @@
 	backgroundColor:"white",
 	layout: 'vertical'
 },
+".footer-container": {
+	backgroundColor:"#F8F8F8",
+},
 ".header": {
 	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
 	color: '#469AE7',

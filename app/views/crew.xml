@@ -51,6 +51,7 @@
 					</Label>
 				</View>
 			</View>
+			<ImageView image="/images/footer-upper.png"></ImageView>
 		</ScrollView>
 	</View>
 </Alloy>

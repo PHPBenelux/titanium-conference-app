@@ -20,6 +20,7 @@
 			<ImageView id="logoImage" image="/images/sponsors/ibuildings.png"></ImageView>
 			<ImageView id="logoImage" image="/images/sponsors/shopware.png"></ImageView>
 			<ImageView id="logoImage" image="/images/sponsors/openminds.png"></ImageView>
+			<ImageView image="/images/footer-upper.png"></ImageView>
 		</ScrollView>
 	</View>
 </Alloy>

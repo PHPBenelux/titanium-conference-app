@@ -11,6 +11,7 @@
 			<Label class="content">
 				This app has been created by Martin de Keijzer, and is open sourced on http://github.com/PHPBenelux/titanium-conference-app Special thanks go out to Jeroen van Dijk for the awesome pull requests.
 			</Label>
+			<ImageView image="/images/footer-upper.png"></ImageView>
 		</ScrollView>
 	</View>
 </Alloy>
