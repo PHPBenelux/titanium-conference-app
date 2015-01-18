@@ -15,6 +15,7 @@
 			<ImageView id="logoImage" image="/images/sponsors/drukwerkdeal.png"></ImageView>
 			<ImageView id="logoImage" image="/images/sponsors/jetbrains.png"></ImageView>
 			<ImageView id="logoImage" image="/images/sponsors/beslist.png"></ImageView>
+			<ImageView id="logoImage" image="/images/sponsors/blackfire.png"></ImageView>
 			<ImageView id="logoImage" image="/images/sponsors/combell.png"></ImageView>
 			<ImageView id="logoImage" image="/images/sponsors/ibuildings.png"></ImageView>
 			<ImageView id="logoImage" image="/images/sponsors/shopware.png"></ImageView>
