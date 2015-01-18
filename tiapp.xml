@@ -42,7 +42,7 @@
     <property name="ti.android.fastdev" type="bool">false</property>
     <android xmlns:android="http://schemas.android.com/apk/res/android">
         <tool-api-level>14</tool-api-level>
-        <manifest>
+        <manifest android:versionCode="3" android:versionName="1.2">
             <application android:theme="@style/Theme.AppCompat.Light"/>
             <supports-screens android:anyDensity="false"/>
             <uses-sdk android:maxSdkVersion="19"
